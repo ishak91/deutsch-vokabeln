@@ -46,3 +46,6 @@ bash deploy/setup.sh
 ```
 It installs Docker, opens ports 80/443, asks for a username and password, and starts the app behind HTTPS (Caddy)
 at `https://<server-ip-with-dashes>.sslip.io` (or your own domain). After copying new code later: `bash deploy/update.sh`.
+
+## Working with AI assistants
+See [AGENTS.md](AGENTS.md) for the full project guide (also used by `CLAUDE.md` and `.github/copilot-instructions.md`).
