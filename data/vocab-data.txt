@@ -1,0 +1,1060 @@
+# German vocabulary A1 -> B1, 17 weeks. Loaded into MongoDB when the app starts.
+# Edit freely, then restart the app (or press "Reload word list" in Settings).
+#
+# FORMAT (one word per line, fields separated by | ):
+#   ## <week number> | <theme>                         starts a new week
+#   n|article|Noun|Plural|English|Example|Hint            nouns. Plural "-" = no plural, "(pl)" = only plural. Hint optional
+#   v|Infinitive|er-present|er-Präteritum|Perfekt|English|Example
+#   w|word|English|Example                              adjectives, adverbs, other words
+#   p|German phrase|English                             phrases (Redemittel)
+# Alternatives use "/", e.g. Perfekt "hat/ist gefahren".
+# Lines starting with # (one #) are comments. Progress is stored per word, so adding words is safe.
+## 1 | Ich, Familie, Alltag, Freizeit
+n|die|Familie|Familien|family|Meine Familie ist klein.
+n|die|Mutter|Mütter|mother|Meine Mutter heißt Anna.
+n|der|Vater|Väter|father|Mein Vater arbeitet viel.
+n|die|Eltern|(pl)|parents|Meine Eltern wohnen in Berlin.
+n|der|Bruder|Brüder|brother|Ich habe einen Bruder.
+n|die|Schwester|Schwestern|sister|Meine Schwester ist älter als ich.
+n|die|Geschwister|(pl)|siblings|Hast du Geschwister?
+n|der|Sohn|Söhne|son|Ihr Sohn ist fünf Jahre alt.
+n|die|Tochter|Töchter|daughter|Unsere Tochter geht zur Schule.
+n|das|Kind|Kinder|child|Wir haben zwei Kinder.|Children are neutral: das Kind, das Baby
+n|der|Mann|Männer|man; husband|Das ist mein Mann.
+n|die|Frau|Frauen|woman; wife; Mrs|Frau Müller ist nett.
+n|die|Großeltern|(pl)|grandparents|Am Sonntag besuchen wir die Großeltern.
+n|der|Onkel|Onkel|uncle|Mein Onkel wohnt in München.
+n|die|Tante|Tanten|aunt|Meine Tante kommt aus Polen.
+n|der|Name|Namen|name|Wie ist Ihr Name?|Exception to "-e = die": der Name (like der Junge, der Käse)
+n|der|Vorname|Vornamen|first name|Mein Vorname ist Ishak.
+n|der|Familienname|Familiennamen|surname|Bitte schreiben Sie Ihren Familiennamen.
+n|das|Alter|-|age|Alter: 30 Jahre
+n|das|Jahr|Jahre|year|Ich bin 30 Jahre alt.
+n|das|Land|Länder|country|Aus welchem Land kommst du?
+n|die|Sprache|Sprachen|language|Ich spreche drei Sprachen.
+n|der|Beruf|Berufe|profession, job|Was sind Sie von Beruf?
+n|die|Adresse|Adressen|address|Wie ist deine Adresse?
+n|die|Telefonnummer|Telefonnummern|phone number|Kannst du mir deine Telefonnummer geben?
+n|der|Tag|Tage|day|Guten Tag!
+n|der|Morgen|Morgen|morning|Am Morgen trinke ich Kaffee.
+n|der|Abend|Abende|evening|Am Abend sehe ich fern.
+n|die|Nacht|Nächte|night|Gute Nacht!
+n|die|Woche|Wochen|week|Die Woche hat sieben Tage.
+n|das|Wochenende|Wochenenden|weekend|Am Wochenende schlafe ich lange.|Ende is das, so das Wochenende
+n|die|Uhr|Uhren|clock; o'clock|Es ist acht Uhr.
+n|die|Zeit|Zeiten|time|Ich habe keine Zeit.
+n|das|Frühstück|Frühstücke|breakfast|Das Frühstück ist um sieben.
+n|das|Mittagessen|Mittagessen|lunch|Wir essen um zwölf Mittagessen.
+n|das|Abendessen|Abendessen|dinner|Was gibt es zum Abendessen?
+n|die|Freizeit|-|free time|In meiner Freizeit lese ich.
+n|das|Hobby|Hobbys|hobby|Mein Hobby ist Fußball.
+n|der|Sport|-|sport|Ich mache gern Sport.
+n|die|Musik|-|music|Ich höre gern Musik.
+n|das|Buch|Bücher|book|Das Buch ist spannend.
+n|der|Film|Filme|film|Wir sehen einen Film.
+n|der|Freund|Freunde|friend; boyfriend|Ich treffe meine Freunde.
+n|die|Freundin|Freundinnen|friend (f); girlfriend|Meine Freundin heißt Lena.
+v|heißen|heißt|hieß|hat geheißen|to be called|Ich heiße Ishak.
+v|wohnen|wohnt|wohnte|hat gewohnt|to live (reside)|Ich wohne in Hamburg.
+v|kommen|kommt|kam|ist gekommen|to come|Ich komme aus Sri Lanka.
+v|sein|ist|war|ist gewesen|to be|Ich bin müde.
+v|haben|hat|hatte|hat gehabt|to have|Ich habe einen Hund.
+v|sprechen|spricht|sprach|hat gesprochen|to speak|Sprechen Sie Englisch?
+v|arbeiten|arbeitet|arbeitete|hat gearbeitet|to work|Ich arbeite im Büro.
+v|machen|macht|machte|hat gemacht|to do, make|Was machst du heute?
+v|aufstehen|steht auf|stand auf|ist aufgestanden|to get up|Ich stehe um sechs Uhr auf.
+v|frühstücken|frühstückt|frühstückte|hat gefrühstückt|to have breakfast|Wir frühstücken zusammen.
+v|essen|isst|aß|hat gegessen|to eat|Was hast du gegessen?
+v|trinken|trinkt|trank|hat getrunken|to drink|Ich trinke Tee.
+v|schlafen|schläft|schlief|hat geschlafen|to sleep|Hast du gut geschlafen?
+v|lernen|lernt|lernte|hat gelernt|to learn|Ich lerne Deutsch.
+v|lesen|liest|las|hat gelesen|to read|Er liest die Zeitung.
+v|spielen|spielt|spielte|hat gespielt|to play|Die Kinder spielen im Park.
+v|hören|hört|hörte|hat gehört|to hear, listen|Hörst du Radio?
+v|fernsehen|sieht fern|sah fern|hat ferngesehen|to watch TV|Am Abend sehen wir fern.
+v|kochen|kocht|kochte|hat gekocht|to cook|Ich koche gern.
+v|treffen|trifft|traf|hat getroffen|to meet|Ich treffe dich um acht.
+v|gehen|geht|ging|ist gegangen|to go, walk|Ich gehe nach Hause.
+v|anfangen|fängt an|fing an|hat angefangen|to begin|Der Kurs fängt um neun an.
+v|duschen|duscht|duschte|hat geduscht|to shower|Ich dusche am Morgen.
+w|verheiratet|married|Ich bin verheiratet.
+w|ledig|single (unmarried)|Mein Bruder ist ledig.
+w|geschieden|divorced|Sie ist geschieden.
+w|jung|young|Er ist noch jung.
+w|alt|old|Wie alt bist du?
+w|gern|gladly (to like doing)|Ich schwimme gern.
+w|oft|often|Ich gehe oft ins Kino.
+w|manchmal|sometimes|Manchmal koche ich.
+w|immer|always|Ich trinke immer Kaffee.
+w|nie|never|Ich rauche nie.
+w|heute|today|Heute ist Montag.
+w|morgen|tomorrow|Morgen habe ich frei.
+w|gestern|yesterday|Gestern war ich müde.
+w|früh|early|Ich stehe früh auf.
+w|spät|late|Es ist schon spät.
+n|der|Montag|Montage|Monday|Am Montag arbeite ich.
+n|der|Sonntag|Sonntage|Sunday|Am Sonntag schlafe ich lange.
+
+## 2 | Wohnung, Stadt, Wege, Verkehr
+n|die|Wohnung|Wohnungen|flat, apartment|Die Wohnung hat drei Zimmer.
+n|das|Haus|Häuser|house|Das Haus ist alt.
+n|das|Zimmer|Zimmer|room|Mein Zimmer ist klein.|Exception: -er but das Zimmer (like das Fenster)
+n|die|Küche|Küchen|kitchen|Die Küche ist modern.
+n|das|Bad|Bäder|bathroom|Das Bad ist neben der Küche.
+n|das|Schlafzimmer|Schlafzimmer|bedroom|Das Schlafzimmer ist ruhig.
+n|das|Wohnzimmer|Wohnzimmer|living room|Wir sitzen im Wohnzimmer.
+n|der|Balkon|Balkone/Balkons|balcony|Die Wohnung hat einen Balkon.
+n|die|Miete|Mieten|rent|Die Miete ist 800 Euro.
+n|der|Vermieter|Vermieter|landlord|Ich rufe den Vermieter an.
+n|der|Stock|Stockwerke|floor (storey)|Ich wohne im dritten Stock.
+n|der|Aufzug|Aufzüge|lift, elevator|Gibt es einen Aufzug?
+n|die|Treppe|Treppen|stairs|Die Treppe ist links.
+n|die|Tür|Türen|door|Mach bitte die Tür zu.
+n|das|Fenster|Fenster|window|Das Fenster ist offen.
+n|der|Tisch|Tische|table|Der Tisch ist aus Holz.
+n|der|Stuhl|Stühle|chair|Wir brauchen noch einen Stuhl.
+n|das|Bett|Betten|bed|Das Bett ist bequem.
+n|der|Schrank|Schränke|cupboard, wardrobe|Die Kleidung ist im Schrank.
+n|das|Sofa|Sofas|sofa|Das Sofa ist neu.
+n|die|Lampe|Lampen|lamp|Die Lampe ist kaputt.
+n|der|Kühlschrank|Kühlschränke|fridge|Die Milch ist im Kühlschrank.
+n|die|Stadt|Städte|city, town|Hamburg ist eine große Stadt.
+n|das|Dorf|Dörfer|village|Meine Eltern wohnen in einem Dorf.
+n|die|Straße|Straßen|street|In welcher Straße wohnst du?
+n|der|Platz|Plätze|square; place, seat|Der Marktplatz ist schön.
+n|die|Kreuzung|Kreuzungen|crossroads|An der Kreuzung gehen Sie rechts.
+n|die|Ampel|Ampeln|traffic light|Die Ampel ist rot.
+n|der|Bahnhof|Bahnhöfe|train station|Wie komme ich zum Bahnhof?
+n|die|Haltestelle|Haltestellen|stop (bus/tram)|Die Haltestelle ist da vorne.
+n|der|Bus|Busse|bus|Ich fahre mit dem Bus.
+n|die|Straßenbahn|Straßenbahnen|tram|Die Straßenbahn kommt gleich.
+n|die|U-Bahn|U-Bahnen|underground, subway|Nimm die U-Bahn!
+n|der|Zug|Züge|train|Der Zug hat Verspätung.
+n|das|Auto|Autos|car|Ich habe kein Auto.
+n|das|Fahrrad|Fahrräder|bicycle|Ich fahre mit dem Fahrrad zur Arbeit.
+n|die|Fahrkarte|Fahrkarten|ticket|Ich kaufe eine Fahrkarte.
+n|der|Fahrplan|Fahrpläne|timetable|Schau mal auf den Fahrplan.
+n|der|Flughafen|Flughäfen|airport|Der Flughafen ist weit weg.
+n|die|Post|-|post office; mail|Ich gehe zur Post.
+n|die|Bank|Banken|bank|Die Bank ist geschlossen.|die Bank (money) → Banken; die Bank (bench) → Bänke
+n|die|Apotheke|Apotheken|pharmacy|Wo ist die nächste Apotheke?
+n|das|Krankenhaus|Krankenhäuser|hospital|Er ist im Krankenhaus.
+n|der|Supermarkt|Supermärkte|supermarket|Der Supermarkt ist um die Ecke.
+n|das|Rathaus|Rathäuser|town hall|Das Rathaus ist im Zentrum.
+n|das|Zentrum|Zentren|centre|Ich wohne im Zentrum.
+n|die|Kirche|Kirchen|church|Die Kirche ist sehr alt.
+n|der|Park|Parks|park|Wir gehen in den Park.
+n|die|Ecke|Ecken|corner|Das Café ist an der Ecke.
+n|der|Weg|Wege|way, path|Können Sie mir den Weg zeigen?
+n|der|Nachbar|Nachbarn|neighbour|Mein Nachbar ist sehr nett.
+v|fahren|fährt|fuhr|ist gefahren|to drive, go (by vehicle)|Ich fahre mit dem Zug.
+v|nehmen|nimmt|nahm|hat genommen|to take|Nehmen Sie den Bus Nummer 5.
+v|einsteigen|steigt ein|stieg ein|ist eingestiegen|to get on (vehicle)|Steig schnell ein!
+v|aussteigen|steigt aus|stieg aus|ist ausgestiegen|to get off|Wir steigen am Bahnhof aus.
+v|umsteigen|steigt um|stieg um|ist umgestiegen|to change (trains)|Sie müssen in Köln umsteigen.
+v|abfahren|fährt ab|fuhr ab|ist abgefahren|to depart|Der Zug fährt um 9 Uhr ab.
+v|ankommen|kommt an|kam an|ist angekommen|to arrive|Wann kommst du an?
+v|finden|findet|fand|hat gefunden|to find|Ich finde den Weg nicht.
+v|suchen|sucht|suchte|hat gesucht|to look for|Ich suche eine Wohnung.
+v|zeigen|zeigt|zeigte|hat gezeigt|to show|Kannst du mir das zeigen?
+v|mieten|mietet|mietete|hat gemietet|to rent|Wir mieten eine Wohnung.
+v|umziehen|zieht um|zog um|ist umgezogen|to move (house)|Wir sind letztes Jahr umgezogen.
+v|wissen|weiß|wusste|hat gewusst|to know (a fact)|Ich weiß es nicht.
+v|kennen|kennt|kannte|hat gekannt|to know (be familiar with)|Kennst du Berlin?
+w|links|left|Gehen Sie links.
+w|rechts|right|Dann rechts.
+w|geradeaus|straight ahead|Immer geradeaus!
+w|weit|far|Ist es weit?
+w|nah|near|Der Park ist ganz nah.
+w|groß|big|Die Wohnung ist groß.
+w|klein|small|Das Zimmer ist klein.
+w|hell|bright|Die Küche ist hell.
+w|dunkel|dark|Der Flur ist dunkel.
+w|ruhig|quiet|Die Straße ist ruhig.
+w|laut|loud, noisy|Die Nachbarn sind laut.
+w|teuer|expensive|Die Miete ist teuer.
+w|billig|cheap|Das Ticket ist billig.
+w|neben|next to|Die Bank ist neben der Post.
+w|gegenüber|opposite|Gegenüber ist ein Café.
+w|zwischen|between|Zwischen Kino und Bank.
+w|unten|down, downstairs|Der Keller ist unten.
+w|oben|up, upstairs|Das Bad ist oben.
+
+## 3 | Kleidung, Einkaufen, Wetter
+n|die|Kleidung|-|clothes|Ich kaufe neue Kleidung.
+n|die|Hose|Hosen|trousers|Die Hose ist zu lang.
+n|das|Hemd|Hemden|shirt|Er trägt ein weißes Hemd.
+n|das|T-Shirt|T-Shirts|T-shirt|Das T-Shirt kostet 10 Euro.
+n|der|Pullover|Pullover|pullover, jumper|Der Pullover ist warm.
+n|die|Jacke|Jacken|jacket|Nimm eine Jacke mit!
+n|der|Mantel|Mäntel|coat|Im Winter trage ich einen Mantel.
+n|das|Kleid|Kleider|dress|Das Kleid steht dir gut.
+n|der|Rock|Röcke|skirt|Sie trägt einen Rock.
+n|der|Schuh|Schuhe|shoe|Die Schuhe sind bequem.
+n|der|Stiefel|Stiefel|boot|Ich brauche Stiefel für den Winter.
+n|die|Socke|Socken|sock|Wo sind meine Socken?
+n|die|Mütze|Mützen|woolly hat, cap|Es ist kalt, setz eine Mütze auf.
+n|die|Größe|Größen|size|Welche Größe haben Sie?
+n|die|Farbe|Farben|colour|Welche Farbe gefällt dir?
+n|das|Geschäft|Geschäfte|shop; business|Das Geschäft öffnet um neun.
+n|der|Laden|Läden|shop|Der Laden ist klein.
+n|die|Kasse|Kassen|checkout, till|Bitte zahlen Sie an der Kasse.
+n|der|Preis|Preise|price|Der Preis ist gut.
+n|das|Angebot|Angebote|offer|Heute gibt es ein Angebot.
+n|das|Geld|Gelder|money|Ich habe kein Geld dabei.
+n|der|Euro|Euros|euro|Das kostet fünf Euro.|Exception to "-o = das": der Euro
+n|die|Kreditkarte|Kreditkarten|credit card|Kann ich mit Kreditkarte zahlen?
+n|die|Tüte|Tüten|bag (plastic/paper)|Brauchen Sie eine Tüte?
+n|das|Brot|Brote|bread|Ich kaufe Brot.
+n|das|Brötchen|Brötchen|bread roll|Zwei Brötchen, bitte.
+n|die|Milch|-|milk|Die Milch ist alle.
+n|der|Käse|-|cheese|Ich esse gern Käse.|Exception to "-e = die": der Käse
+n|die|Wurst|Würste|sausage|Eine Wurst mit Senf, bitte.
+n|das|Fleisch|-|meat|Ich esse kein Fleisch.
+n|der|Fisch|Fische|fish|Heute gibt es Fisch.
+n|das|Gemüse|-|vegetables|Gemüse ist gesund.|Ge- words are often das: das Gemüse, das Getränk
+n|das|Obst|-|fruit|Ich esse viel Obst.
+n|der|Apfel|Äpfel|apple|Ein Kilo Äpfel, bitte.
+n|die|Kartoffel|Kartoffeln|potato|Wir essen Kartoffeln mit Fisch.
+n|das|Ei|Eier|egg|Ich brauche sechs Eier.
+n|das|Getränk|Getränke|drink|Was für Getränke haben Sie?
+n|das|Wasser|-|water|Ein Glas Wasser, bitte.
+n|der|Kaffee|-|coffee|Ich trinke Kaffee mit Milch.
+n|der|Tee|-|tea|Möchtest du Tee?
+n|das|Wetter|-|weather|Wie ist das Wetter heute?
+n|die|Sonne|-|sun|Die Sonne scheint.
+n|der|Regen|-|rain|Morgen gibt es Regen.
+n|der|Schnee|-|snow|Im Winter liegt Schnee.
+n|der|Wind|Winde|wind|Der Wind ist stark.
+n|die|Wolke|Wolken|cloud|Am Himmel sind viele Wolken.
+n|der|Himmel|-|sky|Der Himmel ist blau.
+n|das|Grad|Grad|degree|Es sind 20 Grad.
+n|die|Temperatur|Temperaturen|temperature|Die Temperatur steigt.
+n|der|Frühling|Frühlinge|spring|Im Frühling blühen die Blumen.
+n|der|Sommer|Sommer|summer|Der Sommer ist heiß.
+n|der|Herbst|Herbste|autumn|Im Herbst regnet es oft.
+n|der|Winter|Winter|winter|Der Winter ist kalt.
+v|kaufen|kauft|kaufte|hat gekauft|to buy|Ich habe einen Mantel gekauft.
+v|verkaufen|verkauft|verkaufte|hat verkauft|to sell|Er verkauft sein Auto.
+v|kosten|kostet|kostete|hat gekostet|to cost|Was kostet das?
+v|bezahlen|bezahlt|bezahlte|hat bezahlt|to pay|Ich bezahle bar.
+v|brauchen|braucht|brauchte|hat gebraucht|to need|Ich brauche neue Schuhe.
+v|tragen|trägt|trug|hat getragen|to wear; to carry|Sie trägt eine Brille.
+v|anziehen|zieht an|zog an|hat angezogen|to put on (clothes)|Zieh dich warm an!
+v|ausziehen|zieht aus|zog aus|hat ausgezogen|to take off (clothes)|Zieh die Schuhe aus.
+v|anprobieren|probiert an|probierte an|hat anprobiert|to try on|Kann ich die Hose anprobieren?
+v|passen|passt|passte|hat gepasst|to fit|Die Jacke passt mir nicht.
+v|gefallen|gefällt|gefiel|hat gefallen|to please (to like)|Das Kleid gefällt mir.
+v|möchten|möchte|wollte|hat gewollt|would like|Ich möchte ein Kilo Tomaten.
+v|scheinen|scheint|schien|hat geschienen|to shine; to seem|Die Sonne scheint.
+v|regnen|regnet|regnete|hat geregnet|to rain|Es regnet schon wieder.
+v|schneien|schneit|schneite|hat geschneit|to snow|Gestern hat es geschneit.
+v|öffnen|öffnet|öffnete|hat geöffnet|to open|Der Laden öffnet um acht.
+v|schließen|schließt|schloss|hat geschlossen|to close|Wir schließen um 20 Uhr.
+w|kalt|cold|Heute ist es kalt.
+w|warm|warm|Im Sommer ist es warm.
+w|heiß|hot|Der Kaffee ist heiß.
+w|sonnig|sunny|Morgen wird es sonnig.
+w|bewölkt|cloudy|Es ist bewölkt.
+w|nass|wet|Die Straße ist nass.
+w|trocken|dry|Das Wetter bleibt trocken.
+w|schön|beautiful, nice|Das Wetter ist schön.
+w|eng|tight|Die Hose ist zu eng.
+w|lang|long|Der Rock ist lang.
+w|kurz|short|Die Haare sind kurz.
+w|bequem|comfortable|Die Schuhe sind bequem.
+w|günstig|good value, cheap|Das Angebot ist günstig.
+w|bar|in cash|Ich zahle bar.
+w|rot|red|Ein rotes Kleid.
+w|blau|blue|Der Himmel ist blau.
+w|grün|green|Das Gras ist grün.
+w|schwarz|black|Ein schwarzer Mantel.
+w|weiß|white|Ein weißes Hemd.
+
+## 4 | Gesundheit, Arzt, Urlaub
+n|der|Körper|Körper|body|Sport ist gut für den Körper.
+n|der|Kopf|Köpfe|head|Mein Kopf tut weh.
+n|das|Auge|Augen|eye|Sie hat blaue Augen.|Exception to "-e = die": das Auge
+n|das|Ohr|Ohren|ear|Mein Ohr tut weh.
+n|die|Nase|Nasen|nose|Meine Nase läuft.
+n|der|Mund|Münder|mouth|Mach den Mund auf!
+n|der|Zahn|Zähne|tooth|Ich habe Zahnschmerzen.
+n|der|Hals|Hälse|neck, throat|Ich habe Halsschmerzen.
+n|der|Arm|Arme|arm|Er hat sich den Arm gebrochen.
+n|die|Hand|Hände|hand|Wasch dir die Hände!
+n|das|Bein|Beine|leg|Mein Bein tut weh.
+n|der|Fuß|Füße|foot|Ich gehe zu Fuß.
+n|der|Bauch|Bäuche|belly, stomach|Ich habe Bauchschmerzen.
+n|der|Rücken|Rücken|back|Mein Rücken tut weh.
+n|der|Arzt|Ärzte|doctor (m)|Ich muss zum Arzt.
+n|die|Ärztin|Ärztinnen|doctor (f)|Die Ärztin ist sehr freundlich.
+n|die|Praxis|Praxen|doctor's surgery, practice|Die Praxis ist am Montag geschlossen.
+n|der|Termin|Termine|appointment|Ich möchte einen Termin machen.
+n|die|Krankheit|Krankheiten|illness|Das ist eine schwere Krankheit.
+n|das|Fieber|-|fever|Das Kind hat Fieber.
+n|die|Erkältung|Erkältungen|cold (illness)|Ich habe eine Erkältung.
+n|der|Husten|-|cough|Ich habe Husten.
+n|der|Schnupfen|-|runny nose, cold|Er hat Schnupfen.
+n|die|Schmerzen|(pl)|pain|Wo haben Sie Schmerzen?
+n|das|Medikament|Medikamente|medicine|Nehmen Sie das Medikament dreimal täglich.
+n|die|Tablette|Tabletten|tablet, pill|Ich nehme eine Tablette.
+n|das|Rezept|Rezepte|prescription; recipe|Der Arzt schreibt ein Rezept.
+n|die|Versicherungskarte|Versicherungskarten|health insurance card|Haben Sie Ihre Versicherungskarte dabei?
+n|die|Krankmeldung|Krankmeldungen|sick note|Ich brauche eine Krankmeldung für die Arbeit.
+n|der|Notfall|Notfälle|emergency|Im Notfall rufen Sie 112 an.
+n|der|Urlaub|Urlaube|holiday, vacation|Wir machen Urlaub in Spanien.
+n|die|Reise|Reisen|journey, trip|Gute Reise!
+n|das|Hotel|Hotels|hotel|Das Hotel liegt am Strand.
+n|der|Koffer|Koffer|suitcase|Mein Koffer ist schwer.
+n|der|Pass|Pässe|passport|Vergiss deinen Pass nicht!
+n|der|Strand|Strände|beach|Wir liegen am Strand.
+n|das|Meer|Meere|sea|Das Meer ist warm.
+n|der|Berg|Berge|mountain|Wir wandern in den Bergen.
+n|der|See|Seen|lake|Der See ist sehr tief.|der See = lake, but die See = the sea
+n|das|Ausland|-|abroad|Ich war noch nie im Ausland.
+n|das|Ticket|Tickets|ticket|Ich habe das Ticket online gekauft.
+v|wehtun|tut weh|tat weh|hat wehgetan|to hurt|Mein Kopf tut weh.
+v|fühlen|fühlt|fühlte|hat gefühlt|to feel|Ich fühle mich nicht gut.
+v|helfen|hilft|half|hat geholfen|to help|Können Sie mir helfen?
+v|untersuchen|untersucht|untersuchte|hat untersucht|to examine|Der Arzt untersucht den Patienten.
+v|bleiben|bleibt|blieb|ist geblieben|to stay|Bleib heute im Bett!
+v|liegen|liegt|lag|hat gelegen|to lie (be lying)|Ich liege im Bett.
+v|anrufen|ruft an|rief an|hat angerufen|to call (phone)|Ich rufe den Arzt an.
+v|reisen|reist|reiste|ist gereist|to travel|Ich reise gern.
+v|fliegen|fliegt|flog|ist geflogen|to fly|Wir fliegen nach Italien.
+v|buchen|bucht|buchte|hat gebucht|to book|Ich habe ein Hotel gebucht.
+v|packen|packt|packte|hat gepackt|to pack|Hast du den Koffer gepackt?
+v|schwimmen|schwimmt|schwamm|ist geschwommen|to swim|Wir sind im Meer geschwommen.
+v|wandern|wandert|wanderte|ist gewandert|to hike|Am Wochenende wandern wir.
+v|besuchen|besucht|besuchte|hat besucht|to visit|Ich besuche meine Oma.
+v|sehen|sieht|sah|hat gesehen|to see|Hast du das Meer gesehen?
+v|vergessen|vergisst|vergaß|hat vergessen|to forget|Ich habe meinen Pass vergessen.
+v|sich ausruhen|ruht sich aus|ruhte sich aus|hat sich ausgeruht|to rest|Du musst dich ausruhen.
+w|krank|ill, sick|Ich bin krank.
+w|gesund|healthy|Obst ist gesund.
+w|müde|tired|Ich bin sehr müde.
+w|schlecht|bad|Mir ist schlecht.
+w|gut|good|Gute Besserung!
+w|schwer|heavy; difficult|Der Koffer ist schwer.
+w|leicht|light; easy|Die Tasche ist leicht.
+w|dreimal täglich|three times a day|Nehmen Sie die Tabletten dreimal täglich.
+w|letzte Woche|last week|Letzte Woche war ich krank.
+p|Gute Besserung!|Get well soon!
+p|Was fehlt Ihnen?|What's wrong with you? (doctor)
+p|Ich habe seit drei Tagen Fieber.|I've had a fever for three days.
+
+## 5 | Arbeit, Schule, Kindheit, Reisen
+n|die|Arbeit|Arbeiten|work|Die Arbeit macht mir Spaß.
+n|der|Arbeitsplatz|Arbeitsplätze|workplace|Mein Arbeitsplatz ist im Büro.
+n|das|Büro|Büros|office|Ich arbeite in einem Büro.
+n|die|Firma|Firmen|company|Die Firma hat 200 Mitarbeiter.|Exception to "-ma = das": die Firma
+n|der|Chef|Chefs|boss (m)|Mein Chef ist streng.
+n|die|Chefin|Chefinnen|boss (f)|Die Chefin ist im Urlaub.
+n|der|Kollege|Kollegen|colleague (m)|Mein Kollege hilft mir.|Male person, so der despite -e
+n|die|Kollegin|Kolleginnen|colleague (f)|Meine Kollegin ist krank.
+n|der|Feierabend|Feierabende|end of the working day|Um fünf habe ich Feierabend.
+n|die|Pause|Pausen|break|Wir machen eine Pause.
+n|der|Lehrer|Lehrer|teacher (m)|Der Lehrer erklärt die Grammatik.
+n|die|Lehrerin|Lehrerinnen|teacher (f)|Die Lehrerin ist freundlich.
+n|der|Schüler|Schüler|pupil (m)|Die Schüler schreiben einen Test.
+n|die|Schule|Schulen|school|Ich bin in Colombo zur Schule gegangen.
+n|die|Klasse|Klassen|class; grade|Wir waren in der gleichen Klasse.
+n|das|Fach|Fächer|subject|Mein Lieblingsfach war Mathe.
+n|die|Prüfung|Prüfungen|exam|Ich habe die Prüfung bestanden.
+n|die|Note|Noten|grade, mark|Ich hatte gute Noten.
+n|die|Hausaufgabe|Hausaufgaben|homework|Hast du die Hausaufgaben gemacht?
+n|die|Kindheit|-|childhood|In meiner Kindheit habe ich viel gespielt.
+n|das|Spielzeug|Spielzeuge|toy|Das Kind hat viel Spielzeug.
+n|der|Kindergarten|Kindergärten|nursery school|Mein Sohn geht in den Kindergarten.
+n|die|Erinnerung|Erinnerungen|memory (recollection)|Ich habe schöne Erinnerungen.
+n|die|Ferien|(pl)|school holidays|In den Ferien fahren wir weg.
+n|die|Fahrt|Fahrten|journey, ride|Die Fahrt dauert drei Stunden.
+n|die|Verspätung|Verspätungen|delay|Der Zug hat 20 Minuten Verspätung.
+n|das|Gepäck|-|luggage|Wo kann ich mein Gepäck abgeben?
+n|der|Bahnsteig|Bahnsteige|platform|Der Zug fährt von Bahnsteig 3 ab.
+n|die|Rückfahrt|Rückfahrten|return journey|Die Rückfahrt war schön.
+n|die|Übernachtung|Übernachtungen|overnight stay|Eine Übernachtung kostet 80 Euro.
+n|die|Sehenswürdigkeit|Sehenswürdigkeiten|sight, attraction|Berlin hat viele Sehenswürdigkeiten.
+v|verdienen|verdient|verdiente|hat verdient|to earn|Er verdient gut.
+v|beginnen|beginnt|begann|hat begonnen|to begin|Die Schule beginnt um acht.
+v|aufhören|hört auf|hörte auf|hat aufgehört|to stop|Hör auf!
+v|dauern|dauert|dauerte|hat gedauert|to last, take (time)|Wie lange dauert die Fahrt?
+v|schreiben|schreibt|schrieb|hat geschrieben|to write|Ich schreibe eine E-Mail.
+v|rechnen|rechnet|rechnete|hat gerechnet|to calculate|Er rechnet schnell.
+v|verstehen|versteht|verstand|hat verstanden|to understand|Ich habe das nicht verstanden.
+v|erklären|erklärt|erklärte|hat erklärt|to explain|Kannst du das erklären?
+v|wiederholen|wiederholt|wiederholte|hat wiederholt|to repeat|Können Sie das bitte wiederholen?
+v|bestehen|besteht|bestand|hat bestanden|to pass (exam)|Ich will die B1-Prüfung bestehen.
+v|werden|wird|wurde|ist geworden|to become|Ich wollte Arzt werden.
+v|können|kann|konnte|hat gekonnt|can, to be able|Als Kind konnte ich nicht schwimmen.
+v|müssen|muss|musste|hat gemusst|must, to have to|Ich musste früh aufstehen.
+v|wollen|will|wollte|hat gewollt|to want|Ich wollte Pilot werden.
+v|dürfen|darf|durfte|hat gedurft|may, to be allowed|Wir durften nicht fernsehen.
+v|sollen|soll|sollte|hat gesollt|should, to be supposed to|Du sollst mehr schlafen.
+v|klettern|klettert|kletterte|ist geklettert|to climb|Als Kind bin ich auf Bäume geklettert.
+v|laufen|läuft|lief|ist gelaufen|to run; to walk|Er läuft jeden Morgen.
+v|erleben|erlebt|erlebte|hat erlebt|to experience|Wir haben viel erlebt.
+v|übernachten|übernachtet|übernachtete|hat übernachtet|to stay overnight|Wir haben im Hotel übernachtet.
+v|abholen|holt ab|holte ab|hat abgeholt|to pick up|Ich hole dich am Bahnhof ab.
+v|verpassen|verpasst|verpasste|hat verpasst|to miss (train)|Ich habe den Zug verpasst.
+v|sich freuen|freut sich|freute sich|hat sich gefreut|to be happy|Ich freue mich auf den Urlaub.
+w|als Kind|as a child|Als Kind war ich oft draußen.
+w|damals|back then|Damals gab es kein Internet.
+w|früher|in the past, formerly|Früher habe ich in Sri Lanka gewohnt.
+w|später|later|Bis später!
+w|pünktlich|punctual, on time|Der Zug ist pünktlich.
+w|fleißig|hard-working|Sie ist sehr fleißig.
+w|faul|lazy|Ich war ein fauler Schüler.
+w|streng|strict|Meine Lehrerin war streng.
+w|leider|unfortunately|Leider habe ich keine Zeit.
+w|zuerst|first|Zuerst frühstücke ich.
+w|dann|then|Dann gehe ich zur Arbeit.
+w|danach|afterwards|Danach habe ich gekocht.
+w|zum Schluss|finally|Zum Schluss sind wir ins Kino gegangen.
+w|vor einem Jahr|a year ago|Vor einem Jahr bin ich nach Deutschland gekommen.
+w|seit|since, for|Ich lerne seit drei Monaten Deutsch.
+
+## 6 | Gefühle, Medien, Internet
+n|das|Gefühl|Gefühle|feeling|Ich habe ein gutes Gefühl.
+n|die|Freude|-|joy|Das macht mir Freude.
+n|die|Angst|Ängste|fear|Ich habe Angst vor Hunden.
+n|die|Liebe|-|love|Liebe auf den ersten Blick.
+n|der|Ärger|-|anger; trouble|Ich habe Ärger mit dem Vermieter.
+n|die|Laune|Launen|mood|Er hat gute Laune.
+n|der|Stress|-|stress|Ich habe viel Stress bei der Arbeit.
+n|die|Sorge|Sorgen|worry|Mach dir keine Sorgen!
+n|das|Glück|-|luck; happiness|Viel Glück bei der Prüfung!
+n|die|Überraschung|Überraschungen|surprise|Was für eine Überraschung!
+n|das|Internet|-|internet|Ich suche das im Internet.
+n|der|Computer|Computer|computer|Der Computer ist langsam.
+n|das|Handy|Handys|mobile phone|Mein Handy ist kaputt.
+n|die|Nachricht|Nachrichten|message; (pl) the news|Ich schicke dir eine Nachricht.
+n|die|E-Mail|E-Mails|e-mail|Ich schreibe eine E-Mail.
+n|die|Zeitung|Zeitungen|newspaper|Ich lese die Zeitung online.
+n|die|Zeitschrift|Zeitschriften|magazine|Die Zeitschrift erscheint jede Woche.
+n|das|Fernsehen|-|television (medium)|Was kommt heute im Fernsehen?
+n|der|Fernseher|Fernseher|TV set|Der Fernseher ist neu.
+n|das|Programm|Programme|programme; channel|Das Programm ist langweilig.
+n|die|Sendung|Sendungen|broadcast, show|Die Sendung beginnt um acht.
+n|die|Werbung|-|advertising|Im Fernsehen gibt es zu viel Werbung.
+n|das|Radio|Radios|radio|Ich höre Radio im Auto.
+n|die|Webseite|Webseiten|website|Auf der Webseite finden Sie alle Infos.
+n|das|Passwort|Passwörter|password|Ich habe mein Passwort vergessen.
+n|die|App|Apps|app|Ich lerne mit einer App.
+n|das|Netz|Netze|network; internet|Ich habe kein Netz.
+n|der|Bildschirm|Bildschirme|screen|Der Bildschirm ist zu klein.
+n|die|Taste|Tasten|key (keyboard), button|Drücken Sie die Taste.
+n|das|Video|Videos|video|Ich sehe ein Video auf YouTube.
+n|das|Foto|Fotos|photo|Schick mir das Foto.
+n|die|Meinung|Meinungen|opinion|Meiner Meinung nach ist das falsch.
+v|lachen|lacht|lachte|hat gelacht|to laugh|Wir haben viel gelacht.
+v|weinen|weint|weinte|hat geweint|to cry|Das Baby weint.
+v|lieben|liebt|liebte|hat geliebt|to love|Ich liebe dich.
+v|hoffen|hofft|hoffte|hat gehofft|to hope|Ich hoffe, es geht dir gut.
+v|sich ärgern|ärgert sich|ärgerte sich|hat sich geärgert|to be annoyed|Ich ärgere mich über den Lärm.
+v|sich fühlen|fühlt sich|fühlte sich|hat sich gefühlt|to feel|Ich fühle mich wohl.
+v|sich interessieren|interessiert sich|interessierte sich|hat sich interessiert|to be interested|Ich interessiere mich für Politik.
+v|vermissen|vermisst|vermisste|hat vermisst|to miss (someone)|Ich vermisse meine Familie.
+v|schicken|schickt|schickte|hat geschickt|to send|Ich schicke dir die Datei.
+v|bekommen|bekommt|bekam|hat bekommen|to receive, get|Ich habe deine Nachricht bekommen.
+v|herunterladen|lädt herunter|lud herunter|hat heruntergeladen|to download|Lade die App herunter.
+v|anmachen|macht an|machte an|hat angemacht|to switch on|Mach bitte das Licht an.
+v|ausmachen|macht aus|machte aus|hat ausgemacht|to switch off|Mach den Fernseher aus!
+v|surfen|surft|surfte|hat gesurft|to surf (internet)|Ich surfe im Internet.
+v|benutzen|benutzt|benutzte|hat benutzt|to use|Ich benutze mein Handy jeden Tag.
+v|telefonieren|telefoniert|telefonierte|hat telefoniert|to talk on the phone|Ich telefoniere mit meiner Mutter.
+v|denken|denkt|dachte|hat gedacht|to think|Ich denke oft an dich.
+v|glauben|glaubt|glaubte|hat geglaubt|to believe, think|Ich glaube, das stimmt.
+v|meinen|meint|meinte|hat gemeint|to mean; to think|Was meinst du?
+v|erzählen|erzählt|erzählte|hat erzählt|to tell|Erzähl mal!
+v|speichern|speichert|speicherte|hat gespeichert|to save (data)|Hast du die Datei gespeichert?
+w|glücklich|happy|Ich bin sehr glücklich.
+w|traurig|sad|Warum bist du traurig?
+w|froh|glad|Ich bin froh, dass du da bist.
+w|wütend|angry|Er ist wütend.
+w|nervös|nervous|Vor der Prüfung bin ich nervös.
+w|zufrieden|satisfied|Ich bin mit meinem Job zufrieden.
+w|enttäuscht|disappointed|Ich bin enttäuscht.
+w|überrascht|surprised|Ich war überrascht.
+w|einsam|lonely|Am Anfang war ich einsam.
+w|langweilig|boring|Der Film war langweilig.
+w|interessant|interesting|Das Buch ist interessant.
+w|lustig|funny|Die Serie ist sehr lustig.
+w|spannend|exciting|Das Spiel war spannend.
+w|online|online|Ich kaufe viel online.
+w|leise|quiet(ly)|Sprich bitte leise.
+w|wichtig|important|Das ist sehr wichtig.
+
+## 7 | Menschen, Biografie, Wohnen
+n|der|Mensch|Menschen|human, person|Er ist ein netter Mensch.
+n|die|Person|Personen|person|Ein Tisch für vier Personen, bitte.
+n|das|Leben|-|life|Das Leben in Deutschland ist anders.
+n|die|Geburt|Geburten|birth|Die Geburt war im Krankenhaus.
+n|der|Geburtstag|Geburtstage|birthday|Wann hast du Geburtstag?
+n|der|Geburtsort|Geburtsorte|place of birth|Mein Geburtsort ist Kandy.
+n|die|Hochzeit|Hochzeiten|wedding|Die Hochzeit war wunderschön.
+n|die|Ehe|Ehen|marriage|Ihre Ehe ist glücklich.
+n|der|Ehemann|Ehemänner|husband|Ihr Ehemann ist Lehrer.
+n|die|Ehefrau|Ehefrauen|wife|Seine Ehefrau kommt aus Polen.
+n|die|Jugend|-|youth|In meiner Jugend habe ich Fußball gespielt.
+n|der|Lebenslauf|Lebensläufe|CV, résumé|Schicken Sie uns Ihren Lebenslauf.
+n|die|Ausbildung|Ausbildungen|vocational training|Sie macht eine Ausbildung als Köchin.
+n|das|Studium|Studien|university studies|Nach dem Studium habe ich gearbeitet.
+n|der|Tod|Tode|death|Nach dem Tod seines Vaters zog er um.
+n|die|Heimat|-|home(land)|Meine Heimat ist Sri Lanka.
+n|der|Charakter|Charaktere|character|Sie hat einen starken Charakter.
+n|das|Aussehen|-|appearance|Das Aussehen ist nicht so wichtig.
+n|das|Haar|Haare|hair|Sie hat lange Haare.
+n|die|Brille|Brillen|glasses|Ich trage eine Brille.
+n|der|Bart|Bärte|beard|Er hat einen Bart.
+n|das|Mädchen|Mädchen|girl|Das Mädchen heißt Mia.|-chen is always das, even for a girl
+n|der|Junge|Jungen|boy|Der Junge spielt Fußball.|Male person, so der despite -e
+n|die|Leute|(pl)|people|Die Leute hier sind freundlich.
+n|der|Mieter|Mieter|tenant|Die Mieter haben sich beschwert.
+n|der|Mietvertrag|Mietverträge|tenancy agreement|Ich habe den Mietvertrag unterschrieben.
+n|die|Nebenkosten|(pl)|additional costs (utilities)|Die Nebenkosten sind 200 Euro.
+n|die|Kaution|Kautionen|deposit|Die Kaution beträgt drei Monatsmieten.
+n|der|Keller|Keller|cellar, basement|Das Fahrrad steht im Keller.
+n|der|Garten|Gärten|garden|Wir haben einen kleinen Garten.
+n|die|Heizung|Heizungen|heating|Die Heizung funktioniert nicht.
+n|der|Müll|-|rubbish, waste|Bring bitte den Müll raus.
+n|die|Hausordnung|Hausordnungen|house rules|Laut Hausordnung ist ab 22 Uhr Ruhe.
+n|der|Hausmeister|Hausmeister|caretaker|Ruf den Hausmeister an.
+n|die|Möbel|(pl)|furniture|Wir brauchen neue Möbel.
+n|die|Anzeige|Anzeigen|advertisement (listing)|Ich habe eine Anzeige im Internet gelesen.
+v|geboren werden|wird geboren|wurde geboren|ist geboren worden|to be born|Ich wurde 1995 geboren.
+v|aufwachsen|wächst auf|wuchs auf|ist aufgewachsen|to grow up|Ich bin in Colombo aufgewachsen.
+v|heiraten|heiratet|heiratete|hat geheiratet|to marry|Sie haben 2020 geheiratet.
+v|sterben|stirbt|starb|ist gestorben|to die|Mein Opa ist letztes Jahr gestorben.
+v|studieren|studiert|studierte|hat studiert|to study (at university)|Er studierte Informatik.
+v|gründen|gründet|gründete|hat gegründet|to found|Er gründete eine Firma.
+v|aussehen|sieht aus|sah aus|hat ausgesehen|to look (appearance)|Du siehst müde aus.
+v|einziehen|zieht ein|zog ein|ist eingezogen|to move in|Wir zogen im Mai ein.
+v|ausziehen (aus der Wohnung)|zieht aus|zog aus|ist ausgezogen|to move out|Er ist letzten Monat ausgezogen.
+v|unterschreiben|unterschreibt|unterschrieb|hat unterschrieben|to sign|Bitte unterschreiben Sie hier.
+v|sich beschweren|beschwert sich|beschwerte sich|hat sich beschwert|to complain|Die Nachbarn beschwerten sich über den Lärm.
+v|stellen|stellt|stellte|hat gestellt|to put (upright)|Ich stelle die Flasche auf den Tisch.
+v|legen|legt|legte|hat gelegt|to put (flat), lay|Leg das Buch auf den Tisch.
+v|hängen|hängt|hängte/hing|hat gehängt/gehangen|to hang|Ich hänge das Bild an die Wand.
+v|stehen|steht|stand|hat gestanden|to stand|Die Lampe steht neben dem Sofa.
+v|sitzen|sitzt|saß|hat gesessen|to sit|Wir saßen im Garten.
+v|bringen|bringt|brachte|hat gebracht|to bring|Er brachte Blumen mit.
+v|geben|gibt|gab|hat gegeben|to give|Sie gab mir ihre Nummer.
+v|rufen|ruft|rief|hat gerufen|to call, shout|Sie rief laut meinen Namen.
+v|sagen|sagt|sagte|hat gesagt|to say|Was hat er gesagt?
+v|fallen|fällt|fiel|ist gefallen|to fall|Das Glas fiel auf den Boden.
+v|passieren|passiert|passierte|ist passiert|to happen|Was ist passiert?
+v|sich verlieben|verliebt sich|verliebte sich|hat sich verliebt|to fall in love|Sie verliebten sich im Urlaub.
+v|kennenlernen|lernt kennen|lernte kennen|hat kennengelernt|to get to know, meet|Wir lernten uns 2018 kennen.
+w|freundlich|friendly|Die Nachbarin ist freundlich.
+w|nett|nice|Er ist sehr nett.
+w|hilfsbereit|helpful|Mein Kollege ist hilfsbereit.
+w|ehrlich|honest|Sei ehrlich!
+w|höflich|polite|Die Kinder sind höflich.
+w|schüchtern|shy|Als Kind war ich schüchtern.
+w|ordentlich|tidy|Mein Zimmer ist ordentlich.
+w|groß gewachsen|tall|Er ist groß gewachsen.
+w|schlank|slim|Sie ist schlank.
+w|lockig|curly|Er hat lockige Haare.
+w|möbliert|furnished|Das Zimmer ist möbliert.
+w|zuerst ... dann|first ... then|Zuerst studierte ich, dann arbeitete ich.
+w|als|when (single event in the past)|Als ich zehn war, zogen wir um.
+w|nachdem|after (conjunction)|Nachdem ich gegessen hatte, ging ich los.
+
+## 8 | Bildung, Kurse, Berufe
+n|die|Bildung|-|education|Bildung ist wichtig.
+n|der|Kurs|Kurse|course|Ich mache einen Deutschkurs.
+n|der|Integrationskurs|Integrationskurse|integration course|Der Integrationskurs hat 700 Stunden.
+n|die|Anmeldung|Anmeldungen|registration|Die Anmeldung ist online.
+n|die|Gebühr|Gebühren|fee|Die Gebühr beträgt 200 Euro.
+n|das|Zeugnis|Zeugnisse|certificate, school report|Ich brauche mein Zeugnis.|-nis is mostly das
+n|das|Zertifikat|Zertifikate|certificate|Nach der Prüfung bekommen Sie ein Zertifikat.
+n|der|Abschluss|Abschlüsse|degree, qualification|Welchen Abschluss haben Sie?
+n|die|Universität|Universitäten|university|Sie studiert an der Universität.
+n|die|Hochschule|Hochschulen|college, university|Er studiert an einer Hochschule.
+n|der|Student|Studenten|student (m)|Die Studenten haben Ferien.
+n|die|Studentin|Studentinnen|student (f)|Sie ist Studentin.
+n|die|Kenntnisse|(pl)|knowledge, skills|Ich habe gute Computerkenntnisse.
+n|die|Erfahrung|Erfahrungen|experience|Ich habe viel Erfahrung.
+n|die|Fähigkeit|Fähigkeiten|ability|Welche Fähigkeiten haben Sie?
+n|die|Weiterbildung|Weiterbildungen|further training|Die Firma bezahlt die Weiterbildung.
+n|das|Praktikum|Praktika|internship|Ich mache ein Praktikum.
+n|der|Unterricht|-|lessons, teaching|Der Unterricht beginnt um neun.
+n|die|Übung|Übungen|exercise|Mach die Übung auf Seite 10.
+n|die|Grammatik|-|grammar|Die Grammatik ist schwer.
+n|die|Aussprache|-|pronunciation|Deine Aussprache ist gut.
+n|das|Wörterbuch|Wörterbücher|dictionary|Ich benutze ein Wörterbuch.
+n|der|Ingenieur|Ingenieure|engineer|Mein Bruder ist Ingenieur.
+n|der|Koch|Köche|cook (m)|Der Koch kocht sehr gut.
+n|die|Köchin|Köchinnen|cook (f)|Sie arbeitet als Köchin.
+n|der|Verkäufer|Verkäufer|salesperson|Der Verkäufer hilft mir.
+n|der|Krankenpfleger|Krankenpfleger|nurse (m)|Er arbeitet als Krankenpfleger.
+n|die|Krankenschwester|Krankenschwestern|nurse (f)|Die Krankenschwester misst Fieber.
+n|der|Handwerker|Handwerker|tradesman|Der Handwerker repariert die Heizung.
+n|der|Mechaniker|Mechaniker|mechanic|Der Mechaniker repariert das Auto.
+n|der|Fahrer|Fahrer|driver|Er ist Busfahrer.
+n|der|Polizist|Polizisten|police officer|Der Polizist hilft uns.
+n|der|Programmierer|Programmierer|programmer|Ich bin Programmierer.
+n|die|Stelle|Stellen|job, position; place|Ich suche eine neue Stelle.
+n|die|Teilzeit|-|part-time|Sie arbeitet in Teilzeit.
+n|die|Vollzeit|-|full-time|Ich arbeite Vollzeit.
+v|sich anmelden|meldet sich an|meldete sich an|hat sich angemeldet|to register|Ich habe mich für den Kurs angemeldet.
+v|teilnehmen|nimmt teil|nahm teil|hat teilgenommen|to take part|Ich nehme an einem Kurs teil.
+v|unterrichten|unterrichtet|unterrichtete|hat unterrichtet|to teach|Sie unterrichtet Deutsch.
+v|üben|übt|übte|hat geübt|to practise|Ich übe jeden Tag.
+v|korrigieren|korrigiert|korrigierte|hat korrigiert|to correct|Kannst du meinen Text korrigieren?
+v|ausfüllen|füllt aus|füllte aus|hat ausgefüllt|to fill in|Bitte füllen Sie das Formular aus.
+v|sich vorbereiten|bereitet sich vor|bereitete sich vor|hat sich vorbereitet|to prepare|Ich bereite mich auf die Prüfung vor.
+v|anerkennen|erkennt an|erkannte an|hat anerkannt|to recognise (officially)|Mein Abschluss wurde anerkannt.
+v|reparieren|repariert|reparierte|hat repariert|to repair|Er repariert das Fahrrad.
+v|pflegen|pflegt|pflegte|hat gepflegt|to care for|Sie pflegt alte Menschen.
+v|sich kümmern um|kümmert sich|kümmerte sich|hat sich gekümmert|to take care of|Ich kümmere mich um die Kinder.
+v|entscheiden|entscheidet|entschied|hat entschieden|to decide|Ich habe mich für Goethe entschieden.
+v|ändern|ändert|änderte|hat geändert|to change|Ich möchte den Termin ändern.
+v|erreichen|erreicht|erreichte|hat erreicht|to reach, achieve|Ich will B1 erreichen.
+v|fehlen|fehlt|fehlte|hat gefehlt|to be missing; absent|Er fehlte im Unterricht.
+v|lehren|lehrt|lehrte|hat gelehrt|to teach (formal)|Er lehrt an der Universität.
+w|beruflich|professional(ly)|Ich bin beruflich oft unterwegs.
+w|erfolgreich|successful|Sie ist sehr erfolgreich.
+w|selbstständig|self-employed; independent|Er ist selbstständig.
+w|arbeitslos|unemployed|Er ist seit einem Jahr arbeitslos.
+w|kostenlos|free of charge|Der Kurs ist kostenlos.
+w|schwierig|difficult|Die Prüfung war schwierig.
+w|einfach|easy, simple|Das ist ganz einfach.
+w|möglich|possible|Ist das möglich?
+w|weil|because|Ich lerne Deutsch, weil ich hier lebe.
+w|dass|that (conjunction)|Ich hoffe, dass ich bestehe.
+w|wenn|if, when(ever)|Wenn ich Zeit habe, lerne ich.
+w|deshalb|therefore|Ich bin krank, deshalb bleibe ich zu Hause.
+w|trotzdem|nevertheless|Es regnet, trotzdem gehe ich spazieren.
+
+## 9 | Umwelt, Reiseerlebnisse
+n|die|Umwelt|-|environment|Wir müssen die Umwelt schützen.
+n|die|Natur|-|nature|Ich bin gern in der Natur.
+n|das|Klima|-|climate|Das Klima ändert sich.
+n|der|Klimawandel|-|climate change|Der Klimawandel ist ein großes Problem.
+n|die|Energie|Energien|energy|Wir sparen Energie.
+n|der|Strom|-|electricity|Strom ist teuer geworden.
+n|die|Luft|-|air|Die Luft in der Stadt ist schlecht.
+n|der|Abfall|Abfälle|waste|Wir trennen den Abfall.
+n|die|Mülltonne|Mülltonnen|rubbish bin|Papier kommt in die blaue Mülltonne.
+n|die|Flasche|Flaschen|bottle|Ich bringe die Flaschen zurück.
+n|das|Pfand|-|deposit (bottles)|Auf der Flasche ist Pfand.
+n|das|Plastik|-|plastic|Wir sollten weniger Plastik benutzen.
+n|der|Wald|Wälder|forest|Wir gehen im Wald spazieren.
+n|der|Baum|Bäume|tree|Der Baum ist sehr alt.|Exception to "-um = das": der Baum (like der Raum, der Traum)
+n|die|Blume|Blumen|flower|Ich schenke dir Blumen.
+n|das|Tier|Tiere|animal|Ich mag Tiere.
+n|der|Fluss|Flüsse|river|Der Rhein ist ein langer Fluss.
+n|die|Insel|Inseln|island|Wir waren auf einer Insel.
+n|die|Landschaft|Landschaften|landscape|Die Landschaft ist wunderschön.
+n|die|Küste|Küsten|coast|Wir fahren an die Küste.
+n|das|Abenteuer|Abenteuer|adventure|Die Reise war ein Abenteuer.
+n|das|Erlebnis|Erlebnisse|experience (event)|Das war ein tolles Erlebnis.
+n|die|Unterkunft|Unterkünfte|accommodation|Die Unterkunft war sauber.
+n|die|Jugendherberge|Jugendherbergen|youth hostel|Wir übernachteten in einer Jugendherberge.
+n|der|Campingplatz|Campingplätze|campsite|Der Campingplatz liegt am See.
+n|das|Zelt|Zelte|tent|Wir schliefen im Zelt.
+n|der|Ausflug|Ausflüge|excursion, day trip|Am Sonntag machen wir einen Ausflug.
+n|die|Rundfahrt|Rundfahrten|tour|Wir machten eine Stadtrundfahrt.
+n|der|Reiseführer|Reiseführer|guidebook; tour guide|Laut Reiseführer ist das Museum toll.
+n|das|Souvenir|Souvenirs|souvenir|Ich habe Souvenirs gekauft.
+n|die|Grenze|Grenzen|border|Wir fuhren über die Grenze.
+n|der|Stau|Staus|traffic jam|Wir standen drei Stunden im Stau.
+v|schützen|schützt|schützte|hat geschützt|to protect|Wir müssen die Natur schützen.
+v|sparen|spart|sparte|hat gespart|to save (money, energy)|Wir sparen Wasser.
+v|trennen|trennt|trennte|hat getrennt|to separate|In Deutschland trennt man den Müll.
+v|wegwerfen|wirft weg|warf weg|hat weggeworfen|to throw away|Wirf das nicht weg!
+v|verschmutzen|verschmutzt|verschmutzte|hat verschmutzt|to pollute|Autos verschmutzen die Luft.
+v|verbrauchen|verbraucht|verbrauchte|hat verbraucht|to consume|Wir verbrauchen zu viel Energie.
+v|wachsen|wächst|wuchs|ist gewachsen|to grow|Die Bäume wachsen schnell.
+v|steigen|steigt|stieg|ist gestiegen|to rise; to climb|Die Temperaturen steigen.
+v|sinken|sinkt|sank|ist gesunken|to sink, fall|Die Preise sind gesunken.
+v|entdecken|entdeckt|entdeckte|hat entdeckt|to discover|Wir entdeckten einen schönen Strand.
+v|verlieren|verliert|verlor|hat verloren|to lose|Ich habe meinen Schlüssel verloren.
+v|vorbeikommen|kommt vorbei|kam vorbei|ist vorbeigekommen|to drop by|Komm doch mal vorbei!
+v|sich verlaufen|verläuft sich|verlief sich|hat sich verlaufen|to get lost (on foot)|Wir haben uns im Wald verlaufen.
+v|losfahren|fährt los|fuhr los|ist losgefahren|to set off|Wir fuhren um sechs Uhr los.
+v|zurückkommen|kommt zurück|kam zurück|ist zurückgekommen|to come back|Wann kommst du zurück?
+v|fotografieren|fotografiert|fotografierte|hat fotografiert|to photograph|Ich habe viel fotografiert.
+v|genießen|genießt|genoss|hat genossen|to enjoy|Wir genossen die Sonne.
+v|empfehlen|empfiehlt|empfahl|hat empfohlen|to recommend|Kannst du ein Hotel empfehlen?
+v|stattfinden|findet statt|fand statt|hat stattgefunden|to take place|Das Fest findet im Juli statt.
+w|umweltfreundlich|environmentally friendly|Fahrradfahren ist umweltfreundlich.
+w|schmutzig|dirty|Der Fluss ist schmutzig.
+w|sauber|clean|Das Zimmer war sauber.
+w|wunderschön|gorgeous|Die Aussicht war wunderschön.
+w|unterwegs|on the way, out and about|Ich bin viel unterwegs.
+w|draußen|outside|Die Kinder spielen draußen.
+w|drinnen|inside|Bei Regen bleiben wir drinnen.
+w|unbedingt|absolutely, definitely|Das musst du unbedingt sehen!
+w|überall|everywhere|Überall lag Müll.
+w|plötzlich|suddenly|Plötzlich fing es an zu regnen.
+w|endlich|finally, at last|Endlich sind wir angekommen.
+w|leider nicht|unfortunately not|Das hat leider nicht geklappt.
+
+## 10 | Gesundheit, Sport, Zukunftspläne
+n|die|Gesundheit|-|health|Gesundheit ist das Wichtigste.
+n|die|Ernährung|-|nutrition, diet|Eine gesunde Ernährung ist wichtig.
+n|die|Bewegung|Bewegungen|exercise, movement|Du brauchst mehr Bewegung.
+n|das|Gewicht|Gewichte|weight|Ich möchte Gewicht verlieren.
+n|die|Diät|Diäten|diet (to lose weight)|Sie macht eine Diät.
+n|das|Training|Trainings|training|Das Training ist zweimal pro Woche.
+n|der|Verein|Vereine|club, association|Ich bin in einem Fußballverein.
+n|die|Mannschaft|Mannschaften|team|Unsere Mannschaft hat gewonnen.
+n|das|Spiel|Spiele|game, match|Das Spiel endete 2:1.
+n|das|Fitnessstudio|Fitnessstudios|gym|Ich gehe ins Fitnessstudio.
+n|das|Schwimmbad|Schwimmbäder|swimming pool|Das Schwimmbad ist im Sommer voll.
+n|der|Ball|Bälle|ball|Wirf den Ball!
+n|die|Verletzung|Verletzungen|injury|Er hat eine Verletzung am Knie.
+n|das|Knie|Knie|knee|Mein Knie tut weh.
+n|der|Unfall|Unfälle|accident|Er hatte einen Unfall.
+n|die|Zukunft|-|future|Was sind deine Pläne für die Zukunft?
+n|der|Plan|Pläne|plan|Ich habe einen Plan.
+n|das|Ziel|Ziele|goal, destination|Mein Ziel ist die B1-Prüfung.
+n|der|Wunsch|Wünsche|wish|Was ist dein größter Wunsch?
+n|der|Traum|Träume|dream|Mein Traum ist ein eigenes Haus.|Exception to "-um = das": der Traum
+n|die|Möglichkeit|Möglichkeiten|possibility|Es gibt viele Möglichkeiten.
+n|die|Chance|Chancen|chance|Das ist eine gute Chance.
+n|die|Einbürgerung|Einbürgerungen|naturalisation|Für die Einbürgerung brauche ich B1.
+n|die|Staatsangehörigkeit|Staatsangehörigkeiten|citizenship|Ich möchte die deutsche Staatsangehörigkeit.
+n|der|Vorsatz|Vorsätze|resolution|Mein Vorsatz: jeden Tag Deutsch lernen.
+v|trainieren|trainiert|trainierte|hat trainiert|to train|Ich trainiere dreimal pro Woche.
+v|joggen|joggt|joggte|ist gejoggt|to jog|Er joggt jeden Morgen im Park.
+v|Rad fahren|fährt Rad|fuhr Rad|ist Rad gefahren|to cycle|Ich fahre gern Rad.
+v|gewinnen|gewinnt|gewann|hat gewonnen|to win|Wer hat gewonnen?
+v|abnehmen|nimmt ab|nahm ab|hat abgenommen|to lose weight; to answer (phone)|Ich habe fünf Kilo abgenommen.
+v|zunehmen|nimmt zu|nahm zu|hat zugenommen|to gain weight|Im Winter nehme ich zu.
+v|rauchen|raucht|rauchte|hat geraucht|to smoke|Ich habe aufgehört zu rauchen.
+v|sich verletzen|verletzt sich|verletzte sich|hat sich verletzt|to injure oneself|Er hat sich beim Fußball verletzt.
+v|sich bewegen|bewegt sich|bewegte sich|hat sich bewegt|to move, exercise|Du solltest dich mehr bewegen.
+v|planen|plant|plante|hat geplant|to plan|Wir planen eine Reise.
+v|vorhaben|hat vor|hatte vor|hat vorgehabt|to intend, plan|Was hast du am Wochenende vor?
+v|träumen|träumt|träumte|hat geträumt|to dream|Ich träume von einem Haus am Meer.
+v|wünschen|wünscht|wünschte|hat gewünscht|to wish|Ich wünsche dir viel Erfolg.
+v|sich vorstellen|stellt sich vor|stellte sich vor|hat sich vorgestellt|to imagine; introduce oneself|Ich kann mir vorstellen, in Berlin zu leben.
+v|schaffen|schafft|schaffte|hat geschafft|to manage, accomplish|Du schaffst das!
+v|versuchen|versucht|versuchte|hat versucht|to try|Ich versuche es noch einmal.
+v|beantragen|beantragt|beantragte|hat beantragt|to apply for (officially)|Ich beantrage die Einbürgerung.
+v|aufgeben|gibt auf|gab auf|hat aufgegeben|to give up|Gib nicht auf!
+w|fit|fit|Ich möchte fit bleiben.
+w|regelmäßig|regular(ly)|Ich mache regelmäßig Sport.
+w|vegetarisch|vegetarian|Ich esse vegetarisch.
+w|ungesund|unhealthy|Fast Food ist ungesund.
+w|stark|strong|Er ist sehr stark.
+w|schwach|weak|Nach der Krankheit war ich schwach.
+w|bald|soon|Bald habe ich die Prüfung.
+w|irgendwann|sometime|Irgendwann möchte ich ein Haus kaufen.
+w|nächstes Jahr|next year|Nächstes Jahr mache ich die Prüfung.
+w|in Zukunft|in the future|In Zukunft will ich mehr Sport machen.
+w|vielleicht|maybe|Vielleicht ziehe ich um.
+w|sicher|sure; safe|Ich bin sicher, dass du es schaffst.
+w|um ... zu|in order to|Ich lerne Deutsch, um die Prüfung zu bestehen.
+w|damit|so that|Ich spare, damit ich reisen kann.
+w|besser|better|Ich spreche jetzt besser Deutsch.
+w|am besten|best|Am besten lernst du jeden Tag.
+
+## 11 | Arbeit, Bewerbung, Geld, Beschwerden
+n|die|Bewerbung|Bewerbungen|application|Ich schreibe eine Bewerbung.
+n|das|Anschreiben|Anschreiben|cover letter|Das Anschreiben sollte eine Seite lang sein.
+n|das|Vorstellungsgespräch|Vorstellungsgespräche|job interview|Morgen habe ich ein Vorstellungsgespräch.
+n|die|Stellenanzeige|Stellenanzeigen|job advert|Ich habe die Stellenanzeige gelesen.
+n|der|Arbeitgeber|Arbeitgeber|employer|Mein Arbeitgeber ist zufrieden.
+n|der|Arbeitnehmer|Arbeitnehmer|employee|Arbeitnehmer haben Rechte.
+n|der|Mitarbeiter|Mitarbeiter|staff member|Wir suchen neue Mitarbeiter.
+n|der|Vertrag|Verträge|contract|Ich habe den Vertrag unterschrieben.
+n|das|Gehalt|Gehälter|salary|Das Gehalt ist gut.|Ge- words are often das: das Gehalt
+n|der|Lohn|Löhne|wage|Der Lohn kommt am Monatsende.
+n|die|Steuer|Steuern|tax|Ich muss Steuern zahlen.
+n|die|Versicherung|Versicherungen|insurance|Die Versicherung zahlt den Schaden.
+n|das|Konto|Konten|bank account|Ich möchte ein Konto eröffnen.
+n|die|Überweisung|Überweisungen|bank transfer|Ich mache eine Überweisung.
+n|die|Rechnung|Rechnungen|bill, invoice|Die Rechnung ist zu hoch.
+n|die|Quittung|Quittungen|receipt|Kann ich eine Quittung haben?
+n|die|Kosten|(pl)|costs|Die Kosten sind gestiegen.
+n|die|Schulden|(pl)|debts|Er hat Schulden.
+n|die|Beschwerde|Beschwerden|complaint|Ich habe eine Beschwerde.
+n|das|Problem|Probleme|problem|Es gibt ein Problem mit der Lieferung.
+n|die|Lieferung|Lieferungen|delivery|Die Lieferung ist nicht gekommen.
+n|die|Bestellung|Bestellungen|order|Ich möchte meine Bestellung stornieren.
+n|der|Kunde|Kunden|customer (m)|Der Kunde ist König.|Male person, so der despite -e
+n|der|Kundenservice|-|customer service|Ich rufe den Kundenservice an.
+n|der|Schaden|Schäden|damage|Der Schaden ist groß.
+n|die|Garantie|Garantien|guarantee, warranty|Das Gerät hat zwei Jahre Garantie.
+n|der|Umtausch|-|exchange (of goods)|Ein Umtausch ist nur mit Kassenbon möglich.
+n|die|Lösung|Lösungen|solution|Wir finden eine Lösung.
+n|die|Entschuldigung|Entschuldigungen|apology; excuse me|Entschuldigung, wo ist der Bahnhof?
+n|die|Überstunde|Überstunden|overtime|Ich mache viele Überstunden.
+n|die|Kündigung|Kündigungen|notice, termination|Er hat die Kündigung bekommen.
+v|sich bewerben|bewirbt sich|bewarb sich|hat sich beworben|to apply|Ich bewerbe mich als Verkäufer.
+v|einstellen|stellt ein|stellte ein|hat eingestellt|to hire|Die Firma stellt neue Mitarbeiter ein.
+v|kündigen|kündigt|kündigte|hat gekündigt|to quit; to cancel (contract)|Ich habe meinen Vertrag gekündigt.
+v|zahlen|zahlt|zahlte|hat gezahlt|to pay|Wir zahlen getrennt.
+v|überweisen|überweist|überwies|hat überwiesen|to transfer (money)|Ich überweise das Geld morgen.
+v|ausgeben|gibt aus|gab aus|hat ausgegeben|to spend (money)|Ich gebe zu viel Geld aus.
+v|leihen|leiht|lieh|hat geliehen|to lend, borrow|Kannst du mir 10 Euro leihen?
+v|bestellen|bestellt|bestellte|hat bestellt|to order|Ich habe online Schuhe bestellt.
+v|liefern|liefert|lieferte|hat geliefert|to deliver|Das Paket wurde nicht geliefert.
+v|umtauschen|tauscht um|tauschte um|hat umgetauscht|to exchange (goods)|Kann ich die Jacke umtauschen?
+v|zurückgeben|gibt zurück|gab zurück|hat zurückgegeben|to give back, return|Ich möchte das Handy zurückgeben.
+v|erstatten|erstattet|erstattete|hat erstattet|to refund|Wir erstatten Ihnen den Preis.
+v|funktionieren|funktioniert|funktionierte|hat funktioniert|to work, function|Die Waschmaschine funktioniert nicht.
+v|sich entschuldigen|entschuldigt sich|entschuldigte sich|hat sich entschuldigt|to apologise|Ich möchte mich entschuldigen.
+v|erwarten|erwartet|erwartete|hat erwartet|to expect|Ich erwarte eine Antwort.
+v|antworten|antwortet|antwortete|hat geantwortet|to answer|Bitte antworten Sie bis Freitag.
+v|vereinbaren|vereinbart|vereinbarte|hat vereinbart|to arrange, agree|Wir haben einen Termin vereinbart.
+v|absagen|sagt ab|sagte ab|hat abgesagt|to cancel (appointment)|Ich muss den Termin absagen.
+w|kaputt|broken|Das Gerät ist kaputt.
+w|unzufrieden|dissatisfied|Ich bin mit dem Service unzufrieden.
+w|ärgerlich|annoying|Das ist sehr ärgerlich.
+w|sofort|immediately|Bitte rufen Sie mich sofort zurück.
+w|bisher|so far|Bisher habe ich keine Antwort bekommen.
+w|leider immer noch|unfortunately still|Das Problem besteht leider immer noch.
+w|monatlich|monthly|Die Miete zahle ich monatlich.
+w|brutto|gross (pay)|Das Gehalt ist 3000 Euro brutto.
+w|netto|net (pay)|Netto bleiben 2000 Euro.
+w|befristet|fixed-term|Der Vertrag ist befristet.
+w|unbefristet|permanent|Ich habe einen unbefristeten Vertrag.
+p|Sehr geehrte Damen und Herren,|Dear Sir or Madam, (formal letter)
+p|Mit freundlichen Grüßen|Kind regards (formal letter ending)
+p|Hiermit bewerbe ich mich um die Stelle als ...|I hereby apply for the position of ...
+p|Ich möchte mich über ... beschweren.|I would like to complain about ...
+p|Ich bitte Sie, mir das Geld zurückzuerstatten.|I ask you to refund the money.
+
+## 12 | Gesellschaft, Kultur, Politik
+n|die|Gesellschaft|Gesellschaften|society|Wir leben in einer offenen Gesellschaft.
+n|die|Kultur|Kulturen|culture|Ich interessiere mich für die deutsche Kultur.
+n|die|Politik|-|politics|Ich interessiere mich für Politik.
+n|der|Staat|Staaten|state|Deutschland ist ein demokratischer Staat.
+n|die|Regierung|Regierungen|government|Die Regierung plant neue Gesetze.
+n|die|Demokratie|Demokratien|democracy|Deutschland ist eine Demokratie.
+n|die|Wahl|Wahlen|election; choice|Die nächste Wahl ist im Herbst.
+n|die|Partei|Parteien|political party|Welche Partei wählst du?
+n|das|Gesetz|Gesetze|law|Das Gesetz gilt für alle.
+n|das|Recht|Rechte|right; law|Jeder hat das Recht auf Bildung.
+n|die|Pflicht|Pflichten|duty|Steuern zahlen ist Pflicht.
+n|die|Freiheit|Freiheiten|freedom|Die Meinungsfreiheit ist wichtig.
+n|der|Bürger|Bürger|citizen|Die Bürger wählen das Parlament.
+n|die|Religion|Religionen|religion|In Deutschland gibt es Religionsfreiheit.
+n|das|Fest|Feste|festival, party|Weihnachten ist ein wichtiges Fest.
+n|der|Feiertag|Feiertage|public holiday|Morgen ist Feiertag.
+n|die|Tradition|Traditionen|tradition|Das ist eine alte Tradition.
+n|die|Gleichberechtigung|-|equal rights|Männer und Frauen haben Gleichberechtigung.
+n|das|Ehrenamt|Ehrenämter|voluntary work|Sie arbeitet im Ehrenamt.
+n|die|Ausstellung|Ausstellungen|exhibition|Die Ausstellung im Museum ist toll.
+n|das|Museum|Museen|museum|Das Museum ist montags geschlossen.
+n|das|Theater|Theater|theatre|Wir gehen heute ins Theater.
+n|das|Konzert|Konzerte|concert|Das Konzert war super.
+n|die|Geschichte|Geschichten|history; story|Die deutsche Geschichte ist interessant.
+n|die|Mehrheit|Mehrheiten|majority|Die Mehrheit war dafür.
+n|die|Bevölkerung|-|population|Die Bevölkerung wird älter.
+n|der|Ausländer|Ausländer|foreigner|Viele Ausländer leben in Berlin.
+n|die|Integration|-|integration|Sprache ist wichtig für die Integration.
+n|das|Vorurteil|Vorurteile|prejudice|Wir müssen Vorurteile abbauen.
+n|die|Umfrage|Umfragen|survey|Laut einer Umfrage ...
+n|der|Vorteil|Vorteile|advantage|Das hat viele Vorteile.
+n|der|Nachteil|Nachteile|disadvantage|Ein Nachteil ist der Preis.
+v|wählen|wählt|wählte|hat gewählt|to vote; to choose|Ab 18 darf man wählen.
+v|regieren|regiert|regierte|hat regiert|to govern|Wer regiert in Deutschland?
+v|feiern|feiert|feierte|hat gefeiert|to celebrate|Wir feiern Weihnachten.
+v|diskutieren|diskutiert|diskutierte|hat diskutiert|to discuss|Wir diskutieren über Politik.
+v|sich engagieren|engagiert sich|engagierte sich|hat sich engagiert|to get involved|Er engagiert sich im Verein.
+v|unterstützen|unterstützt|unterstützte|hat unterstützt|to support|Ich unterstütze diese Idee.
+v|demonstrieren|demonstriert|demonstrierte|hat demonstriert|to demonstrate (protest)|Viele demonstrierten für den Klimaschutz.
+v|erlauben|erlaubt|erlaubte|hat erlaubt|to allow|Das ist nicht erlaubt.
+v|verbieten|verbietet|verbot|hat verboten|to forbid|Rauchen ist hier verboten.
+v|gelten|gilt|galt|hat gegolten|to be valid, apply|Das Gesetz gilt seit 2020.
+v|bedeuten|bedeutet|bedeutete|hat bedeutet|to mean|Was bedeutet dieses Wort?
+v|sich integrieren|integriert sich|integrierte sich|hat sich integriert|to integrate|Sie hat sich gut integriert.
+v|vergleichen|vergleicht|verglich|hat verglichen|to compare|Vergleichen Sie die beiden Länder.
+v|zustimmen|stimmt zu|stimmte zu|hat zugestimmt|to agree|Ich stimme dir zu.
+v|ablehnen|lehnt ab|lehnte ab|hat abgelehnt|to reject|Die Partei lehnte den Plan ab.
+w|politisch|political|Er ist politisch aktiv.
+w|demokratisch|democratic|Die Wahl war demokratisch.
+w|öffentlich|public|Das ist ein öffentliches Gebäude.
+w|privat|private|Das ist meine private Meinung.
+w|international|international|Die Stadt ist sehr international.
+w|gleich|equal; same; right away|Alle Menschen sind gleich.
+w|tolerant|tolerant|Wir sollten tolerant sein.
+w|verboten|forbidden|Parken ist hier verboten.
+w|erlaubt|allowed|Ist Fotografieren erlaubt?
+w|einerseits ... andererseits|on the one hand ... on the other|Einerseits ist es teuer, andererseits praktisch.
+w|obwohl|although|Obwohl es regnet, gehe ich raus.
+w|zum Beispiel|for example|Zum Beispiel in Bayern.
+
+## 13 | Prüfung Schreiben: E-Mails und Briefe
+p|Liebe Anna, / Lieber Tom,|Dear Anna / Dear Tom (informal)
+p|Sehr geehrte Frau Müller, / Sehr geehrter Herr Schmidt,|Dear Ms Müller / Dear Mr Schmidt (formal)
+p|vielen Dank für deine E-Mail.|many thanks for your e-mail.
+p|ich habe mich sehr über deine Nachricht gefreut.|I was very happy to get your message.
+p|Entschuldige, dass ich erst jetzt schreibe.|Sorry for only writing now.
+p|ich schreibe Ihnen, weil ...|I am writing to you because ...
+p|Ich möchte mich nach ... erkundigen.|I would like to enquire about ...
+p|Könnten Sie mir bitte mitteilen, ob ...?|Could you please let me know whether ...?
+p|Ich hätte gern weitere Informationen über ...|I would like more information about ...
+p|Leider kann ich am Samstag nicht kommen, weil ...|Unfortunately I can't come on Saturday because ...
+p|Hättest du Lust, mit mir ... ?|Would you like to ... with me?
+p|Was hältst du davon, wenn wir ...?|What do you think about us ...-ing?
+p|Ich schlage vor, dass wir ...|I suggest that we ...
+p|Könnten wir den Termin auf Dienstag verschieben?|Could we move the appointment to Tuesday?
+p|Ich würde mich freuen, wenn ...|I would be glad if ...
+p|Es tut mir sehr leid, aber ...|I'm very sorry, but ...
+p|Ich bedanke mich im Voraus.|Thank you in advance.
+p|Ich freue mich auf deine Antwort.|I look forward to your reply.
+p|Ich freue mich auf Ihre Antwort.|I look forward to your reply (formal).
+p|Viele Grüße / Liebe Grüße|Best wishes (informal)
+p|Bis bald!|See you soon!
+p|Meiner Meinung nach ...|In my opinion ...
+p|Ich finde es wichtig, dass ...|I think it is important that ...
+p|Ein Vorteil ist, dass ... Ein Nachteil ist, dass ...|One advantage is that ... A disadvantage is that ...
+p|In meinem Heimatland ist das anders: ...|In my home country it's different: ...
+p|Ich habe selbst die Erfahrung gemacht, dass ...|I have experienced myself that ...
+p|Zusammenfassend kann man sagen, dass ...|In summary one can say that ...
+n|der|Betreff|Betreffe|subject line|Im Betreff steht: Anfrage.
+n|die|Anrede|Anreden|form of address, salutation|Vergiss die Anrede nicht.
+n|der|Gruß|Grüße|greeting|Viele Grüße an deine Familie!
+n|die|Anfrage|Anfragen|enquiry|Vielen Dank für Ihre Anfrage.
+n|die|Einladung|Einladungen|invitation|Danke für die Einladung!
+n|die|Absage|Absagen|cancellation, refusal|Ich habe eine Absage bekommen.
+n|die|Zusage|Zusagen|acceptance, confirmation|Wir freuen uns über Ihre Zusage.
+
+## 14 | Prüfung Sprechen: Vorstellen und Präsentation
+p|Darf ich mich kurz vorstellen? Ich heiße ...|May I briefly introduce myself? My name is ...
+p|Ich komme aus ... und lebe seit ... in Deutschland.|I come from ... and have lived in Germany for ...
+p|Von Beruf bin ich ...|By profession I am ...
+p|In meiner Freizeit ... ich gern.|In my free time I like to ...
+p|Ich lerne Deutsch, weil ...|I am learning German because ...
+p|Das Thema meiner Präsentation ist ...|The topic of my presentation is ...
+p|Ich möchte über folgende Punkte sprechen: ...|I would like to talk about the following points: ...
+p|Zuerst erzähle ich von meinen Erfahrungen.|First I'll talk about my experiences.
+p|Dann spreche ich über die Situation in meinem Heimatland.|Then I'll talk about the situation in my home country.
+p|Danach nenne ich Vor- und Nachteile.|After that I'll name advantages and disadvantages.
+p|Zum Schluss sage ich meine Meinung.|Finally I'll give my opinion.
+p|Ich persönlich habe gute Erfahrungen damit gemacht.|Personally I've had good experiences with it.
+p|Bei uns in ... ist es üblich, dass ...|Where I come from in ... it's usual that ...
+p|Auf der einen Seite ..., auf der anderen Seite ...|On the one hand ..., on the other hand ...
+p|Das bringt mich zum nächsten Punkt.|That brings me to the next point.
+p|Damit komme ich zum Ende meiner Präsentation.|With that I come to the end of my presentation.
+p|Vielen Dank für Ihre Aufmerksamkeit.|Thank you for your attention.
+p|Haben Sie noch Fragen?|Do you have any questions?
+p|Das ist eine gute Frage.|That's a good question.
+p|Wie meinen Sie das genau?|What exactly do you mean?
+p|Mir hat deine Präsentation gut gefallen, besonders ...|I liked your presentation, especially ...
+p|Ich habe eine Frage zu ...|I have a question about ...
+p|Entschuldigung, können Sie das bitte wiederholen?|Sorry, could you repeat that please?
+p|Wie sagt man ... auf Deutsch?|How do you say ... in German?
+p|Ich habe das Wort vergessen, aber ich meine ...|I've forgotten the word, but I mean ...
+n|die|Präsentation|Präsentationen|presentation|Meine Präsentation dauert drei Minuten.
+n|der|Punkt|Punkte|point|Das ist ein wichtiger Punkt.
+n|die|Folie|Folien|slide|Auf der ersten Folie sehen Sie das Thema.
+n|das|Thema|Themen|topic|Das Thema ist Umwelt.|-ma is mostly das: das Thema, das Klima
+
+## 15 | Prüfung Sprechen: Meinung, Diskussion, gemeinsam planen
+p|Ich bin der Meinung, dass ...|I am of the opinion that ...
+p|Ich denke / glaube, dass ...|I think / believe that ...
+p|Da hast du recht.|You're right there.
+p|Das sehe ich genauso.|I see it the same way.
+p|Da bin ich anderer Meinung.|I disagree.
+p|Das stimmt, aber ...|That's true, but ...
+p|Ich bin nicht sicher, ob das eine gute Idee ist.|I'm not sure that's a good idea.
+p|Was meinst du dazu?|What do you think about it?
+p|Wie findest du die Idee?|How do you like the idea?
+p|Wollen wir zusammen ... ?|Shall we ... together?
+p|Wann hast du Zeit?|When do you have time?
+p|Am Freitag kann ich leider nicht. Wie wäre es mit Samstag?|Unfortunately I can't on Friday. How about Saturday?
+p|Das passt mir gut.|That suits me well.
+p|Wer kümmert sich um ...?|Who will take care of ...?
+p|Ich kann ... übernehmen.|I can take over ...
+p|Sollen wir ... oder lieber ...?|Should we ... or rather ...?
+p|Gute Idee! Das machen wir.|Good idea! Let's do that.
+p|Dann sind wir uns einig.|Then we agree.
+p|Also, wir treffen uns um ... am ...|So, we'll meet at ... at ...
+p|Moment, lass mich kurz überlegen.|Wait, let me think for a moment.
+p|Ich habe einen anderen Vorschlag.|I have a different suggestion.
+p|Darüber müssen wir noch sprechen.|We still need to talk about that.
+n|der|Vorschlag|Vorschläge|suggestion|Das ist ein guter Vorschlag.
+n|die|Idee|Ideen|idea|Ich habe eine Idee.
+n|die|Diskussion|Diskussionen|discussion|Die Diskussion war interessant.
+n|das|Argument|Argumente|argument (reason)|Das ist ein starkes Argument.
+n|die|Party|Partys|party|Wir planen eine Party.
+v|vorschlagen|schlägt vor|schlug vor|hat vorgeschlagen|to suggest|Ich schlage vor, dass wir früher gehen.
+v|überlegen|überlegt|überlegte|hat überlegt|to think about, consider|Ich muss noch überlegen.
+v|übernehmen|übernimmt|übernahm|hat übernommen|to take over|Ich übernehme die Getränke.
+v|sich einigen|einigt sich|einigte sich|hat sich geeinigt|to agree, come to an agreement|Wir haben uns geeinigt.
+v|widersprechen|widerspricht|widersprach|hat widersprochen|to contradict|Ich muss dir widersprechen.
+
+## 16 | Leben in Deutschland: Staat und Geschichte
+n|das|Grundgesetz|-|Basic Law (German constitution)|Das Grundgesetz gilt seit 1949.
+n|der|Bundestag|-|federal parliament|Der Bundestag wird alle vier Jahre gewählt.
+n|der|Bundesrat|-|federal council (of the states)|Im Bundesrat sitzen Vertreter der Länder.
+n|der|Bundeskanzler|Bundeskanzler|federal chancellor|Der Bundeskanzler leitet die Regierung.
+n|der|Bundespräsident|Bundespräsidenten|federal president|Der Bundespräsident ist das Staatsoberhaupt.
+n|das|Bundesland|Bundesländer|federal state|Deutschland hat 16 Bundesländer.
+n|die|Hauptstadt|Hauptstädte|capital|Berlin ist die Hauptstadt.
+n|der|Rechtsstaat|Rechtsstaaten|constitutional state|Deutschland ist ein Rechtsstaat.
+n|der|Sozialstaat|Sozialstaaten|welfare state|Der Sozialstaat hilft Menschen in Not.
+n|die|Gewaltenteilung|-|separation of powers|Die Gewaltenteilung schützt die Demokratie.
+n|das|Gericht|Gerichte|court; dish|Das Gericht hat entschieden.
+n|das|Wahlrecht|-|right to vote|Das Wahlrecht hat man ab 18 Jahren.
+n|die|Meinungsfreiheit|-|freedom of speech|Meinungsfreiheit ist ein Grundrecht.
+n|das|Grundrecht|Grundrechte|fundamental right|Die Grundrechte stehen im Grundgesetz.
+n|die|Würde|-|dignity|Die Würde des Menschen ist unantastbar.
+n|die|Opposition|Oppositionen|opposition|Die Opposition kritisiert die Regierung.
+n|die|Europäische Union|-|European Union|Deutschland ist Mitglied der Europäischen Union.
+n|der|Krieg|Kriege|war|Der Zweite Weltkrieg endete 1945.
+n|der|Frieden|-|peace|Wir leben seit Jahrzehnten in Frieden.
+n|die|Mauer|Mauern|wall|Die Berliner Mauer fiel 1989.
+n|die|Wiedervereinigung|-|reunification|Die Wiedervereinigung war am 3. Oktober 1990.
+n|die|DDR|-|GDR (East Germany)|Die DDR existierte von 1949 bis 1990.
+n|der|Nationalsozialismus|-|National Socialism|Im Nationalsozialismus gab es keine Freiheit.|-ismus is always der
+n|die|Diktatur|Diktaturen|dictatorship|Die DDR war eine Diktatur.
+n|die|Flagge|Flaggen|flag|Die deutsche Flagge ist schwarz-rot-gold.
+v|gegründet werden|wird gegründet|wurde gegründet|ist gegründet worden|to be founded|1949 wurde die Bundesrepublik gegründet.
+v|wiedervereinigen|vereinigt wieder|vereinigte wieder|hat wiedervereinigt|to reunify|1990 wurde Deutschland wiedervereinigt.
+v|kontrollieren|kontrolliert|kontrollierte|hat kontrolliert|to control, check|Das Parlament kontrolliert die Regierung.
+w|unantastbar|inviolable|Die Würde des Menschen ist unantastbar.
+w|gleichberechtigt|equal (in rights)|Männer und Frauen sind gleichberechtigt.
+w|geheim|secret|Die Wahl ist geheim.
+w|frei|free|Die Wahlen sind frei.
+
+## 17 | Leben in Deutschland: Alltag, Ämter, Prüfungstag
+n|das|Amt|Ämter|(government) office|Ich muss zum Amt.
+n|die|Behörde|Behörden|authority, agency|Die Behörde ist für Visa zuständig.
+n|das|Bürgeramt|Bürgerämter|citizens' office|Im Bürgeramt melde ich meine Adresse an.
+n|die|Ausländerbehörde|Ausländerbehörden|immigration office|Ich habe einen Termin bei der Ausländerbehörde.
+n|das|Jobcenter|Jobcenter|job centre|Das Jobcenter hilft bei der Arbeitssuche.
+n|der|Antrag|Anträge|application (form)|Ich stelle einen Antrag.
+n|das|Formular|Formulare|form|Füllen Sie das Formular aus.
+n|die|Unterschrift|Unterschriften|signature|Hier fehlt Ihre Unterschrift.
+n|der|Ausweis|Ausweise|ID card|Zeigen Sie bitte Ihren Ausweis.
+n|die|Aufenthaltserlaubnis|Aufenthaltserlaubnisse|residence permit|Meine Aufenthaltserlaubnis läuft bald ab.|-nis words can be die: die Erlaubnis
+n|das|Visum|Visa|visa|Ich brauche ein Visum.
+n|die|Wartenummer|Wartenummern|queue number|Ziehen Sie bitte eine Wartenummer.
+n|die|Frist|Fristen|deadline|Die Frist endet am 31. März.
+n|die|Unterlagen|(pl)|documents|Bringen Sie alle Unterlagen mit.
+n|die|Bescheinigung|Bescheinigungen|certificate, confirmation|Ich brauche eine Bescheinigung vom Arbeitgeber.
+n|die|Krankenkasse|Krankenkassen|health insurance fund|Bei welcher Krankenkasse sind Sie?
+n|die|Rente|Renten|pension|Mit 67 bekommt man Rente.
+n|das|Kindergeld|-|child benefit|Wir bekommen Kindergeld.
+n|die|Schulpflicht|-|compulsory schooling|In Deutschland gibt es Schulpflicht.
+n|der|Prüfungsteil|Prüfungsteile|part of the exam|Die Prüfung hat vier Prüfungsteile.
+n|das|Hörverstehen|-|listening comprehension|Im Hörverstehen hört man Texte.
+n|das|Leseverstehen|-|reading comprehension|Das Leseverstehen dauert 65 Minuten.
+
+n|die|Aufgabe|Aufgaben|task|Lesen Sie die Aufgabe genau.
+n|der|Prüfer|Prüfer|examiner|Der Prüfer stellt Fragen.
+n|das|Ergebnis|Ergebnisse|result|Das Ergebnis kommt nach vier Wochen.
+v|sich ummelden|meldet sich um|meldete sich um|hat sich umgemeldet|to re-register (new address)|Nach dem Umzug muss man sich ummelden.
+v|ablaufen|läuft ab|lief ab|ist abgelaufen|to expire|Mein Pass ist abgelaufen.
+v|verlängern|verlängert|verlängerte|hat verlängert|to extend, renew|Ich muss mein Visum verlängern.
+v|einreichen|reicht ein|reichte ein|hat eingereicht|to submit|Reichen Sie die Unterlagen bis Freitag ein.
+v|ankreuzen|kreuzt an|kreuzte an|hat angekreuzt|to tick (a box)|Kreuzen Sie die richtige Antwort an.
+v|zuordnen|ordnet zu|ordnete zu|hat zugeordnet|to match|Ordnen Sie die Überschriften den Texten zu.
+w|zuständig|responsible (in charge)|Wer ist dafür zuständig?
+w|gültig|valid|Der Pass ist nicht mehr gültig.
+w|richtig|correct|Ist die Antwort richtig?
+w|falsch|wrong|Das ist leider falsch.
+p|Ich hätte gern einen Termin.|I'd like an appointment.
+p|Welche Unterlagen brauche ich?|Which documents do I need?
+p|Bis wann muss ich das abgeben?|By when do I have to hand that in?
+p|Ich verstehe das nicht ganz. Können Sie das einfacher erklären?|I don't quite understand. Can you explain more simply?

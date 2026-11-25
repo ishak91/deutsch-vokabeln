@@ -1,0 +1,32 @@
+services:
+  web:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      MONGODB_URI: mongodb://mongo:27017
+      MONGODB_DB: german_vocab
+      TTS_URL: http://tts:5002
+      VOCAB_FILE: /app/data/vocab-data.txt
+    volumes:
+      - ./data:/app/data        # edit data/vocab-data.txt without rebuilding
+    depends_on:
+      - mongo
+      - tts
+    restart: unless-stopped
+
+  mongo:
+    image: mongo:7
+    volumes:
+      - mongo-data:/data/db     # your progress lives here
+    restart: unless-stopped
+
+  tts:
+    build: ./tts
+    volumes:
+      - tts-cache:/cache
+    restart: unless-stopped
+
+volumes:
+  mongo-data:
+  tts-cache:

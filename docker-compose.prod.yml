@@ -1,0 +1,21 @@
+# Server (e.g. Oracle Cloud) additions: HTTPS + password login in front of the app.
+# Used by deploy/setup.sh:  docker compose -f docker-compose.yml -f docker-compose.prod.yml up -d --build
+services:
+  web:
+    ports: !reset []          # not exposed directly; only through Caddy
+  caddy:
+    image: caddy:2
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./deploy/Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy-data:/data      # HTTPS certificates
+      - caddy-config:/config
+    depends_on:
+      - web
+    restart: unless-stopped
+
+volumes:
+  caddy-data:
+  caddy-config:

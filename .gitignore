@@ -1,0 +1,19 @@
+# Dependencies and build output
+node_modules/
+.next/
+out/
+__pycache__/
+*.pyc
+
+# Server login file written by deploy/setup.sh (contains the password hash)
+deploy/Caddyfile
+
+# Local settings and secrets
+.env
+.env.*
+*.key
+*.pem
+
+# Logs and OS files
+*.log
+.DS_Store

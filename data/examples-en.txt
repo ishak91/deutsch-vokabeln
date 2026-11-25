@@ -1,0 +1,923 @@
+# English translations of the example sentences: German|English. Add a line when you add a new example.
+Meine Familie ist klein.|My family is small.
+Meine Mutter heißt Anna.|My mother's name is Anna.
+Mein Vater arbeitet viel.|My father works a lot.
+Meine Eltern wohnen in Berlin.|My parents live in Berlin.
+Ich habe einen Bruder.|I have a brother.
+Meine Schwester ist älter als ich.|My sister is older than me.
+Hast du Geschwister?|Do you have brothers or sisters?
+Ihr Sohn ist fünf Jahre alt.|Her son is five years old.
+Unsere Tochter geht zur Schule.|Our daughter goes to school.
+Wir haben zwei Kinder.|We have two children.
+Das ist mein Mann.|This is my husband.
+Frau Müller ist nett.|Mrs Müller is nice.
+Am Sonntag besuchen wir die Großeltern.|On Sunday we visit our grandparents.
+Mein Onkel wohnt in München.|My uncle lives in Munich.
+Meine Tante kommt aus Polen.|My aunt comes from Poland.
+Wie ist Ihr Name?|What is your name?
+Mein Vorname ist Ishak.|My first name is Ishak.
+Bitte schreiben Sie Ihren Familiennamen.|Please write your surname.
+Alter: 30 Jahre|Age: 30 years
+Ich bin 30 Jahre alt.|I am 30 years old.
+Aus welchem Land kommst du?|Which country do you come from?
+Ich spreche drei Sprachen.|I speak three languages.
+Was sind Sie von Beruf?|What do you do for a living?
+Wie ist deine Adresse?|What is your address?
+Kannst du mir deine Telefonnummer geben?|Can you give me your phone number?
+Guten Tag!|Hello! / Good day!
+Am Morgen trinke ich Kaffee.|In the morning I drink coffee.
+Am Abend sehe ich fern.|In the evening I watch TV.
+Gute Nacht!|Good night!
+Die Woche hat sieben Tage.|The week has seven days.
+Am Wochenende schlafe ich lange.|At the weekend I sleep in.
+Es ist acht Uhr.|It is eight o'clock.
+Ich habe keine Zeit.|I have no time.
+Das Frühstück ist um sieben.|Breakfast is at seven.
+Wir essen um zwölf Mittagessen.|We eat lunch at twelve.
+Was gibt es zum Abendessen?|What's for dinner?
+In meiner Freizeit lese ich.|In my free time I read.
+Mein Hobby ist Fußball.|My hobby is football.
+Ich mache gern Sport.|I like doing sport.
+Ich höre gern Musik.|I like listening to music.
+Das Buch ist spannend.|The book is exciting.
+Wir sehen einen Film.|We are watching a film.
+Ich treffe meine Freunde.|I'm meeting my friends.
+Meine Freundin heißt Lena.|My girlfriend's name is Lena.
+Ich heiße Ishak.|My name is Ishak.
+Ich wohne in Hamburg.|I live in Hamburg.
+Ich komme aus Sri Lanka.|I come from Sri Lanka.
+Ich bin müde.|I am tired.
+Ich habe einen Hund.|I have a dog.
+Sprechen Sie Englisch?|Do you speak English?
+Ich arbeite im Büro.|I work in the office.
+Was machst du heute?|What are you doing today?
+Ich stehe um sechs Uhr auf.|I get up at six o'clock.
+Wir frühstücken zusammen.|We have breakfast together.
+Was hast du gegessen?|What did you eat?
+Ich trinke Tee.|I drink tea.
+Hast du gut geschlafen?|Did you sleep well?
+Ich lerne Deutsch.|I am learning German.
+Er liest die Zeitung.|He is reading the newspaper.
+Die Kinder spielen im Park.|The children are playing in the park.
+Hörst du Radio?|Do you listen to the radio?
+Am Abend sehen wir fern.|In the evening we watch TV.
+Ich koche gern.|I like cooking.
+Ich treffe dich um acht.|I'll meet you at eight.
+Ich gehe nach Hause.|I'm going home.
+Der Kurs fängt um neun an.|The course starts at nine.
+Ich dusche am Morgen.|I shower in the morning.
+Ich bin verheiratet.|I am married.
+Mein Bruder ist ledig.|My brother is single.
+Sie ist geschieden.|She is divorced.
+Er ist noch jung.|He is still young.
+Wie alt bist du?|How old are you?
+Ich schwimme gern.|I like swimming.
+Ich gehe oft ins Kino.|I often go to the cinema.
+Manchmal koche ich.|Sometimes I cook.
+Ich trinke immer Kaffee.|I always drink coffee.
+Ich rauche nie.|I never smoke.
+Heute ist Montag.|Today is Monday.
+Morgen habe ich frei.|Tomorrow I have the day off.
+Gestern war ich müde.|Yesterday I was tired.
+Ich stehe früh auf.|I get up early.
+Es ist schon spät.|It's already late.
+Am Montag arbeite ich.|On Monday I work.
+Am Sonntag schlafe ich lange.|On Sunday I sleep in.
+Die Wohnung hat drei Zimmer.|The flat has three rooms.
+Das Haus ist alt.|The house is old.
+Mein Zimmer ist klein.|My room is small.
+Die Küche ist modern.|The kitchen is modern.
+Das Bad ist neben der Küche.|The bathroom is next to the kitchen.
+Das Schlafzimmer ist ruhig.|The bedroom is quiet.
+Wir sitzen im Wohnzimmer.|We are sitting in the living room.
+Die Wohnung hat einen Balkon.|The flat has a balcony.
+Die Miete ist 800 Euro.|The rent is 800 euros.
+Ich rufe den Vermieter an.|I'm calling the landlord.
+Ich wohne im dritten Stock.|I live on the third floor.
+Gibt es einen Aufzug?|Is there a lift?
+Die Treppe ist links.|The stairs are on the left.
+Mach bitte die Tür zu.|Please close the door.
+Das Fenster ist offen.|The window is open.
+Der Tisch ist aus Holz.|The table is made of wood.
+Wir brauchen noch einen Stuhl.|We need one more chair.
+Das Bett ist bequem.|The bed is comfortable.
+Die Kleidung ist im Schrank.|The clothes are in the wardrobe.
+Das Sofa ist neu.|The sofa is new.
+Die Lampe ist kaputt.|The lamp is broken.
+Die Milch ist im Kühlschrank.|The milk is in the fridge.
+Hamburg ist eine große Stadt.|Hamburg is a big city.
+Meine Eltern wohnen in einem Dorf.|My parents live in a village.
+In welcher Straße wohnst du?|Which street do you live on?
+Der Marktplatz ist schön.|The market square is beautiful.
+An der Kreuzung gehen Sie rechts.|At the crossroads, turn right.
+Die Ampel ist rot.|The traffic light is red.
+Wie komme ich zum Bahnhof?|How do I get to the station?
+Die Haltestelle ist da vorne.|The stop is just ahead.
+Ich fahre mit dem Bus.|I go by bus.
+Die Straßenbahn kommt gleich.|The tram is coming soon.
+Nimm die U-Bahn!|Take the underground!
+Der Zug hat Verspätung.|The train is delayed.
+Ich habe kein Auto.|I don't have a car.
+Ich fahre mit dem Fahrrad zur Arbeit.|I cycle to work.
+Ich kaufe eine Fahrkarte.|I'm buying a ticket.
+Schau mal auf den Fahrplan.|Have a look at the timetable.
+Der Flughafen ist weit weg.|The airport is far away.
+Ich gehe zur Post.|I'm going to the post office.
+Die Bank ist geschlossen.|The bank is closed.
+Wo ist die nächste Apotheke?|Where is the nearest pharmacy?
+Er ist im Krankenhaus.|He is in hospital.
+Der Supermarkt ist um die Ecke.|The supermarket is around the corner.
+Das Rathaus ist im Zentrum.|The town hall is in the centre.
+Ich wohne im Zentrum.|I live in the centre.
+Die Kirche ist sehr alt.|The church is very old.
+Wir gehen in den Park.|We're going to the park.
+Das Café ist an der Ecke.|The café is on the corner.
+Können Sie mir den Weg zeigen?|Can you show me the way?
+Mein Nachbar ist sehr nett.|My neighbour is very nice.
+Ich fahre mit dem Zug.|I go by train.
+Nehmen Sie den Bus Nummer 5.|Take bus number 5.
+Steig schnell ein!|Get in quickly!
+Wir steigen am Bahnhof aus.|We get off at the station.
+Sie müssen in Köln umsteigen.|You have to change trains in Cologne.
+Der Zug fährt um 9 Uhr ab.|The train leaves at 9 o'clock.
+Wann kommst du an?|When do you arrive?
+Ich finde den Weg nicht.|I can't find the way.
+Ich suche eine Wohnung.|I'm looking for a flat.
+Kannst du mir das zeigen?|Can you show me that?
+Wir mieten eine Wohnung.|We are renting a flat.
+Wir sind letztes Jahr umgezogen.|We moved last year.
+Ich weiß es nicht.|I don't know.
+Kennst du Berlin?|Do you know Berlin?
+Gehen Sie links.|Go left.
+Dann rechts.|Then right.
+Immer geradeaus!|Keep going straight ahead!
+Ist es weit?|Is it far?
+Der Park ist ganz nah.|The park is very close.
+Die Wohnung ist groß.|The flat is big.
+Das Zimmer ist klein.|The room is small.
+Die Küche ist hell.|The kitchen is bright.
+Der Flur ist dunkel.|The hallway is dark.
+Die Straße ist ruhig.|The street is quiet.
+Die Nachbarn sind laut.|The neighbours are loud.
+Die Miete ist teuer.|The rent is expensive.
+Das Ticket ist billig.|The ticket is cheap.
+Die Bank ist neben der Post.|The bank is next to the post office.
+Gegenüber ist ein Café.|There's a café opposite.
+Zwischen Kino und Bank.|Between the cinema and the bank.
+Der Keller ist unten.|The cellar is downstairs.
+Das Bad ist oben.|The bathroom is upstairs.
+Ich kaufe neue Kleidung.|I'm buying new clothes.
+Die Hose ist zu lang.|The trousers are too long.
+Er trägt ein weißes Hemd.|He is wearing a white shirt.
+Das T-Shirt kostet 10 Euro.|The T-shirt costs 10 euros.
+Der Pullover ist warm.|The pullover is warm.
+Nimm eine Jacke mit!|Take a jacket with you!
+Im Winter trage ich einen Mantel.|In winter I wear a coat.
+Das Kleid steht dir gut.|The dress suits you.
+Sie trägt einen Rock.|She is wearing a skirt.
+Die Schuhe sind bequem.|The shoes are comfortable.
+Ich brauche Stiefel für den Winter.|I need boots for the winter.
+Wo sind meine Socken?|Where are my socks?
+Es ist kalt, setz eine Mütze auf.|It's cold, put a hat on.
+Welche Größe haben Sie?|What size are you?
+Welche Farbe gefällt dir?|Which colour do you like?
+Das Geschäft öffnet um neun.|The shop opens at nine.
+Der Laden ist klein.|The shop is small.
+Bitte zahlen Sie an der Kasse.|Please pay at the till.
+Der Preis ist gut.|The price is good.
+Heute gibt es ein Angebot.|There's a special offer today.
+Ich habe kein Geld dabei.|I don't have any money on me.
+Das kostet fünf Euro.|That costs five euros.
+Kann ich mit Kreditkarte zahlen?|Can I pay by credit card?
+Brauchen Sie eine Tüte?|Do you need a bag?
+Ich kaufe Brot.|I'm buying bread.
+Zwei Brötchen, bitte.|Two bread rolls, please.
+Die Milch ist alle.|The milk is all gone.
+Ich esse gern Käse.|I like eating cheese.
+Eine Wurst mit Senf, bitte.|A sausage with mustard, please.
+Ich esse kein Fleisch.|I don't eat meat.
+Heute gibt es Fisch.|There's fish today.
+Gemüse ist gesund.|Vegetables are healthy.
+Ich esse viel Obst.|I eat a lot of fruit.
+Ein Kilo Äpfel, bitte.|A kilo of apples, please.
+Wir essen Kartoffeln mit Fisch.|We're eating potatoes with fish.
+Ich brauche sechs Eier.|I need six eggs.
+Was für Getränke haben Sie?|What drinks do you have?
+Ein Glas Wasser, bitte.|A glass of water, please.
+Ich trinke Kaffee mit Milch.|I drink coffee with milk.
+Möchtest du Tee?|Would you like tea?
+Wie ist das Wetter heute?|What's the weather like today?
+Die Sonne scheint.|The sun is shining.
+Morgen gibt es Regen.|Tomorrow there will be rain.
+Im Winter liegt Schnee.|In winter there is snow.
+Der Wind ist stark.|The wind is strong.
+Am Himmel sind viele Wolken.|There are lots of clouds in the sky.
+Der Himmel ist blau.|The sky is blue.
+Es sind 20 Grad.|It's 20 degrees.
+Die Temperatur steigt.|The temperature is rising.
+Im Frühling blühen die Blumen.|In spring the flowers bloom.
+Der Sommer ist heiß.|The summer is hot.
+Im Herbst regnet es oft.|In autumn it often rains.
+Der Winter ist kalt.|The winter is cold.
+Ich habe einen Mantel gekauft.|I bought a coat.
+Er verkauft sein Auto.|He is selling his car.
+Was kostet das?|How much does that cost?
+Ich bezahle bar.|I'm paying in cash.
+Ich brauche neue Schuhe.|I need new shoes.
+Sie trägt eine Brille.|She wears glasses.
+Zieh dich warm an!|Dress warmly!
+Zieh die Schuhe aus.|Take your shoes off.
+Kann ich die Hose anprobieren?|Can I try on the trousers?
+Die Jacke passt mir nicht.|The jacket doesn't fit me.
+Das Kleid gefällt mir.|I like the dress.
+Ich möchte ein Kilo Tomaten.|I would like a kilo of tomatoes.
+Es regnet schon wieder.|It's raining again.
+Gestern hat es geschneit.|It snowed yesterday.
+Der Laden öffnet um acht.|The shop opens at eight.
+Wir schließen um 20 Uhr.|We close at 8 pm.
+Heute ist es kalt.|It's cold today.
+Im Sommer ist es warm.|In summer it's warm.
+Der Kaffee ist heiß.|The coffee is hot.
+Morgen wird es sonnig.|Tomorrow it will be sunny.
+Es ist bewölkt.|It's cloudy.
+Die Straße ist nass.|The street is wet.
+Das Wetter bleibt trocken.|The weather stays dry.
+Das Wetter ist schön.|The weather is nice.
+Die Hose ist zu eng.|The trousers are too tight.
+Der Rock ist lang.|The skirt is long.
+Die Haare sind kurz.|The hair is short.
+Das Angebot ist günstig.|The offer is good value.
+Ich zahle bar.|I pay in cash.
+Ein rotes Kleid.|A red dress.
+Das Gras ist grün.|The grass is green.
+Ein schwarzer Mantel.|A black coat.
+Ein weißes Hemd.|A white shirt.
+Sport ist gut für den Körper.|Sport is good for the body.
+Mein Kopf tut weh.|My head hurts.
+Sie hat blaue Augen.|She has blue eyes.
+Mein Ohr tut weh.|My ear hurts.
+Meine Nase läuft.|My nose is running.
+Mach den Mund auf!|Open your mouth!
+Ich habe Zahnschmerzen.|I have toothache.
+Ich habe Halsschmerzen.|I have a sore throat.
+Er hat sich den Arm gebrochen.|He broke his arm.
+Wasch dir die Hände!|Wash your hands!
+Mein Bein tut weh.|My leg hurts.
+Ich gehe zu Fuß.|I'm walking. / I go on foot.
+Ich habe Bauchschmerzen.|I have a stomach ache.
+Mein Rücken tut weh.|My back hurts.
+Ich muss zum Arzt.|I have to go to the doctor.
+Die Ärztin ist sehr freundlich.|The doctor is very friendly.
+Die Praxis ist am Montag geschlossen.|The surgery is closed on Monday.
+Ich möchte einen Termin machen.|I'd like to make an appointment.
+Das ist eine schwere Krankheit.|That is a serious illness.
+Das Kind hat Fieber.|The child has a fever.
+Ich habe eine Erkältung.|I have a cold.
+Ich habe Husten.|I have a cough.
+Er hat Schnupfen.|He has a runny nose.
+Wo haben Sie Schmerzen?|Where does it hurt?
+Nehmen Sie das Medikament dreimal täglich.|Take the medicine three times a day.
+Ich nehme eine Tablette.|I'm taking a tablet.
+Der Arzt schreibt ein Rezept.|The doctor writes a prescription.
+Haben Sie Ihre Versicherungskarte dabei?|Do you have your insurance card with you?
+Ich brauche eine Krankmeldung für die Arbeit.|I need a sick note for work.
+Im Notfall rufen Sie 112 an.|In an emergency, call 112.
+Wir machen Urlaub in Spanien.|We're going on holiday in Spain.
+Gute Reise!|Have a good trip!
+Das Hotel liegt am Strand.|The hotel is on the beach.
+Mein Koffer ist schwer.|My suitcase is heavy.
+Vergiss deinen Pass nicht!|Don't forget your passport!
+Wir liegen am Strand.|We're lying on the beach.
+Das Meer ist warm.|The sea is warm.
+Wir wandern in den Bergen.|We go hiking in the mountains.
+Der See ist sehr tief.|The lake is very deep.
+Ich war noch nie im Ausland.|I've never been abroad.
+Ich habe das Ticket online gekauft.|I bought the ticket online.
+Ich fühle mich nicht gut.|I don't feel well.
+Können Sie mir helfen?|Can you help me?
+Der Arzt untersucht den Patienten.|The doctor examines the patient.
+Bleib heute im Bett!|Stay in bed today!
+Ich liege im Bett.|I'm lying in bed.
+Ich rufe den Arzt an.|I'm calling the doctor.
+Ich reise gern.|I like travelling.
+Wir fliegen nach Italien.|We're flying to Italy.
+Ich habe ein Hotel gebucht.|I've booked a hotel.
+Hast du den Koffer gepackt?|Have you packed the suitcase?
+Wir sind im Meer geschwommen.|We swam in the sea.
+Am Wochenende wandern wir.|At the weekend we go hiking.
+Ich besuche meine Oma.|I'm visiting my grandma.
+Hast du das Meer gesehen?|Have you seen the sea?
+Ich habe meinen Pass vergessen.|I forgot my passport.
+Du musst dich ausruhen.|You need to rest.
+Ich bin krank.|I am ill.
+Obst ist gesund.|Fruit is healthy.
+Ich bin sehr müde.|I'm very tired.
+Mir ist schlecht.|I feel sick.
+Gute Besserung!|Get well soon!
+Der Koffer ist schwer.|The suitcase is heavy.
+Die Tasche ist leicht.|The bag is light.
+Nehmen Sie die Tabletten dreimal täglich.|Take the tablets three times a day.
+Letzte Woche war ich krank.|Last week I was ill.
+Die Arbeit macht mir Spaß.|I enjoy the work.
+Mein Arbeitsplatz ist im Büro.|My workplace is in the office.
+Ich arbeite in einem Büro.|I work in an office.
+Die Firma hat 200 Mitarbeiter.|The company has 200 employees.
+Mein Chef ist streng.|My boss is strict.
+Die Chefin ist im Urlaub.|The boss is on holiday.
+Mein Kollege hilft mir.|My colleague helps me.
+Meine Kollegin ist krank.|My colleague is ill.
+Um fünf habe ich Feierabend.|I finish work at five.
+Wir machen eine Pause.|We're taking a break.
+Der Lehrer erklärt die Grammatik.|The teacher explains the grammar.
+Die Lehrerin ist freundlich.|The teacher is friendly.
+Die Schüler schreiben einen Test.|The pupils are writing a test.
+Ich bin in Colombo zur Schule gegangen.|I went to school in Colombo.
+Wir waren in der gleichen Klasse.|We were in the same class.
+Mein Lieblingsfach war Mathe.|My favourite subject was maths.
+Ich habe die Prüfung bestanden.|I passed the exam.
+Ich hatte gute Noten.|I had good grades.
+Hast du die Hausaufgaben gemacht?|Did you do your homework?
+In meiner Kindheit habe ich viel gespielt.|In my childhood I played a lot.
+Das Kind hat viel Spielzeug.|The child has lots of toys.
+Mein Sohn geht in den Kindergarten.|My son goes to nursery school.
+Ich habe schöne Erinnerungen.|I have lovely memories.
+In den Ferien fahren wir weg.|We go away in the school holidays.
+Die Fahrt dauert drei Stunden.|The journey takes three hours.
+Der Zug hat 20 Minuten Verspätung.|The train is 20 minutes late.
+Wo kann ich mein Gepäck abgeben?|Where can I leave my luggage?
+Der Zug fährt von Bahnsteig 3 ab.|The train leaves from platform 3.
+Die Rückfahrt war schön.|The return journey was nice.
+Eine Übernachtung kostet 80 Euro.|One night costs 80 euros.
+Berlin hat viele Sehenswürdigkeiten.|Berlin has lots of sights.
+Er verdient gut.|He earns well.
+Die Schule beginnt um acht.|School starts at eight.
+Hör auf!|Stop it!
+Wie lange dauert die Fahrt?|How long does the journey take?
+Ich schreibe eine E-Mail.|I'm writing an e-mail.
+Er rechnet schnell.|He calculates quickly.
+Ich habe das nicht verstanden.|I didn't understand that.
+Kannst du das erklären?|Can you explain that?
+Können Sie das bitte wiederholen?|Could you repeat that, please?
+Ich will die B1-Prüfung bestehen.|I want to pass the B1 exam.
+Ich wollte Arzt werden.|I wanted to become a doctor.
+Als Kind konnte ich nicht schwimmen.|As a child I couldn't swim.
+Ich musste früh aufstehen.|I had to get up early.
+Ich wollte Pilot werden.|I wanted to become a pilot.
+Wir durften nicht fernsehen.|We weren't allowed to watch TV.
+Du sollst mehr schlafen.|You should sleep more.
+Als Kind bin ich auf Bäume geklettert.|As a child I climbed trees.
+Er läuft jeden Morgen.|He runs every morning.
+Wir haben viel erlebt.|We experienced a lot.
+Wir haben im Hotel übernachtet.|We stayed overnight in the hotel.
+Ich hole dich am Bahnhof ab.|I'll pick you up at the station.
+Ich habe den Zug verpasst.|I missed the train.
+Ich freue mich auf den Urlaub.|I'm looking forward to the holiday.
+Als Kind war ich oft draußen.|As a child I was often outside.
+Damals gab es kein Internet.|Back then there was no internet.
+Früher habe ich in Sri Lanka gewohnt.|I used to live in Sri Lanka.
+Bis später!|See you later!
+Der Zug ist pünktlich.|The train is on time.
+Sie ist sehr fleißig.|She is very hard-working.
+Ich war ein fauler Schüler.|I was a lazy pupil.
+Meine Lehrerin war streng.|My teacher was strict.
+Leider habe ich keine Zeit.|Unfortunately I don't have time.
+Zuerst frühstücke ich.|First I have breakfast.
+Dann gehe ich zur Arbeit.|Then I go to work.
+Danach habe ich gekocht.|Afterwards I cooked.
+Zum Schluss sind wir ins Kino gegangen.|Finally we went to the cinema.
+Vor einem Jahr bin ich nach Deutschland gekommen.|I came to Germany a year ago.
+Ich lerne seit drei Monaten Deutsch.|I have been learning German for three months.
+Ich habe ein gutes Gefühl.|I have a good feeling.
+Das macht mir Freude.|That gives me joy.
+Ich habe Angst vor Hunden.|I'm afraid of dogs.
+Liebe auf den ersten Blick.|Love at first sight.
+Ich habe Ärger mit dem Vermieter.|I'm having trouble with the landlord.
+Er hat gute Laune.|He is in a good mood.
+Ich habe viel Stress bei der Arbeit.|I have a lot of stress at work.
+Mach dir keine Sorgen!|Don't worry!
+Viel Glück bei der Prüfung!|Good luck in the exam!
+Was für eine Überraschung!|What a surprise!
+Ich suche das im Internet.|I'll look that up on the internet.
+Der Computer ist langsam.|The computer is slow.
+Mein Handy ist kaputt.|My mobile phone is broken.
+Ich schicke dir eine Nachricht.|I'll send you a message.
+Ich lese die Zeitung online.|I read the newspaper online.
+Die Zeitschrift erscheint jede Woche.|The magazine comes out every week.
+Was kommt heute im Fernsehen?|What's on TV today?
+Der Fernseher ist neu.|The TV set is new.
+Das Programm ist langweilig.|The programme is boring.
+Die Sendung beginnt um acht.|The show starts at eight.
+Im Fernsehen gibt es zu viel Werbung.|There's too much advertising on TV.
+Ich höre Radio im Auto.|I listen to the radio in the car.
+Auf der Webseite finden Sie alle Infos.|You'll find all the information on the website.
+Ich habe mein Passwort vergessen.|I forgot my password.
+Ich lerne mit einer App.|I'm learning with an app.
+Ich habe kein Netz.|I have no signal.
+Der Bildschirm ist zu klein.|The screen is too small.
+Drücken Sie die Taste.|Press the button.
+Ich sehe ein Video auf YouTube.|I'm watching a video on YouTube.
+Schick mir das Foto.|Send me the photo.
+Meiner Meinung nach ist das falsch.|In my opinion that's wrong.
+Wir haben viel gelacht.|We laughed a lot.
+Das Baby weint.|The baby is crying.
+Ich liebe dich.|I love you.
+Ich hoffe, es geht dir gut.|I hope you're well.
+Ich ärgere mich über den Lärm.|I'm annoyed about the noise.
+Ich fühle mich wohl.|I feel comfortable.
+Ich interessiere mich für Politik.|I'm interested in politics.
+Ich vermisse meine Familie.|I miss my family.
+Ich schicke dir die Datei.|I'll send you the file.
+Ich habe deine Nachricht bekommen.|I got your message.
+Lade die App herunter.|Download the app.
+Mach bitte das Licht an.|Please switch the light on.
+Mach den Fernseher aus!|Switch the TV off!
+Ich surfe im Internet.|I'm surfing the internet.
+Ich benutze mein Handy jeden Tag.|I use my phone every day.
+Ich telefoniere mit meiner Mutter.|I'm on the phone with my mother.
+Ich denke oft an dich.|I often think of you.
+Ich glaube, das stimmt.|I think that's right.
+Was meinst du?|What do you think? / What do you mean?
+Erzähl mal!|Tell me!
+Hast du die Datei gespeichert?|Did you save the file?
+Ich bin sehr glücklich.|I'm very happy.
+Warum bist du traurig?|Why are you sad?
+Ich bin froh, dass du da bist.|I'm glad you're here.
+Er ist wütend.|He is angry.
+Vor der Prüfung bin ich nervös.|I'm nervous before the exam.
+Ich bin mit meinem Job zufrieden.|I'm satisfied with my job.
+Ich bin enttäuscht.|I'm disappointed.
+Ich war überrascht.|I was surprised.
+Am Anfang war ich einsam.|At the beginning I was lonely.
+Der Film war langweilig.|The film was boring.
+Das Buch ist interessant.|The book is interesting.
+Die Serie ist sehr lustig.|The series is very funny.
+Das Spiel war spannend.|The game was exciting.
+Ich kaufe viel online.|I buy a lot online.
+Sprich bitte leise.|Please speak quietly.
+Das ist sehr wichtig.|That's very important.
+Er ist ein netter Mensch.|He is a nice person.
+Ein Tisch für vier Personen, bitte.|A table for four, please.
+Das Leben in Deutschland ist anders.|Life in Germany is different.
+Die Geburt war im Krankenhaus.|The birth was in hospital.
+Wann hast du Geburtstag?|When is your birthday?
+Mein Geburtsort ist Kandy.|My place of birth is Kandy.
+Die Hochzeit war wunderschön.|The wedding was beautiful.
+Ihre Ehe ist glücklich.|Their marriage is happy.
+Ihr Ehemann ist Lehrer.|Her husband is a teacher.
+Seine Ehefrau kommt aus Polen.|His wife comes from Poland.
+In meiner Jugend habe ich Fußball gespielt.|In my youth I played football.
+Schicken Sie uns Ihren Lebenslauf.|Send us your CV.
+Sie macht eine Ausbildung als Köchin.|She is training to be a cook.
+Nach dem Studium habe ich gearbeitet.|After my studies I worked.
+Nach dem Tod seines Vaters zog er um.|After his father's death he moved.
+Meine Heimat ist Sri Lanka.|My homeland is Sri Lanka.
+Sie hat einen starken Charakter.|She has a strong character.
+Das Aussehen ist nicht so wichtig.|Appearance isn't so important.
+Sie hat lange Haare.|She has long hair.
+Ich trage eine Brille.|I wear glasses.
+Er hat einen Bart.|He has a beard.
+Das Mädchen heißt Mia.|The girl's name is Mia.
+Der Junge spielt Fußball.|The boy is playing football.
+Die Leute hier sind freundlich.|The people here are friendly.
+Die Mieter haben sich beschwert.|The tenants complained.
+Ich habe den Mietvertrag unterschrieben.|I signed the tenancy agreement.
+Die Nebenkosten sind 200 Euro.|The additional costs are 200 euros.
+Die Kaution beträgt drei Monatsmieten.|The deposit is three months' rent.
+Das Fahrrad steht im Keller.|The bike is in the cellar.
+Wir haben einen kleinen Garten.|We have a small garden.
+Die Heizung funktioniert nicht.|The heating isn't working.
+Bring bitte den Müll raus.|Please take the rubbish out.
+Laut Hausordnung ist ab 22 Uhr Ruhe.|According to the house rules, it's quiet time from 10 pm.
+Ruf den Hausmeister an.|Call the caretaker.
+Wir brauchen neue Möbel.|We need new furniture.
+Ich habe eine Anzeige im Internet gelesen.|I read an advert on the internet.
+Ich wurde 1995 geboren.|I was born in 1995.
+Ich bin in Colombo aufgewachsen.|I grew up in Colombo.
+Sie haben 2020 geheiratet.|They got married in 2020.
+Mein Opa ist letztes Jahr gestorben.|My grandpa died last year.
+Er studierte Informatik.|He studied computer science.
+Er gründete eine Firma.|He founded a company.
+Du siehst müde aus.|You look tired.
+Wir zogen im Mai ein.|We moved in in May.
+Er ist letzten Monat ausgezogen.|He moved out last month.
+Bitte unterschreiben Sie hier.|Please sign here.
+Die Nachbarn beschwerten sich über den Lärm.|The neighbours complained about the noise.
+Ich stelle die Flasche auf den Tisch.|I put the bottle on the table.
+Leg das Buch auf den Tisch.|Put the book on the table.
+Ich hänge das Bild an die Wand.|I'm hanging the picture on the wall.
+Die Lampe steht neben dem Sofa.|The lamp is next to the sofa.
+Wir saßen im Garten.|We sat in the garden.
+Er brachte Blumen mit.|He brought flowers.
+Sie gab mir ihre Nummer.|She gave me her number.
+Sie rief laut meinen Namen.|She called my name loudly.
+Was hat er gesagt?|What did he say?
+Das Glas fiel auf den Boden.|The glass fell on the floor.
+Was ist passiert?|What happened?
+Sie verliebten sich im Urlaub.|They fell in love on holiday.
+Wir lernten uns 2018 kennen.|We met in 2018.
+Die Nachbarin ist freundlich.|The neighbour is friendly.
+Er ist sehr nett.|He is very nice.
+Mein Kollege ist hilfsbereit.|My colleague is helpful.
+Sei ehrlich!|Be honest!
+Die Kinder sind höflich.|The children are polite.
+Als Kind war ich schüchtern.|As a child I was shy.
+Mein Zimmer ist ordentlich.|My room is tidy.
+Er ist groß gewachsen.|He is tall.
+Sie ist schlank.|She is slim.
+Er hat lockige Haare.|He has curly hair.
+Das Zimmer ist möbliert.|The room is furnished.
+Zuerst studierte ich, dann arbeitete ich.|First I studied, then I worked.
+Als ich zehn war, zogen wir um.|When I was ten, we moved.
+Nachdem ich gegessen hatte, ging ich los.|After I had eaten, I set off.
+Bildung ist wichtig.|Education is important.
+Ich mache einen Deutschkurs.|I'm doing a German course.
+Der Integrationskurs hat 700 Stunden.|The integration course has 700 hours.
+Die Anmeldung ist online.|Registration is online.
+Die Gebühr beträgt 200 Euro.|The fee is 200 euros.
+Ich brauche mein Zeugnis.|I need my certificate.
+Nach der Prüfung bekommen Sie ein Zertifikat.|After the exam you get a certificate.
+Welchen Abschluss haben Sie?|What qualification do you have?
+Sie studiert an der Universität.|She studies at the university.
+Er studiert an einer Hochschule.|He studies at a college.
+Die Studenten haben Ferien.|The students are on holiday.
+Sie ist Studentin.|She is a student.
+Ich habe gute Computerkenntnisse.|I have good computer skills.
+Ich habe viel Erfahrung.|I have a lot of experience.
+Welche Fähigkeiten haben Sie?|What skills do you have?
+Die Firma bezahlt die Weiterbildung.|The company pays for the further training.
+Ich mache ein Praktikum.|I'm doing an internship.
+Der Unterricht beginnt um neun.|Lessons start at nine.
+Mach die Übung auf Seite 10.|Do the exercise on page 10.
+Die Grammatik ist schwer.|The grammar is difficult.
+Deine Aussprache ist gut.|Your pronunciation is good.
+Ich benutze ein Wörterbuch.|I use a dictionary.
+Mein Bruder ist Ingenieur.|My brother is an engineer.
+Der Koch kocht sehr gut.|The cook cooks very well.
+Sie arbeitet als Köchin.|She works as a cook.
+Der Verkäufer hilft mir.|The salesperson is helping me.
+Er arbeitet als Krankenpfleger.|He works as a nurse.
+Die Krankenschwester misst Fieber.|The nurse takes the temperature.
+Der Handwerker repariert die Heizung.|The tradesman is repairing the heating.
+Der Mechaniker repariert das Auto.|The mechanic is repairing the car.
+Er ist Busfahrer.|He is a bus driver.
+Der Polizist hilft uns.|The police officer is helping us.
+Ich bin Programmierer.|I'm a programmer.
+Ich suche eine neue Stelle.|I'm looking for a new job.
+Sie arbeitet in Teilzeit.|She works part-time.
+Ich arbeite Vollzeit.|I work full-time.
+Ich habe mich für den Kurs angemeldet.|I've registered for the course.
+Ich nehme an einem Kurs teil.|I'm taking part in a course.
+Sie unterrichtet Deutsch.|She teaches German.
+Ich übe jeden Tag.|I practise every day.
+Kannst du meinen Text korrigieren?|Can you correct my text?
+Bitte füllen Sie das Formular aus.|Please fill in the form.
+Ich bereite mich auf die Prüfung vor.|I'm preparing for the exam.
+Mein Abschluss wurde anerkannt.|My qualification was recognised.
+Er repariert das Fahrrad.|He is repairing the bike.
+Sie pflegt alte Menschen.|She cares for old people.
+Ich kümmere mich um die Kinder.|I take care of the children.
+Ich habe mich für Goethe entschieden.|I've decided on Goethe.
+Ich möchte den Termin ändern.|I'd like to change the appointment.
+Ich will B1 erreichen.|I want to reach B1.
+Er fehlte im Unterricht.|He was absent from class.
+Er lehrt an der Universität.|He teaches at the university.
+Ich bin beruflich oft unterwegs.|I often travel for work.
+Sie ist sehr erfolgreich.|She is very successful.
+Er ist selbstständig.|He is self-employed.
+Er ist seit einem Jahr arbeitslos.|He has been unemployed for a year.
+Der Kurs ist kostenlos.|The course is free.
+Die Prüfung war schwierig.|The exam was difficult.
+Das ist ganz einfach.|That's really easy.
+Ist das möglich?|Is that possible?
+Ich lerne Deutsch, weil ich hier lebe.|I'm learning German because I live here.
+Ich hoffe, dass ich bestehe.|I hope that I pass.
+Wenn ich Zeit habe, lerne ich.|When I have time, I study.
+Ich bin krank, deshalb bleibe ich zu Hause.|I'm ill, so I'm staying at home.
+Es regnet, trotzdem gehe ich spazieren.|It's raining, but I'm going for a walk anyway.
+Wir müssen die Umwelt schützen.|We must protect the environment.
+Ich bin gern in der Natur.|I like being in nature.
+Das Klima ändert sich.|The climate is changing.
+Der Klimawandel ist ein großes Problem.|Climate change is a big problem.
+Wir sparen Energie.|We save energy.
+Strom ist teuer geworden.|Electricity has become expensive.
+Die Luft in der Stadt ist schlecht.|The air in the city is bad.
+Wir trennen den Abfall.|We separate our rubbish.
+Papier kommt in die blaue Mülltonne.|Paper goes in the blue bin.
+Ich bringe die Flaschen zurück.|I'm taking the bottles back.
+Auf der Flasche ist Pfand.|There's a deposit on the bottle.
+Wir sollten weniger Plastik benutzen.|We should use less plastic.
+Wir gehen im Wald spazieren.|We go for walks in the forest.
+Der Baum ist sehr alt.|The tree is very old.
+Ich schenke dir Blumen.|I'm giving you flowers.
+Ich mag Tiere.|I like animals.
+Der Rhein ist ein langer Fluss.|The Rhine is a long river.
+Wir waren auf einer Insel.|We were on an island.
+Die Landschaft ist wunderschön.|The landscape is beautiful.
+Wir fahren an die Küste.|We're going to the coast.
+Die Reise war ein Abenteuer.|The trip was an adventure.
+Das war ein tolles Erlebnis.|That was a great experience.
+Die Unterkunft war sauber.|The accommodation was clean.
+Wir übernachteten in einer Jugendherberge.|We stayed in a youth hostel.
+Der Campingplatz liegt am See.|The campsite is by the lake.
+Wir schliefen im Zelt.|We slept in the tent.
+Am Sonntag machen wir einen Ausflug.|On Sunday we're going on a day trip.
+Wir machten eine Stadtrundfahrt.|We did a city tour.
+Laut Reiseführer ist das Museum toll.|According to the guidebook, the museum is great.
+Ich habe Souvenirs gekauft.|I bought souvenirs.
+Wir fuhren über die Grenze.|We drove across the border.
+Wir standen drei Stunden im Stau.|We were stuck in a traffic jam for three hours.
+Wir müssen die Natur schützen.|We must protect nature.
+Wir sparen Wasser.|We save water.
+In Deutschland trennt man den Müll.|In Germany people separate their rubbish.
+Wirf das nicht weg!|Don't throw that away!
+Autos verschmutzen die Luft.|Cars pollute the air.
+Wir verbrauchen zu viel Energie.|We use too much energy.
+Die Bäume wachsen schnell.|The trees grow quickly.
+Die Temperaturen steigen.|Temperatures are rising.
+Die Preise sind gesunken.|Prices have fallen.
+Wir entdeckten einen schönen Strand.|We discovered a beautiful beach.
+Ich habe meinen Schlüssel verloren.|I've lost my key.
+Komm doch mal vorbei!|Do drop by sometime!
+Wir haben uns im Wald verlaufen.|We got lost in the forest.
+Wir fuhren um sechs Uhr los.|We set off at six o'clock.
+Wann kommst du zurück?|When are you coming back?
+Ich habe viel fotografiert.|I took lots of photos.
+Wir genossen die Sonne.|We enjoyed the sun.
+Kannst du ein Hotel empfehlen?|Can you recommend a hotel?
+Das Fest findet im Juli statt.|The festival takes place in July.
+Fahrradfahren ist umweltfreundlich.|Cycling is environmentally friendly.
+Der Fluss ist schmutzig.|The river is dirty.
+Das Zimmer war sauber.|The room was clean.
+Die Aussicht war wunderschön.|The view was beautiful.
+Ich bin viel unterwegs.|I'm out and about a lot.
+Die Kinder spielen draußen.|The children are playing outside.
+Bei Regen bleiben wir drinnen.|When it rains we stay inside.
+Das musst du unbedingt sehen!|You absolutely have to see that!
+Überall lag Müll.|There was rubbish everywhere.
+Plötzlich fing es an zu regnen.|Suddenly it started to rain.
+Endlich sind wir angekommen.|We've finally arrived.
+Das hat leider nicht geklappt.|Unfortunately that didn't work out.
+Gesundheit ist das Wichtigste.|Health is the most important thing.
+Eine gesunde Ernährung ist wichtig.|A healthy diet is important.
+Du brauchst mehr Bewegung.|You need more exercise.
+Ich möchte Gewicht verlieren.|I'd like to lose weight.
+Sie macht eine Diät.|She is on a diet.
+Das Training ist zweimal pro Woche.|Training is twice a week.
+Ich bin in einem Fußballverein.|I'm in a football club.
+Unsere Mannschaft hat gewonnen.|Our team won.
+Das Spiel endete 2:1.|The game ended 2-1.
+Ich gehe ins Fitnessstudio.|I go to the gym.
+Das Schwimmbad ist im Sommer voll.|The swimming pool is full in summer.
+Wirf den Ball!|Throw the ball!
+Er hat eine Verletzung am Knie.|He has a knee injury.
+Mein Knie tut weh.|My knee hurts.
+Er hatte einen Unfall.|He had an accident.
+Was sind deine Pläne für die Zukunft?|What are your plans for the future?
+Ich habe einen Plan.|I have a plan.
+Mein Ziel ist die B1-Prüfung.|My goal is the B1 exam.
+Was ist dein größter Wunsch?|What is your biggest wish?
+Mein Traum ist ein eigenes Haus.|My dream is a house of my own.
+Es gibt viele Möglichkeiten.|There are many possibilities.
+Das ist eine gute Chance.|That's a good chance.
+Für die Einbürgerung brauche ich B1.|I need B1 for naturalisation.
+Ich möchte die deutsche Staatsangehörigkeit.|I'd like German citizenship.
+Mein Vorsatz: jeden Tag Deutsch lernen.|My resolution: learn German every day.
+Ich trainiere dreimal pro Woche.|I train three times a week.
+Er joggt jeden Morgen im Park.|He jogs in the park every morning.
+Ich fahre gern Rad.|I like cycling.
+Wer hat gewonnen?|Who won?
+Ich habe fünf Kilo abgenommen.|I've lost five kilos.
+Im Winter nehme ich zu.|In winter I put on weight.
+Ich habe aufgehört zu rauchen.|I've stopped smoking.
+Er hat sich beim Fußball verletzt.|He got injured playing football.
+Du solltest dich mehr bewegen.|You should move more.
+Wir planen eine Reise.|We're planning a trip.
+Was hast du am Wochenende vor?|What are you doing at the weekend?
+Ich träume von einem Haus am Meer.|I dream of a house by the sea.
+Ich wünsche dir viel Erfolg.|I wish you every success.
+Ich kann mir vorstellen, in Berlin zu leben.|I can imagine living in Berlin.
+Du schaffst das!|You can do it!
+Ich versuche es noch einmal.|I'll try again.
+Ich beantrage die Einbürgerung.|I'm applying for naturalisation.
+Gib nicht auf!|Don't give up!
+Ich möchte fit bleiben.|I'd like to stay fit.
+Ich mache regelmäßig Sport.|I do sport regularly.
+Ich esse vegetarisch.|I eat vegetarian food.
+Fast Food ist ungesund.|Fast food is unhealthy.
+Er ist sehr stark.|He is very strong.
+Nach der Krankheit war ich schwach.|After the illness I was weak.
+Bald habe ich die Prüfung.|I have the exam soon.
+Irgendwann möchte ich ein Haus kaufen.|Someday I'd like to buy a house.
+Nächstes Jahr mache ich die Prüfung.|Next year I'll take the exam.
+In Zukunft will ich mehr Sport machen.|In future I want to do more sport.
+Vielleicht ziehe ich um.|Maybe I'll move.
+Ich bin sicher, dass du es schaffst.|I'm sure you'll manage it.
+Ich lerne Deutsch, um die Prüfung zu bestehen.|I'm learning German in order to pass the exam.
+Ich spare, damit ich reisen kann.|I'm saving so that I can travel.
+Ich spreche jetzt besser Deutsch.|I speak German better now.
+Am besten lernst du jeden Tag.|It's best to study every day.
+Ich schreibe eine Bewerbung.|I'm writing an application.
+Das Anschreiben sollte eine Seite lang sein.|The cover letter should be one page long.
+Morgen habe ich ein Vorstellungsgespräch.|Tomorrow I have a job interview.
+Ich habe die Stellenanzeige gelesen.|I read the job advert.
+Mein Arbeitgeber ist zufrieden.|My employer is satisfied.
+Arbeitnehmer haben Rechte.|Employees have rights.
+Wir suchen neue Mitarbeiter.|We're looking for new staff.
+Ich habe den Vertrag unterschrieben.|I signed the contract.
+Das Gehalt ist gut.|The salary is good.
+Der Lohn kommt am Monatsende.|The wages come at the end of the month.
+Ich muss Steuern zahlen.|I have to pay taxes.
+Die Versicherung zahlt den Schaden.|The insurance pays for the damage.
+Ich möchte ein Konto eröffnen.|I'd like to open an account.
+Ich mache eine Überweisung.|I'm making a bank transfer.
+Die Rechnung ist zu hoch.|The bill is too high.
+Kann ich eine Quittung haben?|Can I have a receipt?
+Die Kosten sind gestiegen.|The costs have risen.
+Er hat Schulden.|He has debts.
+Ich habe eine Beschwerde.|I have a complaint.
+Es gibt ein Problem mit der Lieferung.|There's a problem with the delivery.
+Die Lieferung ist nicht gekommen.|The delivery didn't arrive.
+Ich möchte meine Bestellung stornieren.|I'd like to cancel my order.
+Der Kunde ist König.|The customer is king.
+Ich rufe den Kundenservice an.|I'm calling customer service.
+Der Schaden ist groß.|The damage is considerable.
+Das Gerät hat zwei Jahre Garantie.|The device has a two-year warranty.
+Ein Umtausch ist nur mit Kassenbon möglich.|An exchange is only possible with a receipt.
+Wir finden eine Lösung.|We'll find a solution.
+Entschuldigung, wo ist der Bahnhof?|Excuse me, where is the station?
+Ich mache viele Überstunden.|I do a lot of overtime.
+Er hat die Kündigung bekommen.|He was given notice.
+Ich bewerbe mich als Verkäufer.|I'm applying for a job as a salesperson.
+Die Firma stellt neue Mitarbeiter ein.|The company is hiring new staff.
+Ich habe meinen Vertrag gekündigt.|I cancelled my contract.
+Wir zahlen getrennt.|We'll pay separately.
+Ich überweise das Geld morgen.|I'll transfer the money tomorrow.
+Ich gebe zu viel Geld aus.|I spend too much money.
+Kannst du mir 10 Euro leihen?|Can you lend me 10 euros?
+Ich habe online Schuhe bestellt.|I ordered shoes online.
+Das Paket wurde nicht geliefert.|The parcel wasn't delivered.
+Kann ich die Jacke umtauschen?|Can I exchange the jacket?
+Ich möchte das Handy zurückgeben.|I'd like to return the phone.
+Wir erstatten Ihnen den Preis.|We'll refund you the price.
+Die Waschmaschine funktioniert nicht.|The washing machine isn't working.
+Ich möchte mich entschuldigen.|I'd like to apologise.
+Ich erwarte eine Antwort.|I expect an answer.
+Bitte antworten Sie bis Freitag.|Please reply by Friday.
+Wir haben einen Termin vereinbart.|We arranged an appointment.
+Ich muss den Termin absagen.|I have to cancel the appointment.
+Das Gerät ist kaputt.|The device is broken.
+Ich bin mit dem Service unzufrieden.|I'm dissatisfied with the service.
+Das ist sehr ärgerlich.|That's very annoying.
+Bitte rufen Sie mich sofort zurück.|Please call me back immediately.
+Bisher habe ich keine Antwort bekommen.|So far I haven't received an answer.
+Das Problem besteht leider immer noch.|Unfortunately the problem still exists.
+Die Miete zahle ich monatlich.|I pay the rent monthly.
+Das Gehalt ist 3000 Euro brutto.|The salary is 3,000 euros gross.
+Netto bleiben 2000 Euro.|That leaves 2,000 euros net.
+Der Vertrag ist befristet.|The contract is fixed-term.
+Ich habe einen unbefristeten Vertrag.|I have a permanent contract.
+Wir leben in einer offenen Gesellschaft.|We live in an open society.
+Ich interessiere mich für die deutsche Kultur.|I'm interested in German culture.
+Deutschland ist ein demokratischer Staat.|Germany is a democratic state.
+Die Regierung plant neue Gesetze.|The government is planning new laws.
+Deutschland ist eine Demokratie.|Germany is a democracy.
+Die nächste Wahl ist im Herbst.|The next election is in autumn.
+Welche Partei wählst du?|Which party do you vote for?
+Das Gesetz gilt für alle.|The law applies to everyone.
+Jeder hat das Recht auf Bildung.|Everyone has the right to education.
+Steuern zahlen ist Pflicht.|Paying taxes is compulsory.
+Die Meinungsfreiheit ist wichtig.|Freedom of speech is important.
+Die Bürger wählen das Parlament.|The citizens elect the parliament.
+In Deutschland gibt es Religionsfreiheit.|In Germany there is freedom of religion.
+Weihnachten ist ein wichtiges Fest.|Christmas is an important festival.
+Morgen ist Feiertag.|Tomorrow is a public holiday.
+Das ist eine alte Tradition.|That's an old tradition.
+Männer und Frauen haben Gleichberechtigung.|Men and women have equal rights.
+Sie arbeitet im Ehrenamt.|She does voluntary work.
+Die Ausstellung im Museum ist toll.|The exhibition in the museum is great.
+Das Museum ist montags geschlossen.|The museum is closed on Mondays.
+Wir gehen heute ins Theater.|We're going to the theatre today.
+Das Konzert war super.|The concert was great.
+Die deutsche Geschichte ist interessant.|German history is interesting.
+Die Mehrheit war dafür.|The majority was in favour.
+Die Bevölkerung wird älter.|The population is getting older.
+Viele Ausländer leben in Berlin.|Many foreigners live in Berlin.
+Sprache ist wichtig für die Integration.|Language is important for integration.
+Wir müssen Vorurteile abbauen.|We must break down prejudices.
+Laut einer Umfrage ...|According to a survey ...
+Das hat viele Vorteile.|That has many advantages.
+Ein Nachteil ist der Preis.|One disadvantage is the price.
+Ab 18 darf man wählen.|You can vote from 18.
+Wer regiert in Deutschland?|Who governs Germany?
+Wir feiern Weihnachten.|We celebrate Christmas.
+Wir diskutieren über Politik.|We discuss politics.
+Er engagiert sich im Verein.|He is involved in the club.
+Ich unterstütze diese Idee.|I support this idea.
+Viele demonstrierten für den Klimaschutz.|Many people demonstrated for climate protection.
+Das ist nicht erlaubt.|That's not allowed.
+Rauchen ist hier verboten.|Smoking is forbidden here.
+Das Gesetz gilt seit 2020.|The law has applied since 2020.
+Was bedeutet dieses Wort?|What does this word mean?
+Sie hat sich gut integriert.|She has integrated well.
+Vergleichen Sie die beiden Länder.|Compare the two countries.
+Ich stimme dir zu.|I agree with you.
+Die Partei lehnte den Plan ab.|The party rejected the plan.
+Er ist politisch aktiv.|He is politically active.
+Die Wahl war demokratisch.|The election was democratic.
+Das ist ein öffentliches Gebäude.|That's a public building.
+Das ist meine private Meinung.|That's my private opinion.
+Die Stadt ist sehr international.|The city is very international.
+Alle Menschen sind gleich.|All people are equal.
+Wir sollten tolerant sein.|We should be tolerant.
+Parken ist hier verboten.|Parking is forbidden here.
+Ist Fotografieren erlaubt?|Is taking photos allowed?
+Einerseits ist es teuer, andererseits praktisch.|On the one hand it's expensive, on the other hand practical.
+Obwohl es regnet, gehe ich raus.|Although it's raining, I'm going out.
+Zum Beispiel in Bayern.|For example in Bavaria.
+Im Betreff steht: Anfrage.|The subject line says: Enquiry.
+Vergiss die Anrede nicht.|Don't forget the salutation.
+Viele Grüße an deine Familie!|Best wishes to your family!
+Vielen Dank für Ihre Anfrage.|Thank you very much for your enquiry.
+Danke für die Einladung!|Thanks for the invitation!
+Ich habe eine Absage bekommen.|I received a rejection.
+Wir freuen uns über Ihre Zusage.|We're pleased about your acceptance.
+Meine Präsentation dauert drei Minuten.|My presentation lasts three minutes.
+Das ist ein wichtiger Punkt.|That's an important point.
+Auf der ersten Folie sehen Sie das Thema.|On the first slide you can see the topic.
+Das Thema ist Umwelt.|The topic is the environment.
+Das ist ein guter Vorschlag.|That's a good suggestion.
+Ich habe eine Idee.|I have an idea.
+Die Diskussion war interessant.|The discussion was interesting.
+Das ist ein starkes Argument.|That's a strong argument.
+Wir planen eine Party.|We're planning a party.
+Ich schlage vor, dass wir früher gehen.|I suggest that we leave earlier.
+Ich muss noch überlegen.|I still have to think about it.
+Ich übernehme die Getränke.|I'll take care of the drinks.
+Wir haben uns geeinigt.|We've come to an agreement.
+Ich muss dir widersprechen.|I have to contradict you.
+Das Grundgesetz gilt seit 1949.|The Basic Law has applied since 1949.
+Der Bundestag wird alle vier Jahre gewählt.|The Bundestag is elected every four years.
+Im Bundesrat sitzen Vertreter der Länder.|Representatives of the states sit in the Bundesrat.
+Der Bundeskanzler leitet die Regierung.|The federal chancellor leads the government.
+Der Bundespräsident ist das Staatsoberhaupt.|The federal president is the head of state.
+Deutschland hat 16 Bundesländer.|Germany has 16 federal states.
+Berlin ist die Hauptstadt.|Berlin is the capital.
+Deutschland ist ein Rechtsstaat.|Germany is a constitutional state.
+Der Sozialstaat hilft Menschen in Not.|The welfare state helps people in need.
+Die Gewaltenteilung schützt die Demokratie.|The separation of powers protects democracy.
+Das Gericht hat entschieden.|The court has decided.
+Das Wahlrecht hat man ab 18 Jahren.|You have the right to vote from age 18.
+Meinungsfreiheit ist ein Grundrecht.|Freedom of speech is a fundamental right.
+Die Grundrechte stehen im Grundgesetz.|The fundamental rights are in the Basic Law.
+Die Würde des Menschen ist unantastbar.|Human dignity is inviolable.
+Die Opposition kritisiert die Regierung.|The opposition criticises the government.
+Deutschland ist Mitglied der Europäischen Union.|Germany is a member of the European Union.
+Der Zweite Weltkrieg endete 1945.|The Second World War ended in 1945.
+Wir leben seit Jahrzehnten in Frieden.|We have lived in peace for decades.
+Die Berliner Mauer fiel 1989.|The Berlin Wall fell in 1989.
+Die Wiedervereinigung war am 3. Oktober 1990.|Reunification was on 3 October 1990.
+Die DDR existierte von 1949 bis 1990.|The GDR existed from 1949 to 1990.
+Im Nationalsozialismus gab es keine Freiheit.|Under National Socialism there was no freedom.
+Die DDR war eine Diktatur.|The GDR was a dictatorship.
+Die deutsche Flagge ist schwarz-rot-gold.|The German flag is black, red and gold.
+1949 wurde die Bundesrepublik gegründet.|The Federal Republic was founded in 1949.
+1990 wurde Deutschland wiedervereinigt.|Germany was reunified in 1990.
+Das Parlament kontrolliert die Regierung.|Parliament controls the government.
+Männer und Frauen sind gleichberechtigt.|Men and women have equal rights.
+Die Wahl ist geheim.|The vote is secret.
+Die Wahlen sind frei.|The elections are free.
+Ich muss zum Amt.|I have to go to the authorities.
+Die Behörde ist für Visa zuständig.|The authority is responsible for visas.
+Im Bürgeramt melde ich meine Adresse an.|At the citizens' office I register my address.
+Ich habe einen Termin bei der Ausländerbehörde.|I have an appointment at the immigration office.
+Das Jobcenter hilft bei der Arbeitssuche.|The job centre helps with looking for work.
+Ich stelle einen Antrag.|I'm submitting an application.
+Füllen Sie das Formular aus.|Fill in the form.
+Hier fehlt Ihre Unterschrift.|Your signature is missing here.
+Zeigen Sie bitte Ihren Ausweis.|Please show your ID card.
+Meine Aufenthaltserlaubnis läuft bald ab.|My residence permit expires soon.
+Ich brauche ein Visum.|I need a visa.
+Ziehen Sie bitte eine Wartenummer.|Please take a queue number.
+Die Frist endet am 31. März.|The deadline ends on 31 March.
+Bringen Sie alle Unterlagen mit.|Bring all your documents.
+Ich brauche eine Bescheinigung vom Arbeitgeber.|I need a certificate from my employer.
+Bei welcher Krankenkasse sind Sie?|Which health insurance fund are you with?
+Mit 67 bekommt man Rente.|At 67 you get a pension.
+Wir bekommen Kindergeld.|We receive child benefit.
+In Deutschland gibt es Schulpflicht.|In Germany schooling is compulsory.
+Die Prüfung hat vier Prüfungsteile.|The exam has four parts.
+Im Hörverstehen hört man Texte.|In listening comprehension you listen to texts.
+Das Leseverstehen dauert 65 Minuten.|Reading comprehension takes 65 minutes.
+Lesen Sie die Aufgabe genau.|Read the task carefully.
+Der Prüfer stellt Fragen.|The examiner asks questions.
+Das Ergebnis kommt nach vier Wochen.|The result comes after four weeks.
+Nach dem Umzug muss man sich ummelden.|After moving you have to re-register.
+Mein Pass ist abgelaufen.|My passport has expired.
+Ich muss mein Visum verlängern.|I have to extend my visa.
+Reichen Sie die Unterlagen bis Freitag ein.|Submit the documents by Friday.
+Kreuzen Sie die richtige Antwort an.|Tick the correct answer.
+Ordnen Sie die Überschriften den Texten zu.|Match the headings to the texts.
+Wer ist dafür zuständig?|Who is responsible for that?
+Der Pass ist nicht mehr gültig.|The passport is no longer valid.
+Ist die Antwort richtig?|Is the answer correct?
+Das ist leider falsch.|Unfortunately that's wrong.
