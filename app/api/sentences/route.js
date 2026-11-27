@@ -1,4 +1,4 @@
-import { getSentences } from "@/lib/db";
+import { getSentences } from "@/lib/content";
 import { withUser } from "@/lib/session";
 export const dynamic = "force-dynamic";
-export const GET = withUser(async () => Response.json(getSentences()));
+export const GET = withUser(async () => Response.json(await getSentences()));

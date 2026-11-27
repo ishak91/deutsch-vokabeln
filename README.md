@@ -27,7 +27,7 @@ Pages: Today · Flashcards (spaced repetition, like Anki) · der/die/das drill w
 In the old app: Settings & save → Export progress. In the new app: Settings → Import progress file.
 
 ## Add or change words
-Edit `data/vocab-data.txt` (format explained at the top), then press **Settings → Reload word list**. No rebuild needed.
+Words, sentences and grammar notes are stored in the database. To add more, an admin imports a JSON file in **Settings → Words and sentences** (download the example file there to see the format). The files in `data/` are the starting list: new lines there are added on restart or with **Settings → Add new entries from the data files**.
 Progress is stored per word (`type:article word`), so adding words never loses progress.
 
 ## Backup

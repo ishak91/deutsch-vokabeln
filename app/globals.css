@@ -213,3 +213,7 @@ select { max-width: 100%; }
 .gtag.on { border-color: var(--ink); }
 .gmore { background: var(--panel); border-radius: 10px; padding: 8px 12px; }
 @media (max-width: 560px) { .sentde { font-size: 21px; } .sentbox { flex-direction: column; } .sentbox .btn { width: 100%; } }
+/* content import preview (Settings) */
+.importbox { margin-top: 12px; padding: 12px 14px; border: 1px solid var(--line); border-radius: 14px; display: grid; gap: 6px; }
+.importbox ul { margin: 4px 0; padding-left: 18px; }
+.importerr { color: var(--bad); }

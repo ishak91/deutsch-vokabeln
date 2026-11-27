@@ -1,4 +1,4 @@
-import { seedWords } from "@/lib/db";
+import { syncFromFiles } from "@/lib/content";
 import { withUser } from "@/lib/session";
-// The word list is shared by everyone, so only an admin reloads it
-export const POST = withUser(async () => Response.json(await seedWords(true)), { admin: true });
+// Adds new entries from the data/ files to the shared database (admin only). Imported entries are kept as they are.
+export const POST = withUser(async () => Response.json(await syncFromFiles(true)), { admin: true });
