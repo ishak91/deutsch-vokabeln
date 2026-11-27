@@ -1,4 +1,4 @@
-# Server (e.g. Oracle Cloud) additions: HTTPS + password login in front of the app.
+# Server (e.g. Oracle Cloud) additions: HTTPS in front of the app (the app has its own login).
 # Used by deploy/setup.sh:  docker compose -f docker-compose.yml -f docker-compose.prod.yml up -d --build
 services:
   web:
