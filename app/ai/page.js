@@ -10,7 +10,7 @@ export default function AiAdmin() {
   const { user, post } = useStore();
   const [info, setInfo] = useState(null), [err, setErr] = useState(""), [msg, setMsg] = useState("");
   const [pick, setPick] = useState(""), [custom, setCustom] = useState("");
-  const [test, setTest] = useState(null);
+  const [test, setTest] = useState(null), [starting, setStarting] = useState(false);
 
   const load = useCallback(async () => {
     const r = await fetch("/api/ai/admin").then(r => r.json());
@@ -33,8 +33,9 @@ export default function AiAdmin() {
     const size = cat ? ` (about ${gb(cat.size)})` : "";
     if (!confirm(`${del ? `First delete ${del}, then download` : "Download"} ${model}${size}?\n\nThe AI is off until the download finishes.`
       + (tooBig ? `\n\nWarning: ${model} needs about ${gb(cat.ram)} of RAM and this server has ${gb(info.ram.total)}. It will probably not run.` : ""))) return;
-    setErr(""); setMsg(""); setTest(null);
-    try { await post("/api/ai/admin", { model }); setCustom(""); await load(); } catch (e) { setErr(e.message); }
+    setErr(""); setMsg(""); setTest(null); setStarting(true);
+    try { await post("/api/ai/admin", { model }); setCustom(""); await load(); } catch (e) { setErr("Couldn't start: " + e.message); }
+    setStarting(false);
   };
   const remove = async (name) => {
     if (!confirm(`Delete ${name}? The AI buttons disappear until you install a model again.`)) return;
@@ -111,10 +112,14 @@ export default function AiAdmin() {
         </div>
         <label className="field small">Or any other Ollama model name<input type="text" placeholder="e.g. qwen3:4b" value={custom} autoCapitalize="none" spellCheck="false" onChange={e => setCustom(e.target.value)} /></label>
         <div className="row" style={{ marginTop: 12 }}>
-          <button className="btn primary" onClick={install} disabled={busy || !info.ok || !model || info.model === model}>
-            {info.model === model ? `${model} is in use` : `Install ${model}`}
+          <button className="btn primary" onClick={install} disabled={busy || starting || !info.ok || !model || info.model === model}>
+            {starting ? "Starting…" : info.model === model ? `${model} is in use` : `Install ${model}`}
           </button>
+          {!info.ok && <button className="btn ghost" onClick={load}>Check again</button>}
         </div>
+        {/* shown here too, because on a phone the top of the page is far away from this button */}
+        {!info.ok && <p className="small fb no">The AI service isn't running, so nothing can be installed yet. Right after an update it can take a few minutes to start. Then press Check again.</p>}
+        {err && <p className="small fb no">{err}</p>}
         <p className="small muted" style={{ marginTop: 10 }}>From a terminal on the server you can do the same: <code>bash deploy/ai-model.sh {model}</code></p>
       </div>
     </>

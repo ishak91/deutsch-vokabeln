@@ -8,11 +8,15 @@ services:
       MONGODB_DB: german_vocab
       TTS_URL: http://tts:5002
       VOCAB_FILE: /app/data/vocab-data.txt
+      OLLAMA_URL: http://ollama:11434
+      AI_MODEL: gemma4:e4b      # suggested on the AI page; admins install or switch models there
     volumes:
       - ./data:/app/data        # edit data/vocab-data.txt without rebuilding
+      - ollama-models:/ollama-models:ro   # only to show free disk space on the AI page
     depends_on:
       - mongo
       - tts
+      - ollama
     restart: unless-stopped
 
   mongo:
@@ -27,6 +31,19 @@ services:
       - tts-cache:/cache
     restart: unless-stopped
 
+  # Self-hosted AI (Ollama, CPU only). No model is downloaded until an admin installs one on the AI page.
+  ollama:
+    image: ollama/ollama:0.40.16
+    volumes:
+      - ollama-models:/root/.ollama
+    environment:
+      OLLAMA_CONTEXT_LENGTH: "2048"   # short prompts; a long context would need gigabytes of extra RAM
+      OLLAMA_NUM_PARALLEL: "1"        # one answer at a time on a small CPU
+      OLLAMA_MAX_LOADED_MODELS: "1"
+      OLLAMA_KEEP_ALIVE: 30m          # stays in RAM 30 minutes after the last question, then frees it
+    restart: unless-stopped
+
 volumes:
   mongo-data:
   tts-cache:
+  ollama-models:
