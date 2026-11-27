@@ -6,6 +6,7 @@ import { schedule, fmtIvl, dayKey } from "@/lib/srs";
 import { SpeakButton, speak } from "@/components/Audio";
 import { DeWord, Forms, ArticleHint, deFull, Example, UmlautBar } from "@/components/Word";
 import { checkTyped } from "@/lib/check";
+import { checkMeaning, pickChoices } from "@/lib/choices";
 import { useKeys } from "@/components/useKeys";
 
 const shuffle = (a) => { for (let i = a.length - 1; i > 0; i--) { const j = (Math.random() * (i + 1)) | 0; [a[i], a[j]] = [a[j], a[i]]; } return a; };
@@ -17,6 +18,8 @@ export default function Learn() {
   const [typed, setTyped] = useState("");
   const [typedRes, setTypedRes] = useState(null);
   const [dontKnow, setDontKnow] = useState(false);
+  // Multiple choice: shown after a wrong typed answer or "I don't know". mc = {opts, picked}
+  const [mc, setMc] = useState(null);
   const inputRef = useRef(null);
   const stateRef = useRef(state); stateRef.current = state;
 
@@ -43,23 +46,42 @@ export default function Learn() {
 
   useEffect(() => { setSession(build()); /* eslint-disable-next-line */ }, []);
   const w = session?.cur ? derived.byId[session.cur] : null;
-  useEffect(() => { setShown(false); setTyped(""); setTypedRes(null); setDontKnow(false); if (w && session.dir === "de" && state.settings.autoSpeak) speak(deFull(w)); /* eslint-disable-next-line */ }, [session?.cur, session?.done]);
+  useEffect(() => { setShown(false); setTyped(""); setTypedRes(null); setDontKnow(false); setMc(null); if (w && session.dir === "de" && state.settings.autoSpeak) speak(deFull(w)); /* eslint-disable-next-line */ }, [session?.cur, session?.done]);
 
+  // Typed answer: DE->EN checks the English meaning (+5), EN->DE the German word (+10/+5/+2).
+  // A wrong answer doesn't reveal yet: it offers multiple choice first.
   const checkAnswer = () => {
-    const r = checkTyped(typed, w);
-    setTypedRes(r || { score: 0, note: "Not quite." });
+    let r;
+    if (session.dir === "de") { const m = checkMeaning(typed, w); r = { score: m?.ok ? 10 : 0, pts: m?.ok ? 5 : 0, note: m?.note || "Not quite." }; if (m?.ok) r.note = r.note.replace("+10", "+5"); }
+    else { r = checkTyped(typed, w) || { score: 0, note: "Not quite." }; r.pts = r.score; if (!r.score) r.note = "Not quite. Pick the right one:"; }
+    setTypedRes(r);
+    if (r.score) reveal(); else openChoices();
+  };
+  const openChoices = () => setMc({ opts: pickChoices(w, data.words, session.dir, derived.curWeek), picked: null });
+  const giveUp = () => { if (!mc) return openChoices(); setDontKnow(true); reveal(); };
+  const pick = (i) => {
+    if (!mc || mc.picked != null || !mc.opts[i]) return;
+    setMc({ ...mc, picked: i });
+    if (!mc.opts[i].ok) setDontKnow(true);
     reveal();
   };
-  const giveUp = () => { setDontKnow(true); reveal(); };
+  const mcOk = mc?.picked != null && mc.opts[mc.picked].ok;
   const reveal = () => { setShown(true); if (w && session.dir === "en" && state.settings.autoSpeak) speak(deFull(w)); };
+  // A right multiple-choice pick is a weaker pass than typing it: graded Hard, +2 points
   const doGrade = (g) => {
-    const card = grade(w.id, g, typedRes?.score || 0);
+    const card = grade(w.id, g, mcOk ? 2 : dontKnow ? 0 : typedRes?.pts || 0);
     stateRef.current = { ...stateRef.current, cards: { ...stateRef.current.cards, [w.id]: card } };
     const learning = card.s === "learn" && card.due - Date.now() < 30 * 60000 ? [...session.learning, w.id] : session.learning;
     setSession(next({ ...session, learning, done: session.done + 1 }));
   };
   useKeys((e) => {
     if (!w) return;
+    if (mc && !shown) {
+      if ("12345".includes(e.key)) pick(+e.key - 1);
+      else if (e.key.toLowerCase() === "d") giveUp();
+      return;
+    }
+    if (shown && mcOk && (e.key === " " || e.key === "Enter")) { e.preventDefault(); doGrade(1); return; }
     if (!shown && e.key.toLowerCase() === "d") { giveUp(); return; }
     if (shown && dontKnow && (e.key === " " || e.key === "Enter")) { e.preventDefault(); doGrade(0); return; }
     if (!shown && (e.key === " " || e.key === "Enter")) { e.preventDefault(); reveal(); }
@@ -89,20 +111,28 @@ export default function Learn() {
     <>
       <div className="row between small muted" style={{ marginBottom: 10 }}>
         <span>{remaining} left · week {w.week} · <span className={"tag " + st}>{st}</span></span>
-        <span><kbd>Space</kbd> show · <kbd>D</kbd> don't know · <kbd>1</kbd>–<kbd>4</kbd> grade</span>
+        <span>{mc && !shown ? <><kbd>1</kbd>–<kbd>{mc.opts.length}</kbd> pick · <kbd>D</kbd> still don't know</> : <><kbd>Space</kbd> show · <kbd>D</kbd> don't know · <kbd>1</kbd>–<kbd>4</kbd> grade</>}</span>
       </div>
       <div className="panel">
         <div className="card">
           {session.dir === "de" ? (
             <>
               <div className="big"><DeWord w={w} /><SpeakButton text={deFull(w)} /></div>
-              <div className="muted small">What does it mean?{w.t === "n" ? " Plural?" : w.t === "v" ? " Präteritum and Perfekt?" : ""}</div>
+              <div className="muted small">What does it mean?{w.t === "n" ? " Plural?" : w.t === "v" ? " Präteritum and Perfekt?" : ""} Type the English for points</div>
+              {!shown && !mc && (
+                <form className="typebox" onSubmit={(e) => { e.preventDefault(); if (typed.trim()) checkAnswer(); }}>
+                  <input ref={inputRef} type="text" placeholder="Type the English (optional)" value={typed}
+                    onChange={(e) => setTyped(e.target.value)} autoComplete="off" autoCapitalize="off" spellCheck={false} />
+                  <button className="btn" type="submit" disabled={!typed.trim()}>Check</button>
+                </form>
+              )}
+              {typedRes && <div className={"typeres s" + typedRes.score}><span className="muted" style={{ fontWeight: 400 }}>You typed “{typed}”. </span>{typedRes.note}</div>}
             </>
           ) : (
             <>
               <div className="big">{w.en}</div>
               <div className="muted small">Say it in German{w.t === "n" ? " with the article" : ""}, or type it for points</div>
-              {!shown && (
+              {!shown && !mc && (
                 <>
                   <form className="typebox" onSubmit={(e) => { e.preventDefault(); if (typed.trim()) checkAnswer(); }}>
                     <input ref={inputRef} type="text" placeholder={w.t === "n" ? "e.g. der Tisch (optional)" : "Type the German (optional)"} value={typed}
@@ -115,6 +145,20 @@ export default function Learn() {
               {typedRes && <div className={"typeres s" + typedRes.score}>{typed && <span className="muted" style={{ fontWeight: 400 }}>You typed “{typed}”. </span>}{typedRes.note}</div>}
             </>
           )}
+          {mc && (
+            <div className="choices" role="group" aria-label="Pick the right answer">
+              {!typedRes && <div className="muted small">No problem. Which one is it?</div>}
+              {mc.opts.map((o, i) => {
+                const cls = mc.picked == null ? "" : o.ok ? " picked-ok" : i === mc.picked ? " picked-no" : " faded";
+                return (
+                  <button key={o.label} type="button" className={"btn choice" + cls} disabled={mc.picked != null} onClick={() => pick(i)}>
+                    <kbd>{i + 1}</kbd><span>{o.label}</span>
+                  </button>
+                );
+              })}
+              {mc.picked != null && <div className={"fb " + (mcOk ? "ok" : "no")}>{mcOk ? "Richtig! +2" : mc.opts[mc.picked].note || "Not this one. The right answer is marked green."}</div>}
+            </div>
+          )}
           {shown && (
             <div style={{ width: "100%" }}>
               <hr className="divider" />
@@ -125,10 +169,19 @@ export default function Learn() {
             </div>
           )}
         </div>
-        {!shown ? (
+        {!shown && mc ? (
+          <div className="row" style={{ justifyContent: "center", marginTop: 8 }}>
+            <button key="still" className="btn ghost" onClick={giveUp}>I still don't know</button>
+          </div>
+        ) : !shown ? (
           <div className="row" style={{ justifyContent: "center", marginTop: 8 }}>
             <button className="btn primary" onClick={reveal}>Show answer</button>
             <button className="btn ghost" onClick={giveUp}>I don't know</button>
+          </div>
+        ) : mcOk ? (
+          <div className="row" style={{ justifyContent: "center", marginTop: 16, flexDirection: "column" }}>
+            <p className="small muted" style={{ margin: 0 }}>You recognised it. Picking counts as “Hard”, so it comes back sooner than a typed answer.</p>
+            <button className="btn primary" onClick={() => doGrade(1)}>Next · again in {previews[1]}</button>
           </div>
         ) : dontKnow ? (
           <div className="row" style={{ justifyContent: "center", marginTop: 16, flexDirection: "column" }}>

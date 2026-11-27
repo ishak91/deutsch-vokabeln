@@ -55,7 +55,7 @@ app/                    Next.js App Router
   layout.js             <html>, theme script (sets data-theme before paint), Inter font, <Shell>
   globals.css           all styles; tokens on :root, dark values under [data-theme="dark"] / prefers-color-scheme
   page.js               Today: due cards, new words this week, points
-  learn/page.js         Flashcards (SRS): EN->DE / DE->EN, optional typed answer, "I don't know", grades 0-3
+  learn/page.js         Flashcards (SRS): EN->DE / DE->EN, optional typed answer, multiple-choice fallback, grades 0-3
   articles/page.js      der/die/das drill with hints
   plurals/page.js       plural drill (uses TypedDrill)
   verbs/page.js         verb-form drill: er-present, Präteritum, Perfekt (uses TypedDrill)
@@ -85,6 +85,7 @@ lib/
   parse.js              parseVocab(text, translations), parseTranslations(text)
   srs.js                SM-2 schedule(prev, grade), status(), fmtIvl(), dayKey()
   check.js              answer checking: check, checkPerf (Perfekt), checkTyped (scores 10/5/2/0)
+  choices.js            checkMeaning (typed English, DE->EN) and pickChoices (multiple-choice options + distractors)
   hints.js              article rules and hints (endings, compounds, natural gender, exceptions)
   conjugate.js          builds full Präsens/Präteritum/Perfekt tables for all pronouns from 4 stored forms
 data/
@@ -147,8 +148,13 @@ Import replaces current progress.
   Mature = interval of 21 days or more.
 - **Current week** is computed from `settings.startDate` (or `weekOverride`); new cards come from weeks up to it.
 - **Points** (`log.pts`): typed EN->DE answer +10 exact, +5 if only case/umlaut is off, +2 right noun with wrong
-  article; each correct drill answer +2.
-- **"I don't know"** shows the answer and grades the card 0, so it comes back within minutes.
+  article; typed DE->EN +5; right multiple-choice pick +2; each correct drill answer +2.
+- **Multiple-choice fallback** (Learn page): a wrong typed answer or "I don't know" first shows 5 options
+  (same word type, from weeks already reached; EN->DE noun options include the article, and one option is the
+  right noun with a wrong article). A right pick is graded 1 Hard (+2 points), a weaker pass than typing.
+  A wrong pick or "I still don't know" shows the answer and grades the card 0, so it comes back within minutes.
+- **Typed DE->EN**: any one of the meanings separated by `,` `;` `/` counts; "to", "the", "a" and brackets are
+  ignored and one typo is forgiven in words of 5+ letters. +5 points.
 - **Article hints (lib/hints.js)** use ending rules, compounds (last part decides) and natural gender, and flag
   exceptions. Keep rules conservative: a wrong hint is worse than none.
 - **Conjugation (lib/conjugate.js)** derives every form from the 4 stored forms (infinitive, er-present,
