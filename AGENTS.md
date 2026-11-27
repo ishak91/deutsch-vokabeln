@@ -91,7 +91,8 @@ components/
   Login.js              login form; first-account setup form when no user exists; optional sign-up
   Word.js               DeWord (coloured article), Forms, ConjTable, ArticleHint, UmlautBar, ScopeSelect, Example
   TypedDrill.js         shared typed-answer drill used by plurals and verbs
-  AskAI.js              "Ask AI why" button, then a small chat (Explain more, own questions); useAiReady(), streamAi()
+  AskAI.js              "Ask AI why" button, then a chat panel (right side on >=1000px, bottom sheet on phones;
+                        Explain more, own questions; scrolls inside); useAiReady(), streamAi()
   Audio.js              speak(text, {repeatSlower}) and <SpeakButton>; repeat clicks within 10 s play slower
   ThemeToggle.js        Auto -> Light -> Dark, stored in localStorage "theme"
   useKeys.js            keyboard shortcuts
