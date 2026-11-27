@@ -44,8 +44,8 @@ Copy this folder to an Ubuntu server, then inside it run:
 ```bash
 bash deploy/setup.sh
 ```
-It installs Docker, opens ports 80/443, asks for a username and password, and starts the app behind HTTPS (Caddy)
-at `https://<server-ip-with-dashes>.sslip.io` (or your own domain). After that, every push to `main` deploys automatically through GitHub Actions (see `.github/workflows/deploy.yml`). To update by hand instead: copy the new code, then `bash deploy/update.sh`.
+It installs Docker, opens ports 80/443, and starts the app behind HTTPS (Caddy)
+at `https://<server-ip-with-dashes>.sslip.io` (or your own domain). Open it and create the first account; it becomes the admin. After that, every push to `main` deploys automatically through GitHub Actions (see `.github/workflows/deploy.yml`). To update by hand instead: copy the new code, then `bash deploy/update.sh`.
 
 ## Working with AI assistants
 See [AGENTS.md](AGENTS.md) for the full project guide (also used by `CLAUDE.md` and `.github/copilot-instructions.md`).

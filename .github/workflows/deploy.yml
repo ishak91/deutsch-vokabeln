@@ -82,7 +82,7 @@ jobs:
           ssh server "sudo docker compose -f '$APP_DIR/docker-compose.yml' -f '$APP_DIR/docker-compose.prod.yml' ps"
           # The first line of the Caddyfile is the site address, e.g. "130-61-26-1.sslip.io {"
           DOMAIN=$(ssh server "head -n1 '$APP_DIR/deploy/Caddyfile'" | awk '{print $1}')
-          # 401 means Caddy is up and asking for the login, which is what we expect
+          # 200 is the app; 401 means an older server Caddyfile still has the basic login, which is fine too
           for i in $(seq 1 18); do
             code=$(curl -s -o /dev/null -w '%{http_code}' --max-time 10 "https://$DOMAIN/" || true)
             echo "https://$DOMAIN -> $code"
