@@ -20,8 +20,18 @@ Stop: `docker compose down` (your progress stays). Start again: `docker compose 
 | `web` | The Next.js app on port 3000 |
 | `mongo` | MongoDB. Your progress is stored in the `mongo-data` volume |
 | `tts` | Piper text-to-speech with the German "Thorsten" voice (free, CC0, works offline). Audio is cached |
+| `ollama` | Self-hosted AI (free, runs on the CPU). Explains wrong answers. The model lives in the `ollama-models` volume |
 
 Pages: Today · Flashcards (spaced repetition, like Anki) · der/die/das drill with hints · Plurals · Verb forms · Word list · Progress · Settings.
+
+## AI teacher (optional)
+A small free AI model runs in the `ollama` container, on your own machine or server. Nothing is sent to an outside company.
+An admin installs it on the **AI** page (first time: pick **Gemma 4 E4B** and press Install, about 10 GB download).
+After that, the Sentences page shows **Ask AI why** under a wrong or almost-right answer.
+- Only one model is kept: switching deletes the old model first, then downloads the new one.
+- From a terminal: `bash deploy/ai-model.sh` shows the model, `bash deploy/ai-model.sh gemma4:e4b` switches.
+- Gemma 4 E4B needs about 12 GB RAM. On a smaller machine use Gemma 3 4B (6 GB) or Gemma 3 1B.
+- The AI only explains. The correct answers and grading still come from the checked sentence list.
 
 ## Move your progress from the old one-page app
 In the old app: Settings & save → Export progress. In the new app: Settings → Import progress file.

@@ -15,7 +15,7 @@ export default function Shell({ children }) {
   const { auth, user, logout, data, state, derived, error, saving } = useStore();
   const ready = data && state && derived;
   const loggedOut = auth && !auth.user;
-  const nav = user?.admin ? [...NAV, ["/users", "Users"]] : NAV;
+  const nav = user?.admin ? [...NAV, ["/users", "Users"], ["/ai", "AI"]] : NAV;
   return (
     <>
       <header className="top">

@@ -4,6 +4,7 @@ import { useStore } from "@/components/Store";
 import { SpeakButton, speak } from "@/components/Audio";
 import { useKeys } from "@/components/useKeys";
 import { ARTS } from "@/components/Word";
+import AskAI from "@/components/AskAI";
 import {
   LEVELS, LEVEL_NAME, LEVEL_CEFR, pointsFor, gradeTranslation, nextLevel, rightsInRow, schedule, pickSentence,
   buildGlossIndex, glossWords,
@@ -176,6 +177,8 @@ function Result({ item, res, input, grammar, openTag, setOpenTag, onOverride, on
         </div>
         {openTag && grammar[openTag] && <p className="gmore">{grammar[openTag].text}</p>}
       </div>
+      {res.final !== "right" && <AskAI body={{ id: item.id, answer: res.skipped ? "" : input, result: res.final }}
+        label={res.skipped ? "Ask AI to explain the sentence" : "Ask AI why"} />}
 
       <div className="row" style={{ justifyContent: "center", marginTop: 14 }}>
         {res.final !== "right" && !res.skipped && <button type="button" className="btn ghost" onClick={onOverride}>I was right</button>}
