@@ -81,7 +81,8 @@ app/                    Next.js App Router
     import/ export/     POST import progress JSON / GET export it
     reset/              POST delete progress (cards, quiz, log)
     reload/             POST add new entries from the data/ files to the database (admin only, content is shared)
-    ai/                 GET  {ok, model, installing}; ai/explain POST {id, answer, result} -> streamed text;
+    ai/                 GET  {ok, model, installing}; ai/explain POST {id, answer, result} -> streamed text,
+                        follow-ups add {history, ask} or {more: true};
                         ai/admin (admin) GET info, POST {model} install or {test:true}, DELETE ?model=
     tts/                GET  ?text=... -> audio/wav, proxies the tts service, supports HTTP Range (iPhone Safari)
 components/
@@ -90,7 +91,7 @@ components/
   Login.js              login form; first-account setup form when no user exists; optional sign-up
   Word.js               DeWord (coloured article), Forms, ConjTable, ArticleHint, UmlautBar, ScopeSelect, Example
   TypedDrill.js         shared typed-answer drill used by plurals and verbs
-  AskAI.js              "Ask AI why" button + streamed answer box; useAiReady(), streamAi()
+  AskAI.js              "Ask AI why" button, then a small chat (Explain more, own questions); useAiReady(), streamAi()
   Audio.js              speak(text, {repeatSlower}) and <SpeakButton>; repeat clicks within 10 s play slower
   ThemeToggle.js        Auto -> Light -> Dark, stored in localStorage "theme"
   useKeys.js            keyboard shortcuts
@@ -249,12 +250,14 @@ Import replaces current progress.
 
 ## AI teacher (Ollama)
 
-- `ollama` service, not exposed, `OLLAMA_CONTEXT_LENGTH=2048`, one request at a time, model unloads after 30 min idle.
+- `ollama` service, not exposed, `OLLAMA_CONTEXT_LENGTH=4096`, one request at a time, model unloads after 30 min idle.
   No model is downloaded automatically: an admin installs one on the AI page (or `deploy/ai-model.sh`).
 - **Only one model on disk.** Installing deletes every installed model first, then pulls the new one (disk and RAM
   are small). The chosen model is stored in `meta` `_id: "ai"`; if it's missing, the first installed model is used.
 - The AI explains; it never grades answers or writes German content (small models make mistakes). The prompt always
   includes the checked accepted answers and grammar note from the database, not text from the client.
+- Follow-up questions: the browser sends the earlier answers/questions back (last 8, trimmed); the server always
+  rebuilds the start of the prompt from the database. Only the first explanation is cached.
 - Thinking models (Gemma 4) get `think: false`, otherwise they "think" silently for a long time on CPU.
 - Server size matters: Gemma 4 E4B needs ~12 GB RAM; the Oracle free tier allows 4 OCPU / 24 GB.
 - Without a model (or without the service, e.g. `MONGODB_URI=memory` dev) the AI buttons simply don't show.

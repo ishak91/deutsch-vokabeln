@@ -26,41 +26,76 @@ export async function streamAi(url, body, onText, signal) {
   return text;
 }
 
-// "- point" lines from the model become a list; **bold** is kept
+// "- point" lines from the model become lists; other lines stay paragraphs; **bold** is kept
 function Pretty({ text }) {
   const bold = (s) => s.split(/\*\*(.+?)\*\*/g).map((p, i) => i % 2 ? <b key={i}>{p}</b> : p);
-  const lines = text.split("\n").map(l => l.trim()).filter(Boolean);
-  const items = lines.filter(l => /^[-*•]\s/.test(l));
-  if (items.length && items.length === lines.length) return <ul>{items.map((l, i) => <li key={i}>{bold(l.replace(/^[-*•]\s+/, ""))}</li>)}</ul>;
-  return lines.map((l, i) => <p key={i}>{bold(l.replace(/^[-*•]\s+/, "• "))}</p>);
+  const blocks = [];
+  for (const l of text.split("\n").map(l => l.trim()).filter(Boolean)) {
+    const item = /^([-*•]|\d+\.)\s+/.test(l) ? l.replace(/^([-*•]|\d+\.)\s+/, "") : null;
+    const last = blocks[blocks.length - 1];
+    if (item != null) Array.isArray(last) ? last.push(item) : blocks.push([item]);
+    else blocks.push(l.replace(/^#+\s*/, ""));
+  }
+  return blocks.map((b, i) => Array.isArray(b)
+    ? <ul key={i}>{b.map((x, j) => <li key={j}>{bold(x)}</li>)}</ul>
+    : <p key={i}>{bold(b)}</p>);
 }
 
-// The button plus the answer box. body is what the explain route needs; label changes with the situation.
+// The button, then a small chat: the first explanation, "Explain more", and your own follow-up questions.
+// body is what the explain route needs; label changes with the situation.
 export default function AskAI({ body, label = "Ask AI why" }) {
   const ready = useAiReady();
-  const [text, setText] = useState(""), [state, setState] = useState("idle"), [err, setErr] = useState("");
-  const ctl = useRef(null);
+  const [msgs, setMsgs] = useState([]);           // [{ role: "assistant" | "user", content }]
+  const [busy, setBusy] = useState(false), [err, setErr] = useState(""), [q, setQ] = useState("");
+  const ctl = useRef(null), endRef = useRef(null);
   useEffect(() => () => ctl.current?.abort(), []);
   if (!ready) return null;
 
-  const ask = async () => {
-    setState("asking"); setErr(""); setText("");
+  // extra = {} for the first explanation, { more: true } or { ask } for a follow-up; shown = the question bubble
+  const send = async (extra = {}, shown = null) => {
+    const history = msgs;
+    const base = shown ? [...history, { role: "user", content: shown }] : history;
+    setBusy(true); setErr(""); setMsgs([...base, { role: "assistant", content: "" }]);
     ctl.current = new AbortController();
-    try { await streamAi("/api/ai/explain", body, setText, ctl.current.signal); setState("done"); }
-    catch (e) { if (e.name !== "AbortError") { setErr(e.message); setState("idle"); } }
+    const show = (t) => setMsgs([...base, { role: "assistant", content: t }]);
+    try {
+      await streamAi("/api/ai/explain", { ...body, ...extra, history: shown ? history : undefined }, show, ctl.current.signal);
+      setQ("");
+    } catch (e) {
+      if (e.name === "AbortError") return;
+      setErr(e.message); setMsgs(history);
+    }
+    setBusy(false);
+    setTimeout(() => endRef.current?.scrollIntoView({ behavior: "smooth", block: "nearest" }), 0);
   };
+  const askOwn = (e) => { e.preventDefault(); const t = q.trim(); if (t && !busy) send({ ask: t }, t); };
 
-  if (state === "idle") return (
+  if (!msgs.length) return (
     <div className="askai">
-      <button type="button" className="btn ghost" onClick={ask}><span aria-hidden>✨</span> {label}</button>
+      <button type="button" className="btn ghost" onClick={() => send()} disabled={busy}><span aria-hidden>✨</span> {label}</button>
       {err && <div className="small fb no">{err}</div>}
     </div>
   );
   return (
     <div className="aibox" aria-live="polite">
       <div className="gtitle">✨ AI teacher</div>
-      {text ? <Pretty text={text} /> : <p className="muted small thinking">Thinking… the small server can take up to a minute.</p>}
-      {state === "done" && <p className="small muted aifoot">AI can make mistakes. The correct answer above is the checked one.</p>}
+      {msgs.map((m, i) => m.role === "user"
+        ? <div key={i} className="aiq">{m.content}</div>
+        : m.content ? <div key={i} className="aia"><Pretty text={m.content} /></div>
+          : <p key={i} className="muted small thinking">Thinking… this can take up to a minute.</p>)}
+      {err && <div className="small fb no">{err}</div>}
+      {!busy && <>
+        <div className="row aiacts">
+          <button type="button" className="btn ghost" onClick={() => send({ more: true }, "Explain it more, please.")}>Explain more</button>
+        </div>
+        <form className="aiask" onSubmit={askOwn}>
+          <input type="text" value={q} onChange={(e) => setQ(e.target.value)} maxLength={500} placeholder="Ask a question about this sentence…"
+            aria-label="Ask the AI teacher a question" autoComplete="off" />
+          <button className="btn primary" type="submit" disabled={!q.trim()}>Ask</button>
+        </form>
+        <p className="small muted aifoot">AI can make mistakes. The correct answer above is the checked one.</p>
+      </>}
+      <div ref={endRef} />
     </div>
   );
 }
