@@ -57,6 +57,7 @@ app/                    Next.js App Router
   globals.css           all styles; tokens on :root, dark values under [data-theme="dark"] / prefers-color-scheme
   page.js               Today: due cards, new words this week, points
   learn/page.js         Flashcards (SRS): EN->DE / DE->EN, optional typed answer, multiple-choice fallback, grades 0-3
+  sentences/page.js     sentence translation DE->EN: graded, grammar note, adaptive Easy/Medium/Hard, rounds of 10
   articles/page.js      der/die/das drill with hints
   plurals/page.js       plural drill (uses TypedDrill)
   verbs/page.js         verb-form drill: er-present, Präteritum, Perfekt (uses TypedDrill)
@@ -68,13 +69,16 @@ app/                    Next.js App Router
     auth/               me (who is logged in, setup needed?), login, logout, setup (first admin), signup, password
     users/              admin only: GET list + stats, POST create, PUT update or {config}, DELETE ?id=
     words/              GET  words + week themes
+    content/            GET  all content as JSON (?example=1 sample file); POST import (admin; preview, ?save=1 saves)
     state/              GET  settings, cards, quiz, log
     review/             POST save one SRS review
     quiz/               POST save one drill result
+    sentences/          GET  sentence bank + grammar topics
+    sentence/           POST save one sentence answer (schedule, points from the sentence level, adaptive level)
     settings/           PUT  update settings
     import/ export/     POST import progress JSON / GET export it
     reset/              POST delete progress (cards, quiz, log)
-    reload/             POST re-seed words from data/vocab-data.txt (admin only, the word list is shared)
+    reload/             POST add new entries from the data/ files to the database (admin only, content is shared)
     tts/                GET  ?text=... -> audio/wav, proxies the tts service, supports HTTP Range (iPhone Safari)
 components/
   Store.js              React context: loads words + state, grade(), quizResult(), totalPoints, derived week info
@@ -88,16 +92,20 @@ components/
 lib/
   auth.js               users (scrypt password hashes), sessions (SHA-256 of a random token), login throttle, config
   session.js            route helpers: getUser(req), withUser(handler, {admin}), sessionCookie()
-  db.js                 Mongo or in-memory store; seedWords, getWords, getState, saveReview, saveQuiz, ...
-  parse.js              parseVocab(text, translations), parseTranslations(text)
+  db.js                 Mongo or in-memory store; getState, saveReview, saveQuiz, saveSentence, import/export progress
+  content.js            shared content in the DB: syncFromFiles, getWords, getSentences, importContent, exportContent
+  parse.js              parseVocab, parseTranslations, parseSentences, parseGrammar (the data/ text formats)
   srs.js                SM-2 schedule(prev, grade), status(), fmtIvl(), dayKey()
   check.js              answer checking: check, checkPerf (Perfekt), checkTyped (scores 10/5/2/0)
   choices.js            checkMeaning (typed English, DE->EN) and pickChoices (multiple-choice options + distractors)
   hints.js              article rules and hints (endings, compounds, natural gender, exceptions)
+  sentences.js          sentence practice: gradeTranslation, nextLevel (adaptive), schedule, pickSentence, word glosses
   conjugate.js          builds full Präsens/Präteritum/Perfekt tables for all pronouns from 4 stored forms
 data/
-  vocab-data.txt        THE word list (see format below). Mounted into the container; edit without rebuilding
+  vocab-data.txt        starting word list (see format below); copied into the database on start
   examples-en.txt       English translation for every example sentence: German|English
+  sentences-data.txt    sentences to translate: s|id|E/M/H|German|English / English|tags|grammar note (see file header)
+  grammar.txt           grammar topic per tag: tag|A1/A2/B1|Title|Explanation
 tts/                    Dockerfile + server.py (Piper). GET /tts?text=, GET /health
 deploy/
   setup.sh              first-time server setup (Docker, iptables 80/443, domain, Caddyfile, start)
@@ -127,7 +135,33 @@ p|German phrase|English                         phrases (Redemittel)
 - Separable verbs keep the particle in the forms: `aufstehen|steht auf|stand auf|ist aufgestanden`.
 - Reflexive verbs start with `sich`: `sich freuen|freut sich|freute sich|hat sich gefreut`.
 - Every example sentence needs a matching line in `data/examples-en.txt` (`German|English`).
-- After editing: Settings -> "Reload word list" in the app (or restart `web`). No rebuild needed.
+- After editing: Settings -> "Add new entries from the data files" (or restart `web`). No rebuild needed.
+
+## Content lives in the database
+
+Words, sentences, grammar topics and week themes are stored in MongoDB (`words`, `sentences`, `grammar`,
+`meta.weeks`) and shared by all accounts. The `data/` text files are only a starting point (`lib/content.js`):
+
+- On server start (and with the Settings button) every file entry is added if missing, and refreshed if it still has
+  `src: "file"`. Entries imported or changed in the app have `src: "import"` and the files never overwrite them.
+- Nothing is deleted automatically (old ids could hold progress).
+- Admins import a JSON file in Settings ("Import file…"): the server checks it and shows a preview (new / replaced /
+  errors), then saves on confirm. Same id = replace, otherwise add. "Download all" exports the same format, so it
+  doubles as a content backup. Format (see `EXAMPLE` in `lib/content.js`, or `/api/content?example=1`):
+
+```json
+{ "weeks": { "18": "Essen und Trinken" },
+  "words": [ { "type": "noun", "week": 18, "article": "der", "word": "Löffel", "plural": "Löffel", "en": "spoon",
+               "example": "Ich brauche einen Löffel.", "exampleEn": "I need a spoon.", "hint": "" },
+             { "type": "verb", "week": 18, "word": "schmecken", "present": "schmeckt", "past": "schmeckte",
+               "perfect": "hat geschmeckt", "en": "to taste" },
+             { "type": "word", "week": 18, "word": "lecker", "en": "tasty" },
+             { "type": "phrase", "week": 18, "word": "Guten Appetit!", "en": "Enjoy your meal!" } ],
+  "sentences": [ { "id": "18e01", "week": 18, "level": "E", "de": "…", "en": ["…", "…"], "tags": ["v2"], "note": "…" } ],
+  "grammar": [ { "tag": "v2", "level": "A1", "title": "…", "text": "…" } ] }
+```
+
+  Sentence `id` is optional on new sentences (the next free `<week><e|m|h><nn>` is used).
 
 **Card ids are `type:word`, with the article for nouns**, e.g. `n:der Tisch`, `v:gehen`, `w:schnell`.
 Progress is keyed by these ids, and they match the old v1 HTML app's export. **Never change how ids are built**, and
@@ -139,19 +173,22 @@ at the right CEFR level for the week's theme, with natural example sentences.
 
 | Collection | `_id` | Content |
 |---|---|---|
-| `words` | card id | parsed entry: `t` (n/v/w/p), `de`, `art`, `pl`, `pres`, `prat`, `perf`, `en`, `ex`, `exEn`, `hint`, `week`, `order` |
+| `words` | card id | parsed entry: `t` (n/v/w/p), `de`, `art`, `pl`, `pres`, `prat`, `perf`, `en`, `ex`, `exEn`, `hint`, `week`, `order`, `src` (file/import) |
+| `sentences` | sentence id | `week`, `lv` (E/M/H), `de`, `en` [accepted answers], `tags`, `note`, `order`, `src` |
+| `grammar` | tag | `level` (A1/A2/B1), `title`, `text`, `src` |
 | `meta` | `weeks` / `config` | week themes; app config `{signup}` (shared by everyone) |
 | `users` | username | `{name, admin, hash, created}`; hash is `scrypt$salt$hash` |
 | `sessions` | SHA-256 of token | `{u, exp}`; TTL index removes expired logins |
 | `settings` | user id | `{value: {startDate, newPerDay, direction, autoSpeak, weekOverride}}` |
 | `cards` | `<user>/<card id>` | `u`, `k` (card id) + SRS state `{s: new/learn/review, ivl, ease, step, reps, lapses, due}` |
 | `quiz` | `<user>/<card id>` | `u`, `k` + drill tallies `{<kind>: {0: right, 1: wrong}}` |
-| `log` | `<user>/YYYY-MM-DD` | `u`, `k` (day) + daily counters `{rev, nw, ok, bad, quiz, quizOk, pts}` |
+| `log` | `<user>/YYYY-MM-DD` | `u`, `k` (day) + daily counters `{rev, nw, ok, bad, quiz, quizOk, sent, sentOk, pts}` |
+| `sent` | `<user>/<sentence id>` | `u`, `k` + `{ok, almost, bad, streak, due, last, own}` (own = answers the learner marked right) |
 
 Every progress query filters by `u` (indexed). Card ids themselves never change; only the stored `_id` gets the user
 prefix, and the API strips `u`/`k` again, so the client and export format still see plain card ids.
 
-Export/import JSON: `{app: "deutsch-vokabeln", version: 2, settings, cards, quiz, log}` (quiz as `[right, wrong]`).
+Export/import JSON: `{app: "deutsch-vokabeln", version: 2, settings, cards, quiz, log, sent}` (quiz as `[right, wrong]`).
 Import replaces current progress.
 
 ## Accounts
@@ -180,6 +217,13 @@ Import replaces current progress.
   A wrong pick or "I still don't know" shows the answer and grades the card 0, so it comes back within minutes.
 - **Typed DE->EN**: any one of the meanings separated by `,` `;` `/` counts; "to", "the", "a" and brackets are
   ignored and one typo is forgiven in words of 5+ letters. +5 points.
+- **Sentences (lib/sentences.js)**: pre-written bank (starts from `data/sentences-data.txt`; Easy = A1 grammar, Medium = A2,
+  Hard = B1; words from the sentence's week or earlier). Grading ignores order, case, punctuation, a/an/the,
+  contractions and UK/US spelling, knows a few synonyms plus the word list's meanings, forgives one typo in 5+ letter
+  words; result Right / Almost (small difference) / Wrong; a missing "not" counts double. "I was right" saves the
+  answer for that learner. Level: 3 Right in a row moves up, 2 misses in the last 3 (Almost = half) moves down;
+  3 in 4 sentences at the level, 1 in 8 easier, 1 in 8 harder. Points: Easy 4, Medium 6, Hard 8 (Almost half).
+  Sentence ids never change (progress is keyed by them). Every German sentence must be checked for correctness.
 - **Article hints (lib/hints.js)** use ending rules, compounds (last part decides) and natural gender, and flag
   exceptions. Keep rules conservative: a wrong hint is worse than none.
 - **Conjugation (lib/conjugate.js)** derives every form from the 4 stored forms (infinitive, er-present,
@@ -230,7 +274,7 @@ domain):
 
 1. Never commit secrets: `deploy/Caddyfile`, `.env*`, `*.key`, `*.pem` are git-ignored. Keep it that way.
 2. Never delete or reset learning progress, and never suggest `docker compose down -v`.
-3. Keep card ids stable (see above). Extend `data/vocab-data.txt`; don't regenerate it.
+3. Keep card ids stable (see above). Extend `data/vocab-data.txt` (or import JSON); don't regenerate it.
 4. Plain JavaScript, no new dependencies, one stylesheet. Match the existing code style (small functions,
    short comments that explain why).
 5. After code changes: `npm run build` must pass; check the affected page in light and dark mode on a narrow screen.

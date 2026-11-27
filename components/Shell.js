@@ -6,7 +6,7 @@ import ThemeToggle from "./ThemeToggle";
 import Login from "./Login";
 
 const NAV = [
-  ["/", "Today"], ["/learn", "Flashcards"], ["/articles", "der · die · das"], ["/plurals", "Plurals"],
+  ["/", "Today"], ["/learn", "Flashcards"], ["/sentences", "Sentences"], ["/articles", "der · die · das"], ["/plurals", "Plurals"],
   ["/verbs", "Verbs"], ["/words", "Words"], ["/progress", "Progress"], ["/settings", "Settings"],
 ];
 

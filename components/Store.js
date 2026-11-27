@@ -1,6 +1,7 @@
 "use client";
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState } from "react";
 import { DAY, dayKey, schedule } from "@/lib/srs";
+import { pointsFor } from "@/lib/sentences";
 
 const Ctx = createContext(null);
 export const useStore = () => useContext(Ctx);
@@ -71,13 +72,26 @@ export function StoreProvider({ children }) {
     track(post("/api/quiz", { id, kind, ok, day }));
   }, [track]);
 
+  // One sentence answer: p = its new schedule, level/run = the learner's adaptive level after it, own = answer marked right
+  const sentenceResult = useCallback((s, result, p, { level, run, own } = {}) => {
+    const st = stateRef.current, day = dayKey();
+    const pts = pointsFor(s.lv, result);
+    const L = { rev: 0, nw: 0, ok: 0, bad: 0, quiz: 0, quizOk: 0, ...(st.log[day] || {}) };
+    L.sent = (L.sent || 0) + 1; if (result === "right") L.sentOk = (L.sentOk || 0) + 1; L.pts = (L.pts || 0) + pts;
+    const prev = st.sent?.[s.id] || {};
+    const mine = own ? [...new Set([...(prev.own || []), own])].slice(-10) : prev.own || [];
+    setState({ ...st, sent: { ...(st.sent || {}), [s.id]: { ...p, own: mine } }, log: { ...st.log, [day]: L },
+      settings: level ? { ...st.settings, sentLevel: level, sentRun: run || "" } : st.settings });
+    track(post("/api/sentence", { id: s.id, result, p, day, level, run, own }));
+  }, [track]);
+
   const updateSettings = useCallback((patch) => {
     const s = stateRef.current;
     setState({ ...s, settings: { ...s.settings, ...patch } });
     track(post("/api/settings", patch, "PUT"));
   }, [track]);
 
-  const value = { auth, user: auth?.user || null, logout, data, state, derived, error, saving, reload: load, grade, quizResult, updateSettings, post };
+  const value = { auth, user: auth?.user || null, logout, data, state, derived, error, saving, reload: load, grade, quizResult, sentenceResult, updateSettings, post };
   return <Ctx.Provider value={value}>{children}</Ctx.Provider>;
 }
 
