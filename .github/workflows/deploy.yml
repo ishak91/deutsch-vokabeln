@@ -1,0 +1,85 @@
+# Deploys the app to the Oracle Cloud server on every push to main.
+# It copies the code over SSH (so the server needs no GitHub access) and runs deploy/update.sh.
+# Progress is safe: update.sh only rebuilds containers, the mongo-data volume is never touched.
+name: Deploy to server
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: # "Run workflow" button in the Actions tab
+
+# Never run two deploys at the same time; a newer push waits for the running one
+concurrency:
+  group: deploy-production
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      HOST: ${{ secrets.SSH_HOST }}
+      USER: ${{ secrets.SSH_USER }}
+      # Folder on the server that holds docker-compose.yml and deploy/Caddyfile
+      APP_DIR: ${{ secrets.DEPLOY_PATH || '/home/ubuntu/german-vocab' }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up SSH key
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+        run: |
+          install -m 700 -d ~/.ssh
+          printf '%s\n' "$SSH_PRIVATE_KEY" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          ssh-keyscan -T 15 "$HOST" >> ~/.ssh/known_hosts
+          cat > ~/.ssh/config <<CFG
+          Host server
+            HostName $HOST
+            User $USER
+            IdentityFile ~/.ssh/deploy_key
+            IdentitiesOnly yes
+            ServerAliveInterval 30
+          CFG
+
+      # Safety check before syncing with --delete: the folder must be the running app
+      - name: Check the app folder on the server
+        run: |
+          ssh server "test -f '$APP_DIR/docker-compose.prod.yml' && test -f '$APP_DIR/deploy/Caddyfile'" || {
+            echo "::error::$APP_DIR on the server is not the app folder (docker-compose.prod.yml or deploy/Caddyfile missing). Set the DEPLOY_PATH secret."
+            exit 1
+          }
+
+      # Server-only files (login, secrets, build output) are excluded, so they are kept and never deleted
+      - name: Copy code to the server
+        run: |
+          rsync -az --delete \
+            --exclude '.git/' \
+            --exclude 'deploy/Caddyfile' \
+            --exclude '.env' --exclude '.env.*' \
+            --exclude '*.key' --exclude '*.pem' \
+            --exclude 'node_modules/' --exclude '.next/' \
+            --exclude '__pycache__/' \
+            ./ "server:$APP_DIR/"
+
+      - name: Rebuild and restart
+        run: ssh server "cd '$APP_DIR' && bash deploy/update.sh"
+
+      - name: Check the site answers
+        run: |
+          ssh server "sudo docker compose -f '$APP_DIR/docker-compose.yml' -f '$APP_DIR/docker-compose.prod.yml' ps"
+          # The first line of the Caddyfile is the site address, e.g. "130-61-26-1.sslip.io {"
+          DOMAIN=$(ssh server "head -n1 '$APP_DIR/deploy/Caddyfile'" | awk '{print $1}')
+          # 401 means Caddy is up and asking for the login, which is what we expect
+          for i in $(seq 1 18); do
+            code=$(curl -s -o /dev/null -w '%{http_code}' --max-time 10 "https://$DOMAIN/" || true)
+            echo "https://$DOMAIN -> $code"
+            case "$code" in 200|401) exit 0;; esac
+            sleep 10
+          done
+          echo "::error::The site did not answer after the deploy"
+          exit 1
+
+      - name: Remove SSH key
+        if: always()
+        run: rm -f ~/.ssh/deploy_key
