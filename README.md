@@ -20,6 +20,7 @@ Stop: `docker compose down` (your progress stays). Start again: `docker compose 
 | `web` | The Next.js app on port 3000 |
 | `mongo` | MongoDB. Your progress is stored in the `mongo-data` volume |
 | `tts` | Piper text-to-speech with the German "Thorsten" voice (free, CC0, works offline). Audio is cached |
+| `stt` | Whisper speech-to-text (free, MIT). The mic button in the AI chat. Model kept in the `stt-models` volume |
 | `ollama` | Self-hosted AI (free, runs on the CPU). Explains wrong answers. The model lives in the `ollama-models` volume |
 
 Pages: Today · Flashcards (spaced repetition, like Anki) · der/die/das drill with hints · Plurals · Verb forms · Word list · Progress · Settings.

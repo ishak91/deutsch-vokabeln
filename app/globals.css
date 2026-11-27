@@ -266,3 +266,6 @@ body.ai-mini .main { padding-bottom: 120px; }
   /* the page moves left so the panel never covers it */
   body.ai-open .main { max-width: calc(880px + 396px); padding-right: 412px; padding-bottom: 80px; }
 }
+.aimic { flex: none; width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--line); background: var(--soft); color: var(--ink); display: inline-grid; place-items: center; cursor: pointer; font: inherit; font-size: 13px; }
+.aimic:disabled { opacity: .5; cursor: default; }
+.aimic.rec { width: auto; padding: 0 12px; border-radius: 999px; color: #fff; background: var(--bad); border-color: var(--bad); gap: 6px; display: inline-flex; align-items: center; animation: pulse 1.4s ease-in-out infinite; }

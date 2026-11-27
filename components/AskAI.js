@@ -2,15 +2,65 @@
 import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 
-// Is a model ready? Asked once per page load; null while unknown.
+// Is a model ready (and the voice service)? Asked once per page load; null while unknown.
 let known = null;
-export function useAiReady() {
-  const [ready, setReady] = useState(known);
+function useAiStatus() {
+  const [st, setSt] = useState(known);
   useEffect(() => {
     if (known !== null) return;
-    fetch("/api/ai").then(r => r.json()).then(s => { known = !!(s.ok && s.model && !s.installing); setReady(known); }).catch(() => setReady(false));
+    fetch("/api/ai").then(r => r.json())
+      .then(s => { known = { ready: !!(s.ok && s.model && !s.installing), stt: !!s.stt }; setSt(known); })
+      .catch(() => setSt({ ready: false, stt: false }));
   }, []);
-  return ready;
+  return st || { ready: null, stt: false };
+}
+export const useAiReady = () => useAiStatus().ready;
+
+// Mic button: records until pressed again (or 60 s), sends it to Whisper on the server, gives back the text.
+// Needs HTTPS (or localhost) and the browser's microphone permission.
+function Mic({ onText, prompt, disabled, onError }) {
+  const [mode, setMode] = useState("idle");       // idle | rec | wait
+  const [secs, setSecs] = useState(0);
+  const rec = useRef(null);
+  useEffect(() => () => { const r = rec.current; if (r?.state === "recording") { r.onstop = null; r.stop(); } r?.stream?.getTracks().forEach(t => t.stop()); }, []);
+  useEffect(() => {
+    if (mode !== "rec") return;
+    const t0 = Date.now();
+    const t = setInterval(() => { const s = Math.floor((Date.now() - t0) / 1000); setSecs(s); if (s >= 60) rec.current?.stop(); }, 250);
+    return () => clearInterval(t);
+  }, [mode]);
+
+  const start = async () => {
+    onError("");
+    if (!navigator.mediaDevices?.getUserMedia || typeof MediaRecorder === "undefined") return onError("This browser can't record audio here.");
+    let stream;
+    try { stream = await navigator.mediaDevices.getUserMedia({ audio: true }); }
+    catch { return onError("Please allow the microphone for this site, then try again."); }
+    const r = new MediaRecorder(stream), chunks = [];
+    r.ondataavailable = (e) => e.data.size && chunks.push(e.data);
+    r.onstop = async () => {
+      stream.getTracks().forEach(t => t.stop());
+      const blob = new Blob(chunks, { type: r.mimeType || "audio/webm" });
+      if (blob.size < 1000) { setMode("idle"); return; }   // a tap without speech
+      setMode("wait");
+      try {
+        const res = await fetch(`/api/ai/transcribe?lang=en&prompt=${encodeURIComponent(prompt || "")}`, { method: "POST", body: blob, headers: { "Content-Type": blob.type } });
+        const j = await res.json();
+        if (!res.ok) throw new Error(j.error || `Error ${res.status}`);
+        if (j.text) onText(j.text); else onError("I didn't hear anything. Try again a bit closer to the mic.");
+      } catch (e) { onError(e.message); }
+      setMode("idle");
+    };
+    rec.current = r; setSecs(0); r.start(); setMode("rec");
+  };
+  const stop = () => rec.current?.state === "recording" && rec.current.stop();
+
+  if (mode === "rec") return <button type="button" className="aimic rec" onClick={stop} aria-label="Stop recording">■ <span>{Math.floor(secs / 60)}:{String(secs % 60).padStart(2, "0")}</span></button>;
+  return (
+    <button type="button" className="aimic" onClick={start} disabled={disabled || mode === "wait"} aria-label={mode === "wait" ? "Turning your voice into text" : "Speak your question"} title="Speak your question">
+      {mode === "wait" ? <span className="thinking">…</span> : <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden><path fill="currentColor" d="M12 15a3 3 0 0 0 3-3V6a3 3 0 1 0-6 0v6a3 3 0 0 0 3 3Zm5-3a5 5 0 0 1-10 0H5a7 7 0 0 0 6 6.92V21h2v-2.08A7 7 0 0 0 19 12h-2Z" /></svg>}
+    </button>
+  );
 }
 
 // Posts body to url and calls onText with the text so far while the answer streams in
@@ -46,7 +96,7 @@ function Pretty({ text }) {
 // The chat scrolls inside the panel, so the page stays where it is. It belongs to one sentence and closes on Next.
 // body is what the explain route needs; context is the German sentence shown in the panel header.
 export default function AskAI({ body, label = "Ask AI why", context = "" }) {
-  const ready = useAiReady();
+  const { ready, stt } = useAiStatus();
   const [msgs, setMsgs] = useState([]);           // [{ role: "assistant" | "user", content }]
   const [busy, setBusy] = useState(false), [err, setErr] = useState(""), [q, setQ] = useState("");
   const [open, setOpen] = useState(false), [small, setSmall] = useState(false);   // small = minimised on a phone
@@ -116,7 +166,9 @@ export default function AskAI({ body, label = "Ask AI why", context = "" }) {
         <div className="aifooter">
           <button type="button" className="aichip" disabled={busy} onClick={() => send({ more: true }, "Explain it more, please.")}>Explain more</button>
           <form className="aiask" onSubmit={askOwn}>
-            <input ref={inputRef} type="text" value={q} onChange={(e) => setQ(e.target.value)} maxLength={500} placeholder="Ask about this sentence…"
+            {stt && <Mic prompt={context} disabled={busy} onError={setErr}
+              onText={(t) => { setQ(v => (v.trim() ? v.trim() + " " : "") + t); inputRef.current?.focus(); }} />}
+            <input ref={inputRef} type="text" value={q} onChange={(e) => setQ(e.target.value)} maxLength={500} placeholder={stt ? "Ask, or tap the mic…" : "Ask about this sentence…"}
               aria-label="Ask the AI teacher a question" autoComplete="off" />
             <button className="btn primary" type="submit" disabled={busy || !q.trim()} aria-label="Send">{busy ? "…" : "Ask"}</button>
           </form>
