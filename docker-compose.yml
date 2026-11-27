@@ -9,6 +9,7 @@ services:
       TTS_URL: http://tts:5002
       VOCAB_FILE: /app/data/vocab-data.txt
       OLLAMA_URL: http://ollama:11434
+      STT_URL: http://stt:5003
       AI_MODEL: gemma4:e4b      # suggested on the AI page; admins install or switch models there
     volumes:
       - ./data:/app/data        # edit data/vocab-data.txt without rebuilding
@@ -17,6 +18,7 @@ services:
       - mongo
       - tts
       - ollama
+      - stt
     restart: unless-stopped
 
   mongo:
@@ -43,7 +45,15 @@ services:
       OLLAMA_KEEP_ALIVE: 30m          # stays in RAM 30 minutes after the last question, then frees it
     restart: unless-stopped
 
+  # Speech to text (Whisper, free, CPU). Downloads its model (~500 MB) on the first start into stt-models.
+  stt:
+    build: ./stt
+    volumes:
+      - stt-models:/models
+    restart: unless-stopped
+
 volumes:
   mongo-data:
   tts-cache:
   ollama-models:
+  stt-models:

@@ -231,9 +231,41 @@ select { max-width: 100%; }
 .model.on { border-color: var(--ink); }
 .model input { margin-top: 3px; }
 .model .warn { color: var(--warn); }
-.aiq { margin: 12px 0 4px auto; width: fit-content; max-width: 85%; background: var(--panel); border: 1px solid var(--line); border-radius: 14px 14px 4px 14px; padding: 6px 12px; }
-.aia + .aia, .aia + p { margin-top: 10px; }
-.aiacts { margin-top: 12px; }
-.aiacts .btn, .aiask .btn { padding: 7px 14px; font-size: 14px; }
-.aiask { display: flex; gap: 8px; margin-top: 10px; }
+/* AI teacher chat: a panel on the right (wide screens) or a sheet from the bottom (phones); it scrolls inside */
+.aiopenhint { padding: 8px 0; }
+.aichat { position: fixed; z-index: 20; display: flex; flex-direction: column; background: var(--panel); border: 1px solid var(--line);
+  box-shadow: 0 10px 40px rgba(0,0,0,.18); font-size: 14px; text-align: left;
+  left: 8px; right: 8px; bottom: 0; height: min(62vh, 560px); border-radius: 18px 18px 0 0; }
+.aichat.small { height: auto; }
+.aihead { display: flex; align-items: center; gap: 4px; padding: 10px 10px 10px 16px; border-bottom: 1px solid var(--line); }
+.aichat.small .aihead { border-bottom: 0; }
+.aititle { flex: 1; min-width: 0; display: flex; flex-direction: column; align-items: flex-start; border: 0; background: none; color: var(--ink); font: inherit; text-align: left; cursor: pointer; padding: 0; }
+.aititle span { font-size: 12px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%; }
+.aix { flex: none; width: 32px; height: 32px; border-radius: 50%; border: 0; background: var(--soft); color: var(--muted); font-size: 18px; line-height: 1; cursor: pointer; }
+.aix:hover { color: var(--ink); }
+.aimsgs { flex: 1; overflow-y: auto; overscroll-behavior: contain; padding: 12px 16px 4px; }
+.aimsgs ul { margin: 6px 0 0; padding-left: 20px; display: grid; gap: 4px; }
+.aimsgs p { margin: 6px 0 0; }
+.aia { background: color-mix(in srgb, var(--info) 9%, var(--panel)); border: 1px solid color-mix(in srgb, var(--info) 25%, var(--line));
+  border-radius: 14px 14px 14px 4px; padding: 4px 12px 10px; margin: 10px 0; max-width: 95%; }
+.aiq { margin: 12px 0 4px auto; width: fit-content; max-width: 85%; background: var(--ink); color: var(--bg); border-radius: 14px 14px 4px 14px; padding: 7px 12px; }
+.aimsgs .aifoot { margin: 8px 0 6px; font-size: 12px; }
+.aifooter { border-top: 1px solid var(--line); padding: 10px 12px calc(10px + env(safe-area-inset-bottom)); display: grid; gap: 8px; }
+.aichip { justify-self: start; border: 1px solid var(--line); background: var(--soft); color: var(--ink); font: inherit; font-size: 13px; padding: 4px 12px; border-radius: 999px; cursor: pointer; }
+.aichip:disabled { opacity: .5; cursor: default; }
+.aiask { display: flex; gap: 8px; }
 .aiask input { flex: 1; min-width: 0; }
+.aiask .btn { padding: 7px 16px; font-size: 14px; }
+/* phones: leave room at the bottom so the Next button can still be scrolled to */
+body.ai-open .main { padding-bottom: calc(min(62vh, 560px) + 24px); }
+body.ai-mini .main { padding-bottom: 120px; }
+@media (min-width: 1000px) {
+  .aichat { left: auto; right: 16px; top: 120px; bottom: 16px; width: 380px; height: auto; border-radius: 18px; }
+  .aichat.small { bottom: auto; }
+  .aimin { display: none; }
+  /* the page moves left so the panel never covers it */
+  body.ai-open .main { max-width: calc(880px + 396px); padding-right: 412px; padding-bottom: 80px; }
+}
+.aimic { flex: none; width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--line); background: var(--soft); color: var(--ink); display: inline-grid; place-items: center; cursor: pointer; font: inherit; font-size: 13px; }
+.aimic:disabled { opacity: .5; cursor: default; }
+.aimic.rec { width: auto; padding: 0 12px; border-radius: 999px; color: #fff; background: var(--bad); border-color: var(--bad); gap: 6px; display: inline-flex; align-items: center; animation: pulse 1.4s ease-in-out infinite; }

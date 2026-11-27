@@ -177,7 +177,7 @@ function Result({ item, res, input, grammar, openTag, setOpenTag, onOverride, on
         </div>
         {openTag && grammar[openTag] && <p className="gmore">{grammar[openTag].text}</p>}
       </div>
-      {res.final !== "right" && <AskAI body={{ id: item.id, answer: res.skipped ? "" : input, result: res.final }}
+      {res.final !== "right" && <AskAI context={item.de} body={{ id: item.id, answer: res.skipped ? "" : input, result: res.final }}
         label={res.skipped ? "Ask AI to explain the sentence" : "Ask AI why"} />}
 
       <div className="row" style={{ justifyContent: "center", marginTop: 14 }}>
