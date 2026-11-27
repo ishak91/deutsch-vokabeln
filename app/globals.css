@@ -183,3 +183,33 @@ select { max-width: 100%; }
 .choices .btn.picked-no { border-color: var(--bad); background: color-mix(in srgb, var(--bad) 15%, var(--panel)); }
 .choices .btn.faded { opacity: .5 !important; }
 .choices .fb { text-align: center; }
+/* ---------- sentence practice ---------- */
+.lvbar { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 12px; }
+.lvpills { display: inline-flex; background: var(--soft); border-radius: 999px; padding: 3px; gap: 2px; }
+.lvpills span { font-size: 13px; padding: 3px 12px; border-radius: 999px; color: var(--muted); }
+.lvpills span.on { background: var(--ink); color: var(--bg); font-weight: 600; }
+.flash { margin-top: 10px; padding: 8px 14px; border-radius: 12px; font-size: 14px; background: color-mix(in srgb, var(--good) 14%, var(--panel)); }
+.sent { margin-top: 18px; display: grid; gap: 10px; }
+.lvtag { display: inline-block; font-size: 11px; font-weight: 600; padding: 1px 8px; border-radius: 99px; margin-right: 6px; border: 1px solid var(--line); }
+.lvtag.lvE { color: var(--good); } .lvtag.lvM { color: var(--warn); } .lvtag.lvH { color: var(--bad); }
+.sentde { font-size: 26px; font-weight: 600; letter-spacing: -.02em; line-height: 1.45; text-align: center; padding: 14px 0 2px; }
+.sw { font: inherit; color: inherit; background: none; border: 0; padding: 0 1px; margin: 0; cursor: pointer; border-bottom: 2px dotted color-mix(in srgb, var(--muted) 60%, transparent); border-radius: 4px; }
+.sw:hover, .sw.on { background: var(--soft); border-bottom-color: var(--ink); }
+.sentde .speak { vertical-align: middle; }
+.gloss { text-align: center; min-height: 30px; display: flex; align-items: center; justify-content: center; gap: 6px; flex-wrap: wrap; }
+.sentbox { max-width: 560px; }
+.sent > .linkbtn { justify-self: center; }
+.sentres { display: grid; gap: 8px; max-width: 560px; width: 100%; margin: 0 auto; }
+.verdict { font-weight: 700; font-size: 18px; text-align: center; }
+.verdict.right { color: var(--good); } .verdict.almost { color: var(--warn); } .verdict.wrong { color: var(--bad); }
+.answer { display: grid; gap: 2px; padding: 10px 14px; border: 1px solid var(--line); border-radius: 12px; }
+.answer b { font-size: 17px; }
+.grammar { background: var(--soft); border-radius: 14px; padding: 12px 14px; font-size: 14px; margin-top: 4px; }
+.grammar p { margin: 6px 0; }
+.gtitle { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
+.gde { font-weight: 600; display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin-top: 4px; }
+.gtag { font: inherit; font-size: 12px; border: 1px solid var(--line); background: var(--panel); color: var(--ink); padding: 3px 10px; border-radius: 999px; cursor: pointer; }
+.gtag small { color: var(--muted); margin-left: 2px; }
+.gtag.on { border-color: var(--ink); }
+.gmore { background: var(--panel); border-radius: 10px; padding: 8px 12px; }
+@media (max-width: 560px) { .sentde { font-size: 21px; } .sentbox { flex-direction: column; } .sentbox .btn { width: 100%; } }

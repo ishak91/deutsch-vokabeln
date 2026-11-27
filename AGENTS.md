@@ -57,6 +57,7 @@ app/                    Next.js App Router
   globals.css           all styles; tokens on :root, dark values under [data-theme="dark"] / prefers-color-scheme
   page.js               Today: due cards, new words this week, points
   learn/page.js         Flashcards (SRS): EN->DE / DE->EN, optional typed answer, multiple-choice fallback, grades 0-3
+  sentences/page.js     sentence translation DE->EN: graded, grammar note, adaptive Easy/Medium/Hard, rounds of 10
   articles/page.js      der/die/das drill with hints
   plurals/page.js       plural drill (uses TypedDrill)
   verbs/page.js         verb-form drill: er-present, Präteritum, Perfekt (uses TypedDrill)
@@ -71,6 +72,8 @@ app/                    Next.js App Router
     state/              GET  settings, cards, quiz, log
     review/             POST save one SRS review
     quiz/               POST save one drill result
+    sentences/          GET  sentence bank + grammar topics (read from data/, cached by file time)
+    sentence/           POST save one sentence answer (schedule, points from the sentence level, adaptive level)
     settings/           PUT  update settings
     import/ export/     POST import progress JSON / GET export it
     reset/              POST delete progress (cards, quiz, log)
@@ -94,10 +97,13 @@ lib/
   check.js              answer checking: check, checkPerf (Perfekt), checkTyped (scores 10/5/2/0)
   choices.js            checkMeaning (typed English, DE->EN) and pickChoices (multiple-choice options + distractors)
   hints.js              article rules and hints (endings, compounds, natural gender, exceptions)
+  sentences.js          sentence practice: gradeTranslation, nextLevel (adaptive), schedule, pickSentence, word glosses
   conjugate.js          builds full Präsens/Präteritum/Perfekt tables for all pronouns from 4 stored forms
 data/
   vocab-data.txt        THE word list (see format below). Mounted into the container; edit without rebuilding
   examples-en.txt       English translation for every example sentence: German|English
+  sentences-data.txt    sentences to translate: s|id|E/M/H|German|English / English|tags|grammar note (see file header)
+  grammar.txt           grammar topic per tag: tag|A1/A2/B1|Title|Explanation
 tts/                    Dockerfile + server.py (Piper). GET /tts?text=, GET /health
 deploy/
   setup.sh              first-time server setup (Docker, iptables 80/443, domain, Caddyfile, start)
@@ -146,12 +152,13 @@ at the right CEFR level for the week's theme, with natural example sentences.
 | `settings` | user id | `{value: {startDate, newPerDay, direction, autoSpeak, weekOverride}}` |
 | `cards` | `<user>/<card id>` | `u`, `k` (card id) + SRS state `{s: new/learn/review, ivl, ease, step, reps, lapses, due}` |
 | `quiz` | `<user>/<card id>` | `u`, `k` + drill tallies `{<kind>: {0: right, 1: wrong}}` |
-| `log` | `<user>/YYYY-MM-DD` | `u`, `k` (day) + daily counters `{rev, nw, ok, bad, quiz, quizOk, pts}` |
+| `log` | `<user>/YYYY-MM-DD` | `u`, `k` (day) + daily counters `{rev, nw, ok, bad, quiz, quizOk, sent, sentOk, pts}` |
+| `sent` | `<user>/<sentence id>` | `u`, `k` + `{ok, almost, bad, streak, due, last, own}` (own = answers the learner marked right) |
 
 Every progress query filters by `u` (indexed). Card ids themselves never change; only the stored `_id` gets the user
 prefix, and the API strips `u`/`k` again, so the client and export format still see plain card ids.
 
-Export/import JSON: `{app: "deutsch-vokabeln", version: 2, settings, cards, quiz, log}` (quiz as `[right, wrong]`).
+Export/import JSON: `{app: "deutsch-vokabeln", version: 2, settings, cards, quiz, log, sent}` (quiz as `[right, wrong]`).
 Import replaces current progress.
 
 ## Accounts
@@ -180,6 +187,13 @@ Import replaces current progress.
   A wrong pick or "I still don't know" shows the answer and grades the card 0, so it comes back within minutes.
 - **Typed DE->EN**: any one of the meanings separated by `,` `;` `/` counts; "to", "the", "a" and brackets are
   ignored and one typo is forgiven in words of 5+ letters. +5 points.
+- **Sentences (lib/sentences.js)**: pre-written bank in `data/sentences-data.txt` (Easy = A1 grammar, Medium = A2,
+  Hard = B1; words from the sentence's week or earlier). Grading ignores order, case, punctuation, a/an/the,
+  contractions and UK/US spelling, knows a few synonyms plus the word list's meanings, forgives one typo in 5+ letter
+  words; result Right / Almost (small difference) / Wrong; a missing "not" counts double. "I was right" saves the
+  answer for that learner. Level: 3 Right in a row moves up, 2 misses in the last 3 (Almost = half) moves down;
+  3 in 4 sentences at the level, 1 in 8 easier, 1 in 8 harder. Points: Easy 4, Medium 6, Hard 8 (Almost half).
+  Sentence ids never change (progress is keyed by them). Every German sentence must be checked for correctness.
 - **Article hints (lib/hints.js)** use ending rules, compounds (last part decides) and natural gender, and flag
   exceptions. Keep rules conservative: a wrong hint is worse than none.
 - **Conjugation (lib/conjugate.js)** derives every form from the 4 stored forms (infinitive, er-present,

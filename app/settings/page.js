@@ -38,6 +38,10 @@ export default function Settings() {
             <select value={s.direction} onChange={(e) => updateSettings({ direction: e.target.value })}>
               <option value="mixed">Mixed</option><option value="de">German → English</option><option value="en">English → German</option>
             </select></label>
+          <label className="field">Sentence level
+            <select value={s.sentLevel || "E"} onChange={(e) => updateSettings({ sentLevel: e.target.value, sentRun: "" })}>
+              <option value="E">Easy (A1)</option><option value="M">Medium (A2)</option><option value="H">Hard (B1)</option>
+            </select></label>
           <label className="field">Current week
             <select value={s.weekOverride || ""} onChange={(e) => updateSettings({ weekOverride: e.target.value ? +e.target.value : null })}>
               <option value="">Auto from date (week {derived.dateWeek})</option>

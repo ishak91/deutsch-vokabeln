@@ -1,0 +1,46 @@
+# Grammar explanations shown on the Sentences page. One line per tag used in data/sentences-data.txt.
+# FORMAT: tag|level|Title|Explanation (plain English, short)
+# level: A1, A2 or B1 (where this usually comes in course books)
+
+v2|A1|Verb in position 2|In a normal German sentence the conjugated verb is always the second part. Ich wohne in Berlin. Heute wohne ich in Berlin.
+inversion|A1|Something else first, verb still second|If a time, place or other part starts the sentence, the verb stays in position 2 and the subject moves behind it: Morgen fahre ich nach Hause.
+frage-w|A1|W-questions|Question word first (wer, was, wo, wann, wie, warum), then the verb, then the subject: Wo wohnst du?
+frage-ja|A1|Yes/no questions|The verb comes first: Hast du Zeit? Kommst du mit?
+zeit|A1|Time words|am + day or part of the day (am Montag, am Abend), um + clock time (um acht Uhr), im + month or season (im Sommer).
+poss|A1|My, your, his …|mein, dein, sein, ihr, unser, euer, Ihr. They take the same endings as ein: mein Bruder, meine Schwester, mein Kind.
+neg|A1|nicht and kein|kein replaces ein or no article (Ich habe kein Auto, keine Zeit). nicht negates everything else, often near the end or before an adjective (Das ist nicht gut).
+akk|A1|Accusative (the object)|The thing or person the action is done to. Only masculine words change: der → den, ein → einen, kein → keinen. die and das stay the same.
+dat|A2|Dative (to / for someone)|The person who receives something: Ich gebe dir das Buch. dem (der, das), der (die), den + -n (plural). mir, dir, ihm, ihr, uns, euch, ihnen.
+modal|A1|Modal verbs|können, müssen, wollen, dürfen, sollen, möchten. The modal is in position 2, the second verb goes to the end as an infinitive: Ich kann gut kochen.
+trennbar|A1|Separable verbs|Verbs like aufstehen, anrufen, fernsehen split: the main part in position 2, the prefix at the very end. Ich stehe um sieben auf. In a subordinate clause they stay together: … weil ich früh aufstehe.
+imperativ|A1|Commands and requests|Sie form: verb first + Sie (Kommen Sie!). du form: verb without -st and without du (Komm! Schick mir …!). ihr form: verb + -t (Kommt!).
+adj|A1|Adjectives after sein|After sein, werden or bleiben an adjective never changes: Das Haus ist groß. Die Häuser sind groß.
+perfekt|A2|Perfekt (spoken past)|haben or sein in position 2 + past participle at the end: Ich habe gearbeitet. Wir sind gefahren. Verbs with be-, ver-, er-, ent- or ending in -ieren have no ge-: bestanden, telefoniert.
+sein-perfekt|A2|Perfekt with sein|Verbs of movement from A to B (gehen, fahren, kommen, fliegen) or change (werden), and sein and bleiben, take sein: Ich bin gegangen.
+praet-kurz|A2|war, hatte and modal past|For sein, haben and modal verbs German usually uses the Präteritum, even when speaking: ich war, ich hatte, ich wollte, ich konnte, ich musste.
+weil|A2|weil (because)|weil starts a subordinate clause, and the verb goes to the very end: … weil ich krank bin.
+dass|A2|dass (that)|dass starts a subordinate clause, and the verb goes to the end: Ich glaube, dass er recht hat.
+wenn|A2|wenn (if / whenever)|wenn sends the verb to the end. If the wenn part comes first, the main clause starts with its verb: Wenn es regnet, bleibe ich zu Hause.
+komparativ|A2|Comparing|Adjective + -er + als: schneller als. Short words often add an umlaut: groß → größer, alt → älter. Irregular: gut → besser, viel → mehr, gern → lieber.
+praep-dat|A2|Prepositions with dative|aus, bei, mit, nach, seit, von, zu (and gegenüber) always take the dative: mit dem Bus, zur Schule (zu der), seit einem Jahr.
+praep-akk|A2|Prepositions with accusative|durch, für, gegen, ohne, um always take the accusative: für meinen Bruder. Verbs with fixed prepositions too: sich freuen auf, sich interessieren für.
+wechsel|A2|Two-way prepositions|in, an, auf, über, unter, vor, hinter, neben, zwischen. Where? (no movement) → dative: im Zimmer. Where to? (movement) → accusative: ins Zimmer.
+reflexiv|A2|Reflexive verbs|The action goes back to the subject: ich freue mich, du freust dich, er freut sich, wir freuen uns, ihr freut euch, sie freuen sich.
+adj-endung|A2|Adjective endings|Before a noun, adjectives get endings. After ein: ein neuer Tisch, eine neue Lampe, ein neues Bett. After der/die/das: der neue, die neue, das neue. Plural with no article: neue Schuhe.
+deshalb|A2|deshalb, trotzdem, dann|These link words take position 1, so the verb comes straight after them: Ich bin müde, deshalb gehe ich ins Bett.
+dativ-verb|A2|Verbs with the dative|gefallen, helfen, passen, gehören, schmecken take the dative: Das gefällt mir. Ich helfe dir. Mit gefallen the thing liked is the subject.
+seit|A2|seit (since / for)|For something that started in the past and still goes on, German uses seit + the present tense: Ich wohne seit zwei Jahren hier = I have lived here for two years. seit takes the dative.
+indirekt|A2|Questions inside a sentence|After Weißt du, … or Ich weiß nicht, … the question word stays, but the verb goes to the end: Weißt du, wann der Zug kommt?
+obwohl|B1|obwohl (although)|obwohl sends the verb to the end. The main clause still happens, despite the reason: Obwohl ich müde bin, lerne ich.
+als|B1|als (when, in the past)|als = when, for one event or one period in the past: Als ich Kind war, … For repeated events or the present/future use wenn.
+bevor|B1|bevor (before)|bevor sends the verb to the end: Bevor ich esse, wasche ich mir die Hände.
+nachdem|B1|nachdem (after)|nachdem + Plusquamperfekt for the earlier action: Nachdem ich gegessen hatte, bin ich gegangen.
+damit|B1|damit (so that)|damit sends the verb to the end and gives a goal: Ich spreche langsam, damit du mich verstehst. Same subject in both parts? um … zu also works.
+ob|B1|ob (if / whether)|For a yes/no question inside a sentence: Ich weiß nicht, ob er kommt. The verb goes to the end.
+relativ|B1|Relative clauses|der, die, das (and dem, den …) = who / which / that. The pronoun matches the noun's gender; its case depends on its role in the clause. The verb goes to the end: Der Mann, der dort wohnt, …
+konj2|B1|Konjunktiv II (would)|For wishes, polite requests and things that are not real: würde + infinitive (ich würde fahren), and the short forms hätte (would have), wäre (would be), könnte (could).
+passiv|B1|Passive|werden + past participle at the end, when the action matters more than who does it: Das Haus wird gebaut. Past: wurde gebaut. Who does it: von + dative.
+umzu|B1|um … zu (in order to)|For a goal, when the subject is the same: Ich lerne, um die Prüfung zu bestehen. zu + infinitive at the end.
+zu-inf|B1|zu + infinitive|After many verbs and phrases (versuchen, vergessen, anfangen, Es ist wichtig …) use zu + infinitive at the end. Separable verbs: anzurufen, aufzustehen.
+praeteritum|B1|Präteritum (written past)|Used in stories, books and news: ich ging, er kam, es regnete. Regular verbs add -te: machte, wohnte. Irregular ones change the vowel: gehen → ging, liegen → lag.
+plusquam|B1|Plusquamperfekt (had done)|hatte or war + past participle, for something that happened before another past event: Der Zug war schon abgefahren.
