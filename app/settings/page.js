@@ -4,9 +4,17 @@ import { useStore } from "@/components/Store";
 import { speak } from "@/components/Audio";
 
 export default function Settings() {
-  const { data, state, derived, updateSettings, reload, post } = useStore();
+  const { user, logout, data, state, derived, updateSettings, reload, post } = useStore();
   const s = state.settings;
   const [msg, setMsg] = useState("");
+  const [pw, setPw] = useState({ current: "", next: "", next2: "" }), [pwMsg, setPwMsg] = useState("");
+
+  const changePw = async (e) => {
+    e.preventDefault();
+    if (pw.next !== pw.next2) return setPwMsg("The two new passwords don't match.");
+    try { await post("/api/auth/password", { current: pw.current, next: pw.next }); setPw({ current: "", next: "", next2: "" }); setPwMsg("Password changed. Other devices are logged out."); }
+    catch (e2) { setPwMsg(e2.message); }
+  };
 
   const doImport = async (file) => {
     if (!file) return;
@@ -43,7 +51,7 @@ export default function Settings() {
       </div>
       <div className="panel">
         <h2>Your progress</h2>
-        <p className="small muted">Progress is saved in MongoDB (in Docker) after every answer. Keep a backup file now and then.</p>
+        <p className="small muted">Progress is saved for your account (<b>{user.id}</b>) after every answer. Export and import only touch your own progress. Keep a backup file now and then.</p>
         <div className="row">
           <a className="btn" href="/api/export">Export backup (.json)</a>
           <label className="btn">Import progress file…<input type="file" accept=".json,application/json" hidden onChange={(e) => doImport(e.target.files[0])} /></label>
@@ -55,10 +63,21 @@ export default function Settings() {
         <h2>Word list</h2>
         <p className="small">{data.words.length} words in {derived.weekNums.length} weeks from <code>data/vocab-data.txt</code>. Edit that file to add words, then reload. Progress is kept per word, so adding words is safe.</p>
         <div className="row">
-          <button className="btn" onClick={async () => { const r = await post("/api/reload", {}); await reload(); setMsg(`Reloaded ${r.count} words.`); }}>Reload word list</button>
-          <button className="btn danger" onClick={async () => { if (prompt("Type RESET to delete all progress") === "RESET") { await post("/api/reset", {}); await reload(); setMsg("Progress reset."); } }}>Reset all progress</button>
+          {user.admin && <button className="btn" onClick={async () => { const r = await post("/api/reload", {}); await reload(); setMsg(`Reloaded ${r.count} words.`); }}>Reload word list</button>}
+          <button className="btn danger" onClick={async () => { if (prompt("Type RESET to delete all of your progress") === "RESET") { await post("/api/reset", {}); await reload(); setMsg("Progress reset."); } }}>Reset my progress</button>
         </div>
       </div>
+      <form className="panel" onSubmit={changePw}>
+        <h2>Account</h2>
+        <p className="small muted">Logged in as <b>{user.name}</b> ({user.id}){user.admin ? ", admin" : ""}.</p>
+        <div className="grid" style={{ alignItems: "end", marginBottom: 8 }}>
+          <label className="field">Current password<input type="password" autoComplete="current-password" value={pw.current} onChange={e => setPw({ ...pw, current: e.target.value })} required /></label>
+          <label className="field">New password<input type="password" autoComplete="new-password" minLength={8} value={pw.next} onChange={e => setPw({ ...pw, next: e.target.value })} required /></label>
+          <label className="field">New password again<input type="password" autoComplete="new-password" value={pw.next2} onChange={e => setPw({ ...pw, next2: e.target.value })} required /></label>
+        </div>
+        <div className="row"><button className="btn">Change password</button><button type="button" className="btn ghost" onClick={logout}>Log out</button></div>
+        {pwMsg && <p className="small" style={{ marginTop: 8 }}>{pwMsg}</p>}
+      </form>
     </>
   );
 }

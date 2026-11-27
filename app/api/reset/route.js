@@ -1,2 +1,3 @@
 import { resetProgress } from "@/lib/db";
-export async function POST() { await resetProgress(); return Response.json({ ok: true }); }
+import { withUser } from "@/lib/session";
+export const POST = withUser(async (req, user) => { await resetProgress(user.id); return Response.json({ ok: true }); });
