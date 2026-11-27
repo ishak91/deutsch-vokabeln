@@ -30,8 +30,13 @@ jobs:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
         run: |
           install -m 700 -d ~/.ssh
-          printf '%s\n' "$SSH_PRIVATE_KEY" > ~/.ssh/deploy_key
+          # Strip Windows line endings and stray spaces that copy-paste can add
+          printf '%s\n' "$SSH_PRIVATE_KEY" | tr -d '\r' | sed 's/[[:space:]]*$//' > ~/.ssh/deploy_key
           chmod 600 ~/.ssh/deploy_key
+          ssh-keygen -y -f ~/.ssh/deploy_key > /dev/null || {
+            echo "::error::SSH_PRIVATE_KEY is not a valid private key. Paste the whole key file again, from the -----BEGIN line to the -----END line."
+            exit 1
+          }
           ssh-keyscan -T 15 "$HOST" >> ~/.ssh/known_hosts
           cat > ~/.ssh/config <<CFG
           Host server
@@ -41,6 +46,13 @@ jobs:
             IdentitiesOnly yes
             ServerAliveInterval 30
           CFG
+
+      - name: Test the SSH login
+        run: |
+          ssh -o ConnectTimeout=15 server true || {
+            echo "::error::Could not log in to $HOST as $USER. Check SSH_HOST, SSH_USER and that SSH_PRIVATE_KEY is the key you use for this server."
+            exit 1
+          }
 
       # Safety check before syncing with --delete: the folder must be the running app
       - name: Check the app folder on the server
