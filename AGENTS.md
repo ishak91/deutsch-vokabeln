@@ -119,6 +119,7 @@ data/
   grammar.txt           grammar topic per tag: tag|A1/A2/B1|Title|Explanation
 tts/                    Dockerfile + server.py (Piper). GET /tts?text=, GET /health
 stt/                    Dockerfile + server.py (Whisper). POST /transcribe?lang=&prompt= (audio body), GET /health
+                        (status, model, size/expected for progress, stats), POST /model?name= (delete old, then download)
 deploy/
   setup.sh              first-time server setup (Docker, iptables 80/443, domain, Caddyfile, start)
   update.sh             rebuild on the server after new code arrives
@@ -272,6 +273,9 @@ Import replaces current progress.
 - `stt` service: faster-whisper, model `small` (multilingual, ~500 MB, int8, 2 CPU threads). The model downloads on the
   first start into the `stt-models` volume, in the background; `/health` answers 503 until it is loaded, and the mic
   button only shows when it is ready. `av` is pinned to 15.1.0 (newer releases break faster-whisper 1.2.1).
+- AI page "Voice (Whisper)" section: status, download progress (size on disk vs expected size), usage stats, and
+  switching model (tiny/base/small/medium/large-v3-turbo; the old model is deleted first, choice kept in
+  /models/current.txt). Admin route: POST /api/ai/admin {sttModel}.
 - Mic button (`Mic` in `components/AskAI.js`): MediaRecorder (webm/opus on Chrome, mp4 on Safari), max 60 s, needs
   HTTPS or localhost. The text goes into the question box (not sent automatically) so the learner can fix it.
   The German sentence is passed as Whisper's prompt so German words come out spelled right.
