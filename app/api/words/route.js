@@ -1,3 +1,4 @@
 import { getWords } from "@/lib/db";
+import { withUser } from "@/lib/session";
 export const dynamic = "force-dynamic";
-export async function GET() { return Response.json(await getWords()); }
+export const GET = withUser(async () => Response.json(await getWords()));

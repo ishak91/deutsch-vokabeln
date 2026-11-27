@@ -16,7 +16,8 @@ This file is the single source of context for AI tools (Claude Code, GitHub Copi
 - Runs with Docker Compose on the learner's Mac (`http://localhost:3000`) and on an Oracle Cloud Always Free
   Ubuntu server behind Caddy (HTTPS + basic login).
 
-Single user, no accounts. Keep the UI simple, modern and mobile friendly.
+Multi-user: every account has its own, fully separate progress (see "Accounts"). Keep the UI simple, modern and
+mobile friendly.
 
 ## Stack
 
@@ -61,8 +62,11 @@ app/                    Next.js App Router
   verbs/page.js         verb-form drill: er-present, Präteritum, Perfekt (uses TypedDrill)
   words/page.js         searchable word list with status
   progress/page.js      stats, streak, per-week progress
-  settings/page.js      start date, new cards/day, direction, auto-speak, import/export, reset, reload word list
-  api/                  route handlers (all JSON unless noted)
+  settings/page.js      start date, new cards/day, direction, auto-speak, import/export, reset, reload word list, account
+  users/page.js         admin only: list, create, reset password, make admin, delete accounts; sign-up switch
+  api/                  route handlers (all JSON unless noted). All except auth/* and tts need a login (withUser)
+    auth/               me (who is logged in, setup needed?), login, logout, setup (first admin), signup, password
+    users/              admin only: GET list + stats, POST create, PUT update or {config}, DELETE ?id=
     words/              GET  words + week themes
     state/              GET  settings, cards, quiz, log
     review/             POST save one SRS review
@@ -70,17 +74,20 @@ app/                    Next.js App Router
     settings/           PUT  update settings
     import/ export/     POST import progress JSON / GET export it
     reset/              POST delete progress (cards, quiz, log)
-    reload/             POST re-seed words from data/vocab-data.txt
+    reload/             POST re-seed words from data/vocab-data.txt (admin only, the word list is shared)
     tts/                GET  ?text=... -> audio/wav, proxies the tts service, supports HTTP Range (iPhone Safari)
 components/
   Store.js              React context: loads words + state, grade(), quizResult(), totalPoints, derived week info
-  Shell.js              header, nav, points pill, ThemeToggle
+  Shell.js              header, nav, points pill, user pill (log out), ThemeToggle; shows <Login> when logged out
+  Login.js              login form; first-account setup form when no user exists; optional sign-up
   Word.js               DeWord (coloured article), Forms, ConjTable, ArticleHint, UmlautBar, ScopeSelect, Example
   TypedDrill.js         shared typed-answer drill used by plurals and verbs
   Audio.js              speak(text, {repeatSlower}) and <SpeakButton>; repeat clicks within 10 s play slower
   ThemeToggle.js        Auto -> Light -> Dark, stored in localStorage "theme"
   useKeys.js            keyboard shortcuts
 lib/
+  auth.js               users (scrypt password hashes), sessions (SHA-256 of a random token), login throttle, config
+  session.js            route helpers: getUser(req), withUser(handler, {admin}), sessionCookie()
   db.js                 Mongo or in-memory store; seedWords, getWords, getState, saveReview, saveQuiz, ...
   parse.js              parseVocab(text, translations), parseTranslations(text)
   srs.js                SM-2 schedule(prev, grade), status(), fmtIvl(), dayKey()
@@ -132,13 +139,31 @@ at the right CEFR level for the week's theme, with natural example sentences.
 | Collection | `_id` | Content |
 |---|---|---|
 | `words` | card id | parsed entry: `t` (n/v/w/p), `de`, `art`, `pl`, `pres`, `prat`, `perf`, `en`, `ex`, `exEn`, `hint`, `week`, `order` |
-| `meta` | `weeks` / `settings` | week themes; settings `{startDate, newPerDay, direction, autoSpeak, weekOverride}` |
-| `cards` | card id | SRS state `{s: new/learn/review, ivl, ease, step, reps, lapses, due}` |
-| `quiz` | card id | drill tallies `{<kind>: {0: right, 1: wrong}}` |
-| `log` | `YYYY-MM-DD` | daily counters `{rev, nw, ok, bad, quiz, quizOk, pts}` |
+| `meta` | `weeks` / `config` | week themes; app config `{signup}` (shared by everyone) |
+| `users` | username | `{name, admin, hash, created}`; hash is `scrypt$salt$hash` |
+| `sessions` | SHA-256 of token | `{u, exp}`; TTL index removes expired logins |
+| `settings` | user id | `{value: {startDate, newPerDay, direction, autoSpeak, weekOverride}}` |
+| `cards` | `<user>/<card id>` | `u`, `k` (card id) + SRS state `{s: new/learn/review, ivl, ease, step, reps, lapses, due}` |
+| `quiz` | `<user>/<card id>` | `u`, `k` + drill tallies `{<kind>: {0: right, 1: wrong}}` |
+| `log` | `<user>/YYYY-MM-DD` | `u`, `k` (day) + daily counters `{rev, nw, ok, bad, quiz, quizOk, pts}` |
+
+Every progress query filters by `u` (indexed). Card ids themselves never change; only the stored `_id` gets the user
+prefix, and the API strips `u`/`k` again, so the client and export format still see plain card ids.
 
 Export/import JSON: `{app: "deutsch-vokabeln", version: 2, settings, cards, quiz, log}` (quiz as `[right, wrong]`).
 Import replaces current progress.
+
+## Accounts
+
+- Every route that reads or writes progress is wrapped in `withUser` and passes `user.id` to `lib/db.js`. Never take
+  the owner from the request body. `/api/tts` stays open (iOS fetches audio without cookies).
+- Login cookie `gv_session`: httpOnly, SameSite=Lax, Secure behind HTTPS (`X-Forwarded-Proto`), 90 days.
+  Changing a password logs out all of that user's devices.
+- **First account**: while `users` is empty the app shows a setup form. That account becomes admin and
+  `adoptLegacyProgress()` moves the old single-user docs (no `u` field) and `meta.settings` into it, so nothing is lost.
+- Admins create accounts on the Users page; self sign-up is off unless an admin switches it on. At least one admin
+  must remain. Deleting a user deletes their progress (asks to type the username).
+- 5 wrong passwords per username or IP pause logins for 15 minutes (in memory, resets on restart).
 
 ## Learning logic
 

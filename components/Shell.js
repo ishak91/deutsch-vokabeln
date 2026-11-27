@@ -3,6 +3,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useStore, totalPoints } from "./Store";
 import ThemeToggle from "./ThemeToggle";
+import Login from "./Login";
 
 const NAV = [
   ["/", "Today"], ["/learn", "Flashcards"], ["/articles", "der · die · das"], ["/plurals", "Plurals"],
@@ -11,8 +12,10 @@ const NAV = [
 
 export default function Shell({ children }) {
   const path = usePathname();
-  const { data, state, derived, error, saving } = useStore();
+  const { auth, user, logout, data, state, derived, error, saving } = useStore();
   const ready = data && state && derived;
+  const loggedOut = auth && !auth.user;
+  const nav = user?.admin ? [...NAV, ["/users", "Users"]] : NAV;
   return (
     <>
       <header className="top">
@@ -22,18 +25,19 @@ export default function Shell({ children }) {
           <div className="topright">
             <span className="savestate">{saving ? "Saving…" : ready ? "Saved" : ""}</span>
             {ready && <span className="points" title="Points from typed answers and drills">⭐ {totalPoints(state)}</span>}
+            {user && <button className="userpill" onClick={logout} title="Log out">{user.name}<span className="lo"> · Log out</span></button>}
             <ThemeToggle />
           </div>
         </div>
-        <nav className="wrap nav">
-          {NAV.map(([href, label]) => (
+        {!loggedOut && <nav className="wrap nav">
+          {nav.map(([href, label]) => (
             <Link key={href} href={href} className={path === href ? "on" : ""}>{label}</Link>
           ))}
-        </nav>
+        </nav>}
       </header>
       <main className="wrap main">
         {error && <div className="alert">{error}</div>}
-        {ready ? children : !error && <div className="loading">Loading your words…</div>}
+        {loggedOut ? <Login key={auth.setup ? "setup" : "login"} /> : ready ? children : !error && <div className="loading">Loading your words…</div>}
       </main>
     </>
   );

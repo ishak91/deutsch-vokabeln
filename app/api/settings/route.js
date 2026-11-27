@@ -1,2 +1,3 @@
 import { saveSettings } from "@/lib/db";
-export async function PUT(req) { return Response.json(await saveSettings(await req.json())); }
+import { withUser } from "@/lib/session";
+export const PUT = withUser(async (req, user) => Response.json(await saveSettings(user.id, await req.json())));
