@@ -217,3 +217,17 @@ select { max-width: 100%; }
 .importbox { margin-top: 12px; padding: 12px 14px; border: 1px solid var(--line); border-radius: 14px; display: grid; gap: 6px; }
 .importbox ul { margin: 4px 0; padding-left: 18px; }
 .importerr { color: var(--bad); }
+
+/* AI teacher (Ask AI why) and the admin AI page */
+.askai { display: flex; flex-direction: column; align-items: center; margin-top: 12px; }
+.aibox { margin-top: 14px; padding: 12px 16px; border-radius: 14px; background: color-mix(in srgb, var(--info) 9%, var(--panel)); border: 1px solid color-mix(in srgb, var(--info) 30%, var(--line)); font-size: 14px; text-align: left; }
+.aibox ul { margin: 6px 0 0; padding-left: 20px; display: grid; gap: 4px; }
+.aibox p { margin: 6px 0 0; }
+.aibox .aifoot { margin-top: 10px; }
+.thinking { animation: pulse 1.4s ease-in-out infinite; }
+@keyframes pulse { 50% { opacity: .45; } }
+.models { display: grid; gap: 8px; margin: 10px 0 14px; }
+.model { display: flex; gap: 10px; align-items: flex-start; padding: 10px 12px; border: 1px solid var(--line); border-radius: 12px; cursor: pointer; }
+.model.on { border-color: var(--ink); }
+.model input { margin-top: 3px; }
+.model .warn { color: var(--warn); }
