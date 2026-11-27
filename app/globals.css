@@ -231,3 +231,9 @@ select { max-width: 100%; }
 .model.on { border-color: var(--ink); }
 .model input { margin-top: 3px; }
 .model .warn { color: var(--warn); }
+.aiq { margin: 12px 0 4px auto; width: fit-content; max-width: 85%; background: var(--panel); border: 1px solid var(--line); border-radius: 14px 14px 4px 14px; padding: 6px 12px; }
+.aia + .aia, .aia + p { margin-top: 10px; }
+.aiacts { margin-top: 12px; }
+.aiacts .btn, .aiask .btn { padding: 7px 14px; font-size: 14px; }
+.aiask { display: flex; gap: 8px; margin-top: 10px; }
+.aiask input { flex: 1; min-width: 0; }
