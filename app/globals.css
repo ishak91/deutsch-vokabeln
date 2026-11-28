@@ -272,3 +272,57 @@ body.ai-mini .main { padding-bottom: 120px; }
 .vstat.ok { color: var(--good); } .vstat.warn { color: var(--warn); } .vstat.no { color: var(--bad); }
 .vstat { font-size: 22px !important; }
 .vdetails td { font-size: 14px; padding: 6px 4px; }
+
+/* ---------- AI answer ratings ---------- */
+.airate { display: flex; gap: 4px; justify-content: flex-end; margin-top: 4px; min-height: 26px; align-items: center; }
+.airate button { border: 0; background: none; font-size: 15px; padding: 2px 6px; border-radius: 8px; cursor: pointer; opacity: .55; }
+.airate button:hover { opacity: 1; background: var(--soft); }
+
+/* ---------- pronunciation check ("Say it") ---------- */
+.sayit { margin-top: 12px; display: grid; gap: 8px; justify-items: center; text-align: center; }
+.sayit .btn { display: inline-flex; align-items: center; gap: 6px; }
+.sayrec { color: #fff; background: var(--bad); border-color: var(--bad); animation: pulse 1.4s ease-in-out infinite; }
+.sayres { border: 1px solid var(--line); border-radius: 12px; padding: 10px 14px; display: grid; gap: 4px; width: 100%; max-width: 560px; }
+.sayres.ok { border-color: color-mix(in srgb, var(--good) 45%, var(--line)); }
+.sayres.almost { border-color: color-mix(in srgb, var(--warn) 45%, var(--line)); }
+.sayres.no { border-color: color-mix(in srgb, var(--bad) 45%, var(--line)); }
+.saywords { display: flex; flex-wrap: wrap; gap: 4px 6px; justify-content: center; align-items: center; font-weight: 600; }
+.saywords.big2 { font-size: 20px; margin: 4px 0; }
+.saywords span { padding: 0 4px; border-radius: 6px; }
+.saywords .w2 { color: var(--good); }
+.saywords .w1 { color: var(--warn); background: color-mix(in srgb, var(--warn) 12%, transparent); }
+.saywords .w0 { color: var(--bad); background: color-mix(in srgb, var(--bad) 12%, transparent); text-decoration: underline wavy; text-underline-offset: 4px; }
+
+/* ---------- Ask AI in drills and the word list ---------- */
+.card .askai, .sentres .askai, .inputs .askai { margin-top: 12px; display: grid; justify-items: center; gap: 6px; }
+.aiword { font-size: 14px; }
+.askword { display: flex; flex-wrap: wrap; gap: 6px 12px; align-items: center; padding: 8px 12px; margin: 6px 0; border: 1px solid var(--line); border-radius: 12px; background: var(--soft); }
+.askword .askai { margin: 0; }
+
+/* ---------- speaking partner ---------- */
+.tasks { display: grid; gap: 10px; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); margin-top: 12px; }
+.taskcard { display: grid; gap: 4px; text-align: left; padding: 14px; border: 1px solid var(--line); border-radius: 14px; background: var(--panel); color: var(--ink); font: inherit; cursor: pointer; }
+.taskcard:hover { border-color: var(--ink); }
+.taskcard b { font-size: 16px; }
+label.check { display: inline-flex; align-items: center; gap: 6px; cursor: pointer; }
+label.check input { width: auto; }
+.talkmsgs { margin-top: 12px; height: min(52vh, 480px); overflow-y: auto; overscroll-behavior: contain; padding: 4px 10px; border: 1px solid var(--line); border-radius: 14px; background: var(--bg); font-size: 15px; }
+.talkmsgs p { margin: 6px 0 0; }
+.talkmsgs ul { margin: 6px 0 0; padding-left: 20px; display: grid; gap: 4px; }
+.talkde { font-weight: 600; font-size: 16px; }
+.talktip { padding: 6px 8px; border-radius: 8px; background: color-mix(in srgb, var(--warn) 12%, var(--panel)); }
+.talkask { margin-top: 10px; }
+
+/* ---------- writing and dictation ---------- */
+.task { margin: 12px 0; padding: 12px 14px; border-radius: 14px; background: var(--soft); }
+.task ul { margin: 6px 0; padding-left: 20px; }
+.taskde { font-weight: 600; margin: 6px 0; }
+.writebox { width: 100%; font: inherit; font-size: 16px; line-height: 1.5; padding: 12px; border: 1px solid var(--line); border-radius: 12px; background: var(--panel); color: var(--ink); resize: vertical; box-sizing: border-box; }
+.writebox:focus { outline: 2px solid var(--focus); outline-offset: 1px; }
+.dictplay { display: flex; align-items: center; gap: 10px; justify-content: center; margin: 10px 0; }
+.dictplay .speak { width: 56px; height: 56px; }
+.dictplay .speak svg { width: 26px; height: 26px; }
+.weaksent { margin: 10px 0 0; padding-left: 18px; display: grid; gap: 4px; }
+.badans { border-top: 1px solid var(--line); padding: 8px 0; }
+.badans summary { cursor: pointer; }
+.prewrap { white-space: pre-wrap; }

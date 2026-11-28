@@ -63,6 +63,9 @@ app/                    Next.js App Router
   articles/page.js      der/die/das drill with hints
   plurals/page.js       plural drill (uses TypedDrill)
   verbs/page.js         verb-form drill: er-present, Präteritum, Perfekt (uses TypedDrill)
+  dictation/page.js     dictation: the voice reads a bank sentence, the learner types it, checked word by word (no AI)
+  speak/page.js         speaking partner: AI role play in simple German (B1 Sprechen), mic in German, feedback at the end
+  write/page.js         writing practice: B1-style email/forum tasks, AI tips (never a score), drafts in localStorage
   words/page.js         searchable word list with status
   progress/page.js      stats, streak, per-week progress
   settings/page.js      start date, new cards/day, direction, auto-speak, import/export, reset, reload word list, account
@@ -82,8 +85,10 @@ app/                    Next.js App Router
     import/ export/     POST import progress JSON / GET export it
     reset/              POST delete progress (cards, quiz, log)
     reload/             POST add new entries from the data/ files to the database (admin only, content is shared)
-    ai/                 GET  {ok, model, installing}; ai/explain POST {id, answer, result} -> streamed text,
-                        follow-ups add {history, ask} or {more: true};
+    ai/                 GET  {ok, model, installing}; ai/explain POST {kind, ...} -> streamed text. kind: sentence
+                        {id, answer, result}, card {id, mode: learn/article/plural/verb/word, answer}, write {task, text},
+                        talk {task}, weak {}; follow-ups add {history, ask}, {more: true} or (talk) {feedback: true};
+                        ai/rate POST {kind, ref, q, a, vote: 1|-1} (👍/👎, stored in `airate`);
                         ai/transcribe POST audio body (?lang=en|de&prompt=) -> {text} via the stt service;
                         ai/admin (admin) GET info, POST {model} install or {test:true}, DELETE ?model=
     tts/                GET  ?text=... -> audio/wav, proxies the tts service, supports HTTP Range (iPhone Safari)
@@ -94,7 +99,8 @@ components/
   Word.js               DeWord (coloured article), Forms, ConjTable, ArticleHint, UmlautBar, ScopeSelect, Example
   TypedDrill.js         shared typed-answer drill used by plurals and verbs
   AskAI.js              "Ask AI why" button, then a chat panel (right side on >=1000px, bottom sheet on phones;
-                        Explain more, own questions; scrolls inside); useAiReady(), streamAi()
+                        Explain more, own questions, 👍/👎; scrolls inside); useAiStatus(), useRecorder(), Mic, streamAi()
+  SayIt.js              pronunciation check: record German, Whisper transcribes (no prompt), lib/spoken.js compares
   Audio.js              speak(text, {repeatSlower}) and <SpeakButton>; repeat clicks within 10 s play slower
   ThemeToggle.js        Auto -> Light -> Dark, stored in localStorage "theme"
   useKeys.js            keyboard shortcuts
@@ -105,13 +111,16 @@ lib/
   content.js            shared content in the DB: syncFromFiles, getWords, getSentences, importContent, exportContent
   parse.js              parseVocab, parseTranslations, parseSentences, parseGrammar (the data/ text formats)
   ai.js                 Ollama client: one model on disk (install = delete all, then pull), job progress, chat
-                        stream (one answer at a time), prompts, answer cache, 40 questions/user/hour
+                        stream (one answer at a time), prompts, answer cache, 60 questions/user/hour, usage log + ratings
   srs.js                SM-2 schedule(prev, grade), status(), fmtIvl(), dayKey()
   check.js              answer checking: check, checkPerf (Perfekt), checkTyped (scores 10/5/2/0)
   choices.js            checkMeaning (typed English, DE->EN) and pickChoices (multiple-choice options + distractors)
   hints.js              article rules and hints (endings, compounds, natural gender, exceptions)
   sentences.js          sentence practice: gradeTranslation, nextLevel (adaptive), schedule, pickSentence, word glosses
   conjugate.js          builds full Präsens/Präteritum/Perfekt tables for all pronouns from 4 stored forms
+  spoken.js             compareGerman(target, got): word-by-word match (LCS, typo/umlaut tolerant) for Say it and dictation
+  tasks.js              speaking situations (TALKS) and writing tasks (WRITES); German written and checked by hand
+  weak.js               weakWords / weakSentences: most-missed items of the last 2 weeks (Progress page and the AI)
 data/
   vocab-data.txt        starting word list (see format below); copied into the database on start
   examples-en.txt       English translation for every example sentence: German|English
@@ -199,6 +208,10 @@ at the right CEFR level for the week's theme, with natural example sentences.
 | `quiz` | `<user>/<card id>` | `u`, `k` + drill tallies `{<kind>: {0: right, 1: wrong}}` |
 | `log` | `<user>/YYYY-MM-DD` | `u`, `k` (day) + daily counters `{rev, nw, ok, bad, quiz, quizOk, sent, sentOk, pts}` |
 | `sent` | `<user>/<sentence id>` | `u`, `k` + `{ok, almost, bad, streak, due, last, own}` (own = answers the learner marked right) |
+| `ailog` | `YYYY-MM-DD` | AI questions per kind that day, plus `cached` |
+| `airate` | random | `{u, at, vote, kind, ref, q, a}`: 👍/👎 on AI answers (admins see the 👎 ones on the AI page) |
+
+Dictation results go into `quiz` as kind `d` with the id `s:<sentence id>`.
 
 Every progress query filters by `u` (indexed). Card ids themselves never change; only the stored `_id` gets the user
 prefix, and the API strips `u`/`k` again, so the client and export format still see plain card ids.
@@ -264,6 +277,12 @@ Import replaces current progress.
   includes the checked accepted answers and grammar note from the database, not text from the client.
 - Follow-up questions: the browser sends the earlier answers/questions back (last 8, trimmed); the server always
   rebuilds the start of the prompt from the database. Only the first explanation is cached.
+- Where it is used: "Ask AI why" on Sentences, Flashcards (after the answer), Articles, Plurals, Verbs; ✨ in the
+  word list; writing tips; the speaking partner; weak-spot patterns on Progress. Word prompts get the checked facts
+  from the database (article, plural, forms, present-tense table from lib/conjugate.js, the article rule from
+  lib/hints.js). Writing tips are tips, never a score. The speaking partner answers in German + "EN:" + optional
+  "Tipp:" lines; the page reads the German aloud with Piper.
+- Usage per kind (14 days), cache hits and ratings show on the AI page. 60 questions per user per hour.
 - Thinking models (Gemma 4) get `think: false`, otherwise they "think" silently for a long time on CPU.
 - Server size matters: Gemma 4 E4B needs ~12 GB RAM; the Oracle free tier allows 4 OCPU / 24 GB.
 - Without a model (or without the service, e.g. `MONGODB_URI=memory` dev) the AI buttons simply don't show.
@@ -279,6 +298,9 @@ Import replaces current progress.
 - Mic button (`Mic` in `components/AskAI.js`): MediaRecorder (webm/opus on Chrome, mp4 on Safari), max 60 s, needs
   HTTPS or localhost. The text goes into the question box (not sent automatically) so the learner can fix it.
   The German sentence is passed as Whisper's prompt so German words come out spelled right.
+- Pronunciation check (`SayIt`, on Flashcards, Sentences and Dictation): records German and sends it WITHOUT a
+  prompt (a prompt would make Whisper "hear" the right sentence). lib/spoken.js marks each word clear / close /
+  missed; 90%+ = very good. No AI model judges it.
 
 ## UI conventions
 

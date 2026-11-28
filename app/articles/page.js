@@ -5,6 +5,7 @@ import { speak } from "@/components/Audio";
 import { ArticleHint, ARTS, ScopeSelect } from "@/components/Word";
 import { hintBefore } from "@/lib/hints";
 import { useKeys } from "@/components/useKeys";
+import AskAI from "@/components/AskAI";
 
 export default function Articles() {
   const { data, state, derived, quizResult } = useStore();
@@ -61,6 +62,8 @@ export default function Articles() {
                   {item.pl && item.pl !== "-" && <span className="muted" style={{ fontWeight: 400 }}> · Plural: die {item.pl}</span>}
                 </div>
                 <ArticleHint w={item} words={data.words} />
+                <AskAI key={item.id} context={`${item.art} ${item.de}`} label={`Ask AI why it's ${item.art}`}
+                  body={{ kind: "card", id: item.id, mode: "article", answer: picked }} onOpen={() => clearTimeout(timer.current)} />
                 <button className="btn primary" style={{ marginTop: 14 }} onClick={() => nextItem(item.id)}>Next →</button>
               </>
             )}

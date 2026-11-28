@@ -59,7 +59,7 @@ export default function AiAdmin() {
     <>
       <div className="panel">
         <h2>AI teacher</h2>
-        <p className="small muted">A small AI model runs on your own server (Ollama). It explains wrong answers on the Sentences page. It never changes the word list or decides if an answer is right.</p>
+        <p className="small muted">A small AI model runs on your own server (Ollama). It explains answers in the drills, helps with writing and speaking practice, and finds weak spots. It never changes the word list or decides if an answer is right.</p>
         {err && <div className="fb no small">{err}</div>}
         {msg && <div className="fb ok small">{msg}</div>}
         <div className="grid" style={{ marginTop: 12 }}>
@@ -123,6 +123,7 @@ export default function AiAdmin() {
         {err && <p className="small fb no">{err}</p>}
         <p className="small muted" style={{ marginTop: 10 }}>From a terminal on the server you can do the same: <code>bash deploy/ai-model.sh {model}</code></p>
       </div>
+      <Usage u={info.usage} />
       <Voice stt={info.stt} post={post} reload={load} />
     </>
   );
@@ -185,6 +186,38 @@ function Voice({ stt, post, reload }) {
         <button className="btn primary" onClick={switchTo} disabled={loading || choice === stt.model}>
           {choice === stt.model ? `${choice} is in use` : `Switch to ${choice}`}
         </button>
+      </>}
+    </div>
+  );
+}
+
+const KINDS = { sentence: "Sentences", card: "Drills (why?)", word: "Word list", write: "Writing tips", talk: "Speaking partner", weak: "Weak spots" };
+
+// How much the AI is used, and the answers learners marked 👎 (to spot bad explanations)
+function Usage({ u }) {
+  if (!u) return null;
+  const all = Object.keys(KINDS).reduce((a, k) => a + (u.total[k] || 0), 0);
+  const day = Object.keys(KINDS).reduce((a, k) => a + (u.today[k] || 0), 0);
+  return (
+    <div className="panel">
+      <h2>Usage · last {u.days} days</h2>
+      <div className="grid" style={{ marginTop: 12 }}>
+        <div className="stat"><b>{all}</b><span>questions · {day} today</span></div>
+        <div className="stat"><b>{u.total.cached || 0}</b><span>answered from the cache</span></div>
+        <div className="stat"><b>{u.up} 👍 · {u.down} 👎</b><span>ratings from learners</span></div>
+      </div>
+      {all > 0 && <table className="users vdetails"><tbody>
+        {Object.entries(KINDS).filter(([k]) => u.total[k]).map(([k, l]) => <tr key={k}><td className="muted">{l}</td><td>{u.total[k]}</td></tr>)}
+      </tbody></table>}
+      {u.bad.length > 0 && <>
+        <h3 style={{ margin: "16px 0 4px", fontSize: 16 }}>Answers marked 👎</h3>
+        <p className="small muted">Check these. If many are bad, a bigger model may help.</p>
+        {u.bad.map(r => (
+          <details key={r._id} className="badans">
+            <summary className="small"><b>{KINDS[r.kind] || r.kind}</b> {r.ref && <span className="muted">· {r.ref}</span>} · {r.u} · {new Date(r.at).toLocaleString()}</summary>
+            {r.q && <p className="small"><span className="muted">Question:</span> {r.q}</p>}
+            <p className="small prewrap">{r.a}</p>
+          </details>))}
       </>}
     </div>
   );

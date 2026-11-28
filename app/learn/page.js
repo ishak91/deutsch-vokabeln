@@ -8,6 +8,8 @@ import { DeWord, Forms, ArticleHint, deFull, Example, UmlautBar } from "@/compon
 import { checkTyped } from "@/lib/check";
 import { checkMeaning, pickChoices } from "@/lib/choices";
 import { useKeys } from "@/components/useKeys";
+import AskAI from "@/components/AskAI";
+import SayIt from "@/components/SayIt";
 
 const shuffle = (a) => { for (let i = a.length - 1; i > 0; i--) { const j = (Math.random() * (i + 1)) | 0; [a[i], a[j]] = [a[j], a[i]]; } return a; };
 
@@ -166,6 +168,9 @@ export default function Learn() {
               <Forms w={w} />
               <ArticleHint w={w} words={data.words} />
               <Example w={w} />
+              <SayIt text={deFull(w)} />
+              <AskAI key={w.id} context={deFull(w)} label="Ask AI about this word"
+                body={{ kind: "card", id: w.id, mode: "learn", answer: typed.trim() ? `${typed.trim()} (${session.dir === "de" ? "English meaning" : "German word"}${typedRes ? typedRes.score ? ", the app accepted it" : ", the app said it is wrong" : ""})` : "" }} />
             </div>
           )}
         </div>

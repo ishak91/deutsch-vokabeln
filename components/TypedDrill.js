@@ -4,6 +4,7 @@ import { useStore, scopeWords, pickWeighted } from "@/components/Store";
 import { SpeakButton, speak } from "@/components/Audio";
 import { DeWord, ScopeSelect, UmlautBar, deFull, Example, ConjTable } from "@/components/Word";
 import { useKeys } from "@/components/useKeys";
+import AskAI from "@/components/AskAI";
 
 // Generic typed drill. fields: [{key, label, answer(w), check(input, w) -> {ok, note}}]
 export default function TypedDrill({ title, kind, filter, fields, extraControls, intro, sayAfter }) {
@@ -58,6 +59,9 @@ export default function TypedDrill({ title, kind, filter, fields, extraControls,
             ))}
             {res && item.t === "v" && <ConjTable w={item} />}
             {res && <Example w={item} />}
+            {res && <AskAI key={item.id} context={deFull(item)} label={Object.values(res).every(x => x.ok) ? "Ask AI how these forms work" : "Ask AI why"}
+              body={{ kind: "card", id: item.id, mode: kind === "p" ? "plural" : "verb",
+                answer: fields.map(f => `${f.label} "${vals[f.key] || ""}" (${res[f.key].ok ? "right" : "wrong"})`).join("; ") }} />}
             <div><button className="btn primary" type="submit">{res ? "Next →" : "Check"}</button></div>
           </form>
         </div>

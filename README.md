@@ -28,7 +28,14 @@ Pages: Today · Flashcards (spaced repetition, like Anki) · der/die/das drill w
 ## AI teacher (optional)
 A small free AI model runs in the `ollama` container, on your own machine or server. Nothing is sent to an outside company.
 An admin installs it on the **AI** page (first time: pick **Gemma 4 E4B** and press Install, about 10 GB download).
-After that, the Sentences page shows **Ask AI why** under a wrong or almost-right answer.
+After that it helps in many places:
+- **Ask AI why** on Sentences, Flashcards, Articles, Plurals and Verbs, and ✨ next to each word in the word list.
+- **Speaking** page: the AI plays a role (plan a party, at the doctor's, …) and answers in simple German, out loud. Speak with the mic or type; ask for feedback at the end.
+- **Writing** page: B1-style emails and forum posts; the AI gives tips (not a score).
+- **Progress** page: the AI looks at your weak spots and explains the patterns.
+- 👍/👎 under every answer; admins see usage and the 👎 answers on the AI page.
+
+Without the AI you still get **Dictation** (listen and type) and, with the voice service, **Say it** (pronunciation check: the app compares what Whisper heard with the right German, word by word).
 - Only one model is kept: switching deletes the old model first, then downloads the new one.
 - From a terminal: `bash deploy/ai-model.sh` shows the model, `bash deploy/ai-model.sh gemma4:e4b` switches.
 - Gemma 4 E4B needs about 12 GB RAM. On a smaller machine use Gemma 3 4B (6 GB) or Gemma 3 1B.
