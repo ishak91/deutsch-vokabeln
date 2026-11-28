@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 
-// Cycles System -> Light -> Dark. Saved in this browser.
+// Cycles Auto (system) -> Light -> Dark. Saved in this browser.
 const ORDER = ["system", "light", "dark"];
 const ICON = {
   system: <path d="M4 5h16v11H4zM8 20h8M12 16v4" />,
@@ -9,7 +9,7 @@ const ICON = {
   dark: <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" />,
 };
 
-export default function ThemeToggle() {
+export default function ThemeToggle({ compact }) {
   const [mode, setMode] = useState("system");
   useEffect(() => { try { setMode(localStorage.getItem("theme") || "system"); } catch {} }, []);
   const apply = (m) => {
@@ -20,9 +20,9 @@ export default function ThemeToggle() {
   };
   const next = ORDER[(ORDER.indexOf(mode) + 1) % ORDER.length];
   return (
-    <button type="button" className="themetoggle" onClick={() => apply(next)} title={`Theme: ${mode} (click for ${next})`} aria-label={`Theme: ${mode}. Switch to ${next}`}>
-      <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">{ICON[mode]}</svg>
-      <span>{mode === "system" ? "Auto" : mode === "light" ? "Light" : "Dark"}</span>
+    <button type="button" className={"themetoggle" + (compact ? " compact" : "")} onClick={() => apply(next)} title={`Theme: ${mode} (click for ${next})`} aria-label={`Theme: ${mode}. Switch to ${next}`}>
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">{ICON[mode]}</svg>
+      {!compact && <span>{mode === "system" ? "Auto" : mode === "light" ? "Light" : "Dark"}</span>}
     </button>
   );
 }
