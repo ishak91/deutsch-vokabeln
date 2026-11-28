@@ -5,6 +5,7 @@ import { SpeakButton, speak } from "@/components/Audio";
 import { useKeys } from "@/components/useKeys";
 import { ARTS } from "@/components/Word";
 import AskAI from "@/components/AskAI";
+import SayIt from "@/components/SayIt";
 import {
   LEVELS, LEVEL_NAME, LEVEL_CEFR, pointsFor, gradeTranslation, nextLevel, rightsInRow, schedule, pickSentence,
   buildGlossIndex, glossWords,
@@ -177,7 +178,8 @@ function Result({ item, res, input, grammar, openTag, setOpenTag, onOverride, on
         </div>
         {openTag && grammar[openTag] && <p className="gmore">{grammar[openTag].text}</p>}
       </div>
-      {res.final !== "right" && <AskAI context={item.de} body={{ id: item.id, answer: res.skipped ? "" : input, result: res.final }}
+      <SayIt text={item.de} label="Say the sentence" />
+      {res.final !== "right" && <AskAI context={item.de} body={{ kind: "sentence", id: item.id, answer: res.skipped ? "" : input, result: res.final }}
         label={res.skipped ? "Ask AI to explain the sentence" : "Ask AI why"} />}
 
       <div className="row" style={{ justifyContent: "center", marginTop: 14 }}>

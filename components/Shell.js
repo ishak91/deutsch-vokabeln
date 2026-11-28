@@ -7,7 +7,7 @@ import Login from "./Login";
 
 const NAV = [
   ["/", "Today"], ["/learn", "Flashcards"], ["/sentences", "Sentences"], ["/articles", "der · die · das"], ["/plurals", "Plurals"],
-  ["/verbs", "Verbs"], ["/words", "Words"], ["/progress", "Progress"], ["/settings", "Settings"],
+  ["/verbs", "Verbs"], ["/dictation", "Dictation"], ["/speak", "Speaking"], ["/write", "Writing"], ["/words", "Words"], ["/progress", "Progress"], ["/settings", "Settings"],
 ];
 
 export default function Shell({ children }) {

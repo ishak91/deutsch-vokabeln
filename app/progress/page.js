@@ -2,6 +2,9 @@
 import { useStore, wordStatus } from "@/components/Store";
 import { DeWord } from "@/components/Word";
 import { dayKey, DAY } from "@/lib/srs";
+import { useEffect, useState } from "react";
+import AskAI, { useAiReady } from "@/components/AskAI";
+import { weakWords, weakSentences } from "@/lib/weak";
 
 export default function Progress() {
   const { data, state, derived } = useStore();
@@ -9,8 +12,8 @@ export default function Progress() {
   data.words.forEach(w => cnt[wordStatus(state, w.id)]++);
   const days = Array.from({ length: 30 }, (_, i) => { const k = dayKey(new Date(Date.now() - (29 - i) * DAY)); const l = state.log[k] || {}; return [k, (l.rev || 0) + (l.quiz || 0)]; });
   const mx = Math.max(10, ...days.map(d => d[1]));
-  const tot = { a: [0, 0], p: [0, 0], v: [0, 0] };
-  Object.values(state.quiz).forEach(q => ["a", "p", "v"].forEach(k => { if (q[k]) { tot[k][0] += q[k][0] || 0; tot[k][1] += q[k][1] || 0; } }));
+  const tot = { a: [0, 0], p: [0, 0], v: [0, 0], d: [0, 0] };
+  Object.values(state.quiz).forEach(q => ["a", "p", "v", "d"].forEach(k => { if (q[k]) { tot[k][0] += q[k][0] || 0; tot[k][1] += q[k][1] || 0; } }));
   const pct = r => (r[0] + r[1] ? Math.round((r[0] / (r[0] + r[1])) * 100) + "%" : "–");
   const sum = (q, i) => Object.values(q).reduce((s, r) => s + (r[i] || 0), 0);
   const hardest = Object.entries(state.quiz).filter(([id]) => derived.byId[id]).map(([id, q]) => [id, sum(q, 1), sum(q, 0)])
@@ -54,6 +57,7 @@ export default function Progress() {
           <div className="stat"><b>{pct(tot.a)}</b><span>articles ({tot.a[0] + tot.a[1]})</span></div>
           <div className="stat"><b>{pct(tot.p)}</b><span>plurals ({tot.p[0] + tot.p[1]})</span></div>
           <div className="stat"><b>{pct(tot.v)}</b><span>verb forms ({tot.v[0] + tot.v[1]})</span></div>
+          <div className="stat"><b>{pct(tot.d)}</b><span>dictation ({tot.d[0] + tot.d[1]})</span></div>
         </div>
         {hardest.length > 0 && (
           <>
@@ -63,6 +67,27 @@ export default function Progress() {
           </>
         )}
       </div>
+      <WeakSpots state={state} derived={derived} />
     </>
+  );
+}
+
+// Weak spots of the last two weeks, and the AI looking for patterns in them
+function WeakSpots({ state, derived }) {
+  const ai = useAiReady();
+  const [sentences, setSentences] = useState([]), [asked, setAsked] = useState(false);
+  useEffect(() => { fetch("/api/sentences").then(r => r.json()).then(b => setSentences(b.sentences || [])).catch(() => {}); }, []);
+  const ww = weakWords(state, derived.byId), ss = weakSentences(state.sent, sentences);
+  return (
+    <div className="panel">
+      <h2>Weak spots · last 2 weeks</h2>
+      {!ww.length && !ss.length ? <p className="small muted">Nothing missed often yet. Keep practising, and your weak spots show up here.</p> : <>
+        {ww.length > 0 && <div className="row">{ww.map(x => <span key={x.w.id} className="tag" style={{ fontSize: 13, padding: "3px 10px" }} title={"missed: " + x.misses.join(", ")}><DeWord w={x.w} /> · {x.misses[0]}</span>)}</div>}
+        {ss.length > 0 && <ul className="small weaksent">{ss.map(x => <li key={x.s.id}><span lang="de">{x.s.de}</span> <span className="muted">· {x.bad}✗{x.almost ? ` ${x.almost}≈` : ""}</span></li>)}</ul>}
+        {ai && (!asked
+          ? <button type="button" className="btn" style={{ marginTop: 10 }} onClick={() => setAsked(true)}><span aria-hidden>✨</span> Ask AI to find patterns</button>
+          : <AskAI autoStart more={false} context="Your weak spots" label="Ask AI to find patterns" placeholder="Ask about your weak spots…" note="AI can make mistakes. The words and forms in the list are the checked ones." body={{ kind: "weak" }} />)}
+      </>}
+    </div>
   );
 }
