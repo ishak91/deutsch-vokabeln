@@ -57,7 +57,7 @@ in a browser with `MONGODB_URI=memory`. Audio needs the `tts` service (set `TTS_
 app/                    Next.js App Router
   layout.js             <html>, theme script (sets data-theme before paint), Inter font, <Shell>
   globals.css           all styles; tokens on :root, dark values under [data-theme="dark"] / prefers-color-scheme
-  page.js               Today: due cards, new words this week, points
+  page.js               Today: week, next-step button, stats, quick links to every practice page (from nav.js)
   learn/page.js         Flashcards (SRS): EN->DE / DE->EN, optional typed answer, multiple-choice fallback, grades 0-3
   sentences/page.js     sentence translation DE->EN: graded, grammar note, adaptive Easy/Medium/Hard, rounds of 10
   articles/page.js      der/die/das drill with hints
@@ -94,7 +94,10 @@ app/                    Next.js App Router
     tts/                GET  ?text=... -> audio/wav, proxies the tts service, supports HTTP Range (iPhone Safari)
 components/
   Store.js              React context: loads words + state, grade(), quizResult(), totalPoints, derived week info
-  Shell.js              header, nav, points pill, user pill (log out), ThemeToggle; shows <Login> when logged out
+  Shell.js              layout: grouped sidebar (>=1200px; icon rail 1000-1199px), phone top bar + bottom tab bar +
+                        "Menu" sheet (<1000px), user card (points, log out), ThemeToggle; shows <Login> when logged out
+  nav.js                the menu: GROUPS (Today / Practice / Skills / Track), SETTINGS, ADMIN (admin only), phone TABS
+  Icon.js               small hand-drawn line icons used by the menu and the Today quick links
   Login.js              login form; first-account setup form when no user exists; optional sign-up
   Word.js               DeWord (coloured article), Forms, ConjTable, ArticleHint, UmlautBar, ScopeSelect, Example
   TypedDrill.js         shared typed-answer drill used by plurals and verbs
@@ -304,7 +307,11 @@ Import replaces current progress.
 
 ## UI conventions
 
-- Simple, modern, monochrome base with der/die/das colours (`--der` blue, `--die` pink, `--das` green).
+- Simple, modern, neutral base with one indigo accent (`--accent`, `--accent-soft`) and der/die/das colours
+  (`--der` blue, `--die` pink, `--das` green). Dark mode is a soft blue-grey, not pure black.
+- New pages go into `components/nav.js` (one place feeds the sidebar, tab bar, menu sheet and Today). Admin pages
+  go in `ADMIN`, never in the main groups. On phones the tab bar is fixed at the bottom: anything fixed at the
+  bottom (like the AI chat) must sit above it (`--tabh`).
 - Use the CSS variables (`--bg --panel --ink --muted --line --soft --accent ...`); every colour must work in both
   themes. Test light and dark at phone width (390 px) and desktop.
 - German text in the UI: correct umlauts and ß, nouns capitalised, articles shown in colour via `<DeWord>`.
